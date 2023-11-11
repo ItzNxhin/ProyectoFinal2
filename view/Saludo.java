@@ -1,23 +1,21 @@
 package view;
 
-import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import logic.GestorReservas;
-import logic.HabAbstract;
+
 import logic.Usuario;
 
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
+
 
 import java.awt.Font;
 import java.util.ArrayList;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
-import java.time.LocalDate;
+
 import java.awt.event.ActionEvent;
 
 public class Saludo extends JFrame {

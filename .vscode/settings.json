@@ -5,7 +5,8 @@
             "jcalendar-1.4.jar"
         ],
         "exclude": [
-            "x:\\ProyectoFinal-main\\jgoodies-common-1.8.0.jar"
+            "x:\\ProyectoFinal-main\\jgoodies-common-1.8.0.jar",
+            "x:\\ProyectoFinal-main\\jgoodies-forms-1.8.0.jar"
         ]
     }
 }

@@ -1,10 +1,14 @@
-package gui;
+package view;
 
-import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
+
+import com.toedter.calendar.JDateChooser;
+
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -26,17 +30,33 @@ public class Fechas extends JFrame {
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+
+		//Fechas Entrada y salida
+		JDateChooser dateEntrada = new JDateChooser();
+		dateEntrada.setBounds(93, 103, 160, 20);
+		contentPane.add(dateEntrada);
 		
-		JButton btnContinuar = new JButton("Continuar");
-		btnContinuar.addActionListener(new ActionListener() {
+		JDateChooser dateSalida = new JDateChooser();
+		dateSalida.setBounds(93, 134, 160, 20);
+		contentPane.add(dateSalida);
+
+		JButton btnPrueba = new JButton("Prueba");
+		btnPrueba.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Reservas reserva = new Reservas();
-				reserva.setVisible(true);
-				dispose();
+				if(dateEntrada.getDate().before(dateSalida.getDate())){
+					Reservas reserva = new Reservas();
+					reserva.setVisible(true);
+					dispose();
+				}
+				else{
+					JOptionPane.showMessageDialog(null, "No se puede reservar", getTitle(), JOptionPane.INFORMATION_MESSAGE);
+				}
 			}
 		});
-		btnContinuar.setBounds(176, 197, 89, 23);
-		contentPane.add(btnContinuar);
+		btnPrueba.setHorizontalAlignment(SwingConstants.RIGHT);
+		btnPrueba.setBounds(142, 189, 89, 23);
+		contentPane.add(btnPrueba);
+		
 	}
 
 }
