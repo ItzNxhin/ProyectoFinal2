@@ -97,7 +97,7 @@ public class Reservas extends JFrame {
 	}
 
 	//ha cambiado
-
+	//Prueba 2
 	// Métodos para obtener la habitación seleccionada y las fechas de inicio/fin
     private HabAbstract obtenerHabitacionSeleccionada() {
 		return null;
