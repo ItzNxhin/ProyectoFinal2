@@ -1,6 +1,5 @@
 package view;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -75,7 +74,7 @@ public class Principal extends JFrame {
 		lblNewLabel.setBounds(29, 64, 95, 18);
 		contentPane.add(lblNewLabel);
 
-		
+
 		
 		JLabel lblContrasea = new JLabel("Contraseña:");
 		lblContrasea.setFont(new Font("Tahoma", Font.BOLD, 12));
