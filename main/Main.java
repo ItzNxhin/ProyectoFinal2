@@ -1,2 +1,2 @@
-private String hola
+private int cantidad;
   
