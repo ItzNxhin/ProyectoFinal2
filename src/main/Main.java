@@ -1,3 +1,10 @@
+/**
+ * Este es un programa para manejar las reservas de un hotel
+ * Se hace uso del paradigma de Programacion orientada a objetos
+ * Con interfaz grafica y manejo de archivos
+ * 
+ * @autor Juan Pérez, María Gómez, Carlos Rodríguez
+ */
 package main;
 
 import view.*;

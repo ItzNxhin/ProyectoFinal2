@@ -16,6 +16,7 @@ import java.awt.event.ActionEvent;
 
 //Clases externas
 import ManejoExc.*;
+import data.GestorArchivo;
 import logic.*;
 
 public class Principal extends JFrame {

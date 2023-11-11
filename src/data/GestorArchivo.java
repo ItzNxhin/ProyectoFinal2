@@ -1,4 +1,4 @@
-package logic;
+package data;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -12,6 +12,7 @@ import javax.swing.JOptionPane;
 
 import ManejoExc.PasswordExcepcion;
 import ManejoExc.UserNotFoundExcepcion;
+import logic.Usuario;
 import view.Saludo;
 //Se me olvido formatear el codigo antes de subirlo, puede que presente mala indentación
 public class GestorArchivo {
