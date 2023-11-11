@@ -1,26 +1,26 @@
 package view;
 
+//Librerias
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-
-import ManejoExc.CampoVacioException;
-import ManejoExc.CorreoInvalidoException;
-import logic.GestorArchivo;
-import logic.Usuario;
-
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JButton;
 
 import java.awt.Font;
-import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+//Clases externas
+import ManejoExc.*;
+import logic.*;
+
 public class Principal extends JFrame {
 
+	//Atributos necesarioas
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField txtUser;
@@ -30,6 +30,10 @@ public class Principal extends JFrame {
 	private String contraseña;
 	private JTextField txtEmail;
 
+	/**
+	 *Esta clase se encar de dar la bienvenida 
+	 *Y el inicio de sesion 
+	 */
 	public Principal() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -39,15 +43,7 @@ public class Principal extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		txtUser = new JTextField();
-		txtUser.setBounds(115, 64, 294, 20);
-		contentPane.add(txtUser);
-		txtUser.setColumns(10);
-		
-		txtContra = new JPasswordField();
-		txtContra.setBounds(115, 130, 190, 20);
-		contentPane.add(txtContra);
-		
+		//Textos e inputs necesarios
 		JLabel lblNewLabel = new JLabel("Usuario:");
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblNewLabel.setBounds(29, 64, 95, 18);
@@ -57,7 +53,27 @@ public class Principal extends JFrame {
 		lblContrasea.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblContrasea.setBounds(29, 130, 95, 18);
 		contentPane.add(lblContrasea);
+
+		JLabel lblEmail = new JLabel("Email");
+		lblEmail.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblEmail.setBounds(29, 95, 95, 18);
+		contentPane.add(lblEmail);
+
+		txtUser = new JTextField();
+		txtUser.setBounds(115, 64, 294, 20);
+		contentPane.add(txtUser);
+		txtUser.setColumns(10);
 		
+		txtContra = new JPasswordField();
+		txtContra.setBounds(115, 130, 190, 20);
+		contentPane.add(txtContra);
+		
+		txtEmail = new JTextField();
+		txtEmail.setColumns(10);
+		txtEmail.setBounds(115, 95, 294, 20);
+		contentPane.add(txtEmail);
+		
+		//Crear usuario
 		JButton btnCrear = new JButton("Crear");
 		btnCrear.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -89,6 +105,7 @@ public class Principal extends JFrame {
 		btnCrear.setBounds(115, 188, 89, 23);
 		contentPane.add(btnCrear);
 		
+		//Ingresar y pasa a reservar(Saludo)
 		JButton btnLogin = new JButton("Login");
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -114,15 +131,7 @@ public class Principal extends JFrame {
 		btnLogin.setBounds(250, 188, 89, 23);
 		contentPane.add(btnLogin);
 		
-		JLabel lblEmail = new JLabel("Email");
-		lblEmail.setFont(new Font("Tahoma", Font.BOLD, 12));
-		lblEmail.setBounds(29, 95, 95, 18);
-		contentPane.add(lblEmail);
 		
-		txtEmail = new JTextField();
-		txtEmail.setColumns(10);
-		txtEmail.setBounds(115, 95, 294, 20);
-		contentPane.add(txtEmail);
 	}
 
 }

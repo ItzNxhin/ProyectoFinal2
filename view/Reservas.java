@@ -6,7 +6,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-
 import logic.GestorReservas;
 import logic.HabAbstract;
 import logic.Usuario;
