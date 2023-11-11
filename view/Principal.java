@@ -80,7 +80,7 @@ public class Principal extends JFrame {
 		lblContrasea.setBounds(29, 130, 95, 18);
 		contentPane.add(lblContrasea);
 		
-		JButton btnCrear = new JButton("CrearL");
+		JButton btnCrear = new JButton("Crear");
 		btnCrear.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				usuario = txtUser.getText();
