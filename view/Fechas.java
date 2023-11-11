@@ -9,6 +9,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 
 import java.awt.event.ActionListener;
+import java.util.Date;
 import java.awt.event.ActionEvent;
 
 import com.toedter.calendar.JDateChooser;
@@ -46,14 +47,18 @@ public class Fechas extends JFrame {
 		JButton btnPrueba = new JButton("Prueba");
 		btnPrueba.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(dateEntrada.getDate().before(dateSalida.getDate())){
+				if(dateEntrada.getDate().after(dateSalida.getDate())){
+					JOptionPane.showMessageDialog(null, "No se puede reservar, la fecha de salida ocurre antes que la de entrada", getTitle(), JOptionPane.INFORMATION_MESSAGE);
+				}
+				else if(dateEntrada.getDate().before(new Date()) || dateSalida.getDate().before(new Date()) ){
+					JOptionPane.showMessageDialog(null, "No se puede reservar, es imposible hacer una reservacion en el pasado", getTitle(), JOptionPane.INFORMATION_MESSAGE);
+				}
+				else{
 					Reservas reserva = new Reservas();
 					reserva.setVisible(true);
 					reserva.setDates(dateEntrada.getDate(),dateSalida.getDate());
 					dispose();
-				}
-				else{
-					JOptionPane.showMessageDialog(null, "No se puede reservar", getTitle(), JOptionPane.INFORMATION_MESSAGE);
+					
 				}
 			}
 		});
