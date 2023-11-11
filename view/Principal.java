@@ -74,8 +74,13 @@ public class Principal extends JFrame {
 					if (!correo.contains("@")) {
 			            throw new CorreoInvalidoException();
 					}
-		            Usuario user = new Usuario(usuario, correo, contraseña);
-		            GestorArchivo.agregarDatos(user);
+		            if (GestorArchivo.existeCorreo(correo)) {
+		                JOptionPane.showMessageDialog(null, "El correo ya existe", "Error", JOptionPane.ERROR_MESSAGE);
+		            } else {
+		                Usuario user = new Usuario(usuario, correo, contraseña);
+		                GestorArchivo.agregarDatos(user);
+		                JOptionPane.showMessageDialog(null, "Usuario creado con éxito", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+		            }
 				} catch (CorreoInvalidoException ex) {
 					JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
 		        } catch (CampoVacioException ex) {
