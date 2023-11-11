@@ -1,0 +1,16 @@
+Reservas
+
+1. Verificar Fechas
+2. Habitaciones
+3. Servicios Adiconales
+4. Mostras
+
+Usuario
+
+1. Mostrar reservaciones
+2. Recibo
+
+Logica
+
+1. Verificar que este o no reservado esa fecha
+
