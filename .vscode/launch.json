@@ -9,6 +9,13 @@
             "name": "Reservas",
             "request": "launch",
             "mainClass": "view.Reservas",
+            "projectName": "ProyectoFinal-main"
+        },
+        {
+            "type": "java",
+            "name": "Reservas",
+            "request": "launch",
+            "mainClass": "view.Reservas",
             "projectName": "ProyectoFinal-main_a7b763ca"
         },
         {

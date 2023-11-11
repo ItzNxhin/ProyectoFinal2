@@ -1,6 +1,11 @@
 {
-    "java.project.referencedLibraries": [
-        "lib/**/*.jar",
-        "jcalendar-1.4.jar"
-    ]
+    "java.project.referencedLibraries": {
+        "include": [
+            "lib/**/*.jar",
+            "jcalendar-1.4.jar"
+        ],
+        "exclude": [
+            "x:\\ProyectoFinal-main\\jgoodies-common-1.8.0.jar"
+        ]
+    }
 }

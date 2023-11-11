@@ -52,7 +52,12 @@ public class Reservas extends JFrame {
 		JButton btnPrueba = new JButton("Prueba");
 		btnPrueba.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(null, dateEntrada.getDate(), getTitle(), JOptionPane.INFORMATION_MESSAGE);
+				if(dateEntrada.getDate().before(dateSalida.getDate())){
+					JOptionPane.showMessageDialog(null, "Se puede reservar", getTitle(), JOptionPane.INFORMATION_MESSAGE);
+				}
+				else{
+					JOptionPane.showMessageDialog(null, "No se puede reservar", getTitle(), JOptionPane.INFORMATION_MESSAGE);
+				}
 			}
 		});
 		btnPrueba.setHorizontalAlignment(SwingConstants.RIGHT);
