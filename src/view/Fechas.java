@@ -21,6 +21,7 @@ import logic.*;
 
 public class Fechas extends JFrame  {
 
+	//Ir a FechaReserva
 	private ArrayList<FechaReservas> fechas = new ArrayList<>();
 	private ReservasExistentes archFExistentes = new ReservasExistentes();
 	private static final long serialVersionUID = 1L;
