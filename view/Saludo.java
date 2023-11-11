@@ -9,6 +9,9 @@ import logic.Usuario;
 import javax.swing.JLabel;
 import java.awt.Font;
 import java.util.ArrayList;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Saludo extends JFrame {
 
@@ -31,8 +34,18 @@ public class Saludo extends JFrame {
 		
 		JLabel lblNewLabel = new JLabel("Hola usuario: "+current.getNombreUsuario());
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblNewLabel.setBounds(93, 108, 238, 33);
+		lblNewLabel.setBounds(91, 42, 238, 33);
 		contentPane.add(lblNewLabel);
+		
+		JButton btnReservar = new JButton("Reserva");
+		btnReservar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				Reservas vReservas = new Reservas();
+				vReservas.setVisible(true);
+			}
+		});
+		btnReservar.setBounds(89, 180, 89, 23);
+		contentPane.add(btnReservar);
 	}
-
 }
