@@ -70,7 +70,7 @@ public class Principal extends JFrame {
 		txtContra.setBounds(115, 130, 190, 20);
 		contentPane.add(txtContra);
 		
-		JLabel lblNewLabel = new JLabel("Usuario:");
+		JLabel lblNewLabel = new JLabel("Usuario Hola:");
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblNewLabel.setBounds(29, 64, 95, 18);
 		contentPane.add(lblNewLabel);
