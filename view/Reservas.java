@@ -18,6 +18,7 @@ import java.awt.event.ActionEvent;
 
 import java.util.Date;
 
+//Clase reserva
 public class Reservas extends JFrame {
 
 	private static final long serialVersionUID = 1L;
