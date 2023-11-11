@@ -87,7 +87,7 @@ public class GestorArchivo {
         } 
         //Crear la nueva ventana
     }
-
+	//Metodo para verificar si un correo ya existen en la base de datos (Archivo serializable)
 	public static boolean existeCorreo(String correo) {
         try {
             ArrayList<Usuario> usuarios;
@@ -95,24 +95,29 @@ public class GestorArchivo {
 
             if (archivo.exists() && archivo.length() > 0) {
                 try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(archivo))) {
+		// Lee los usuarios almacenados en el archivo
                     usuarios = (ArrayList<Usuario>) in.readObject();
                 } catch (IOException | ClassNotFoundException e) {
+		// Si hay un error al leer el archivo, imprime el error y retorna false
                     e.printStackTrace();
                     return false;
                 }
             } else {
+		// Si el archivo no existe o está vacío, retorna false
                 return false;
             }
 
             // Recorre el ArrayList para verificar si el correo ya existe
             for (Usuario u : usuarios) {
                 if (u.getEmail().equals(correo)) {
-                    return true; // El correo ya existe en la base de datos
+		// Si encuentra una coincidencia, retorna true indicando que el correo ya existe
+                    return true; 
                 }
             }
-
-            return false; // El correo no existe en la base de datos
+	// Si no encuentra ninguna coincidencia, retorna false indicando que el correo no existe
+            return false;
         } catch (Exception e) {
+	// Si hay un error inesperado, imprime el error y retorna false
             e.printStackTrace();
             return false;
         }
