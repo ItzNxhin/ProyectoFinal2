@@ -39,21 +39,25 @@ public class Reservas extends JFrame {
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+
+		//Fechas Entrada y salida
+		JDateChooser dateEntrada = new JDateChooser();
+		dateEntrada.setBounds(93, 103, 160, 20);
+		contentPane.add(dateEntrada);
 		
-		JDateChooser dateChooser = new JDateChooser();
-		dateChooser.setBounds(93, 103, 160, 20);
-		contentPane.add(dateChooser);
-		
+		JDateChooser dateSalida = new JDateChooser();
+		dateSalida.setBounds(93, 134, 160, 20);
+		contentPane.add(dateSalida);
+
 		JButton btnPrueba = new JButton("Prueba");
 		btnPrueba.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(null, dateChooser.getDate(), getTitle(), JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(null, dateEntrada.getDate(), getTitle(), JOptionPane.INFORMATION_MESSAGE);
 			}
 		});
 		btnPrueba.setHorizontalAlignment(SwingConstants.RIGHT);
-		btnPrueba.setBounds(123, 148, 89, 23);
+		btnPrueba.setBounds(142, 189, 89, 23);
 		contentPane.add(btnPrueba);
-
 		
 	
 		
