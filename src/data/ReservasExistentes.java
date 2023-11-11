@@ -12,7 +12,7 @@ import logic.FechaReservas;
 
 public class ReservasExistentes {
 
-    public ArrayList<FechaReservas> leer(String ruta) throws IOException, ClassNotFoundException{
+    public ArrayList<FechaReservas> leer() throws IOException, ClassNotFoundException{
 
         //2
         ArrayList<FechaReservas> list = new ArrayList<>();
@@ -31,7 +31,7 @@ public class ReservasExistentes {
         return list;
     }
 
-    public void guardar(String ruta, ArrayList<FechaReservas> lista)throws IOException, ClassNotFoundException{
+    public void guardar(ArrayList<FechaReservas> lista)throws IOException, ClassNotFoundException{
         FileOutputStream fileOutputStream = new FileOutputStream("Fechas.ser");
         ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
         if(!lista.isEmpty()){
