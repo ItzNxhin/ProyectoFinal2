@@ -1,2 +1,2 @@
-hola
+private String hola
   
