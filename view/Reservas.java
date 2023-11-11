@@ -17,10 +17,14 @@ import java.awt.event.ActionListener;
 import java.time.LocalDate;
 import java.awt.event.ActionEvent;
 
+import java.util.Date;
+
 public class Reservas extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
+	private Date entrada;
+	private Date salida;
 
 	public Reservas() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -60,6 +64,13 @@ public class Reservas extends JFrame {
 	//ha cambiado
 	//Prueba 2
 	// Métodos para obtener la habitación seleccionada y las fechas de inicio/fin
+
+	public void setDates(Date entrada, Date salida){
+		this.entrada = entrada;
+		this.salida = salida;
+
+	}
+
     private HabAbstract obtenerHabitacionSeleccionada() {
 		return null;
         // Lógica para obtener la habitación seleccionada desde la interfaz

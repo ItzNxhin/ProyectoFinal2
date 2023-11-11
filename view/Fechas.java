@@ -46,6 +46,7 @@ public class Fechas extends JFrame {
 				if(dateEntrada.getDate().before(dateSalida.getDate())){
 					Reservas reserva = new Reservas();
 					reserva.setVisible(true);
+					reserva.setDates(dateEntrada.getDate(),dateSalida.getDate());
 					dispose();
 				}
 				else{
