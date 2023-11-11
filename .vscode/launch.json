@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Reservas",
+            "request": "launch",
+            "mainClass": "view.Reservas",
+            "projectName": "ProyectoFinal-main_a7b763ca"
+        },
+        {
+            "type": "java",
             "name": "Main",
             "request": "launch",
             "mainClass": "main.Main",
