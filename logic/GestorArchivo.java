@@ -87,4 +87,34 @@ public class GestorArchivo {
         } 
         //Crear la nueva ventana
     }
+
+	public static boolean existeCorreo(String correo) {
+        try {
+            ArrayList<Usuario> usuarios;
+            File archivo = new File("DBUsers.ser");
+
+            if (archivo.exists() && archivo.length() > 0) {
+                try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(archivo))) {
+                    usuarios = (ArrayList<Usuario>) in.readObject();
+                } catch (IOException | ClassNotFoundException e) {
+                    e.printStackTrace();
+                    return false;
+                }
+            } else {
+                return false;
+            }
+
+            // Recorre el ArrayList para verificar si el correo ya existe
+            for (Usuario u : usuarios) {
+                if (u.getEmail().equals(correo)) {
+                    return true; // El correo ya existe en la base de datos
+                }
+            }
+
+            return false; // El correo no existe en la base de datos
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 }
