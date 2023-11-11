@@ -74,6 +74,8 @@ public class Principal extends JFrame {
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblNewLabel.setBounds(29, 64, 95, 18);
 		contentPane.add(lblNewLabel);
+
+		
 		
 		JLabel lblContrasea = new JLabel("Contraseña:");
 		lblContrasea.setFont(new Font("Tahoma", Font.BOLD, 12));
