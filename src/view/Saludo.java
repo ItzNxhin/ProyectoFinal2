@@ -1,5 +1,5 @@
 package view;
-
+//Prueba
 //Libreias
 import javax.swing.JFrame;
 import javax.swing.JPanel;
