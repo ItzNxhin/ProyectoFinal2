@@ -7,10 +7,10 @@ Este programa se encarga de manejar las reservaciones de un hotel
 El espacio de trabajo contiene las siguientes carpetas
 - src: Contiene los archivos fuente del proyecto.
   - src.data: Carpeta de persistencia
-- - src.logic: Carpeta de la logica
-- - src.main: Contiene el main.java
-- - src.ManejoExc: Contiene los mensajes de excepciones
-- - src.view: Contiene las ventanas (GUI)
+  - src.logic: Carpeta de la logica
+  - src.main: Contiene el main.java
+  - src.ManejoExc: Contiene los mensajes de excepciones
+  - src.view: Contiene las ventanas (GUI)
 - bin: Contiene las dependecias(.class)
 
 ## Enunciado del proyecto
