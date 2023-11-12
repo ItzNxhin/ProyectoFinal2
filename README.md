@@ -1,18 +1,51 @@
-## Getting Started
+## Rersevacion de Habitaciones
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+Este programa se encarga de manejar las reservaciones de un hotel
 
 ## Folder Structure
 
-The workspace contains two folders by default, where:
+El espacio de trabajo contiene las siguientes carpetas
+- src: Contiene los archivos fuente del proyecto.
+- src.data: Carpeta de persistencia
+- src.logic: Carpeta de la logica
+- src.main: Contiene el main.java
+- src.ManejoExc: Contiene los mensajes de excepciones
+- src.view: Contiene las ventanas (GUI)
+- bin: Contiene las dependecias(.class)
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+## Enunciado del proyecto
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+Crear un sistema de reserva de hotel. El sistema debe mostrar las habitaciones y servicios 
+con los que cuenta el hotel de manera grafica e interactiva, debe disponer de diferentes 
+tipos de habitación con diferentes tipos de servicios. El cliente debe poder ver que 
+habitaciones están disponibles en un intervalo de fechas seleccionadas y realizar una 
+reservación, cada reservación debe tener las fechas, las habitaciones, los servicios que se 
+brindaran, la cantidad de personas que harán parte de la reserva, el precio y los datos 
+generales de la persona que realizo la reserva, se generara un recibo con el resumen de 
+información de cada reserva.
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+Cada usuario debe ingresar al sistema con sus propias credenciales, y a cada usuario se le 
+guardaran las reservas que realice
 
-## Dependency Management
+## Criterios
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+1.Interfaz Gráfica. - Funciona
+2.Run del Programa  
+3.End del Programa
+4.Cumplimiento de los Requerimientos.
+5.Muestra de Resultados.
+6.Código Comentariado.
+7.Código Documentado.
+8.Código Indentado.
+9.Manejo de Clases.
+10.Manejo de Objetos.
+11.Polimorfismo.
+12.Herencia.
+13.Manejo de Archivos.
+14.Manejo de Errores 
+15.Diseño de Programa. (Diagrama de Clases pre y post).
+16.Manual de Instalación.
+17.Manual del Programador.
+18.Manual de Usuario.
+19.Archivo .jar
+20.Creatividad e Innovación
