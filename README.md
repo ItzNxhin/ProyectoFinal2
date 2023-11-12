@@ -1,6 +1,6 @@
 ## Rersevacion de Habitaciones
 
-Este programa se encarga de manejar las reservaciones de un hotel
+Este programa se encarga de manejar las reservaciones de un hotel, el cual cuenta con 4 habitaciones, Habitacion presidencial, Habitacion Premium, Habitacion Vip y habitacion lite, cada una con servicios añadidos por defecto, y tambien donde el cliente tiene la posibilidad de agregar o quitar servicios
 
 ## Folder Structure
 
