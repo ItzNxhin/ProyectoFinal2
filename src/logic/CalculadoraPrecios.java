@@ -1,4 +1,4 @@
-package kernel;
+package logic;
 
 public class CalculadoraPrecios {
 	//Este metodo ademas de el numero de dias debera recibir el precio por noche
