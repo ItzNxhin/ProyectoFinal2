@@ -163,7 +163,7 @@ public class Reservas extends JFrame {
 					
 				
 
-					//Esto es inutil pero es para pasar el 
+					//Esto es inutil pero es para pasar a la ventana de la habitacion, donde se genera la reservacion y su respectiva factura
 					if (fechita != null && fechaInicio != null && fechaFin != null) {
 						
 					} else {
