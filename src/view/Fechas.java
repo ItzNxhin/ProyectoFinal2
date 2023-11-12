@@ -64,22 +64,6 @@ public class Fechas extends JFrame  {
 		btnPrueba.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				/*
-				 * Este ciclo for va recorrer las fechas que ya estan reservadas, y va a comprobar que las fechas de entrada o salida, no esten en los intervalos de las reservas ya hechas
-				 * FALTA: Verificar por tipo habitacion 
-				 */
-				for(FechaReservas revisor : fechas){
-					if(dateEntrada.getDate().after(revisor.getInicio()) && dateEntrada.getDate().before(revisor.getFin())){
-						JOptionPane.showMessageDialog(null, "No se puede reservar, la fecha ya esta ocupada", getTitle(), JOptionPane.INFORMATION_MESSAGE);
-						return;
-					}
-					if(dateSalida.getDate().after(revisor.getInicio()) && dateSalida.getDate().before(revisor.getFin())){
-						JOptionPane.showMessageDialog(null, "No se puede reservar, la fecha ya esta ocupada", getTitle(), JOptionPane.INFORMATION_MESSAGE);
-						return;
-					}
-				}
-
-
 				if(dateEntrada.getDate().after(dateSalida.getDate())){
 					JOptionPane.showMessageDialog(null, "No se puede reservar, la fecha de salida ocurre antes que la de entrada", getTitle(), JOptionPane.INFORMATION_MESSAGE);
 				}
