@@ -6,11 +6,11 @@ Este programa se encarga de manejar las reservaciones de un hotel
 
 El espacio de trabajo contiene las siguientes carpetas
 - src: Contiene los archivos fuente del proyecto.
-- src.data: Carpeta de persistencia
-- src.logic: Carpeta de la logica
-- src.main: Contiene el main.java
-- src.ManejoExc: Contiene los mensajes de excepciones
-- src.view: Contiene las ventanas (GUI)
+- - src.data: Carpeta de persistencia
+- - src.logic: Carpeta de la logica
+- - src.main: Contiene el main.java
+- - src.ManejoExc: Contiene los mensajes de excepciones
+- - src.view: Contiene las ventanas (GUI)
 - bin: Contiene las dependecias(.class)
 
 ## Enunciado del proyecto
@@ -29,23 +29,23 @@ guardaran las reservas que realice
 
 ## Criterios
 
-1.Interfaz Gráfica. - Funciona
-2.Run del Programa  
-3.End del Programa
-4.Cumplimiento de los Requerimientos.
-5.Muestra de Resultados.
-6.Código Comentariado.
-7.Código Documentado.
-8.Código Indentado.
-9.Manejo de Clases.
-10.Manejo de Objetos.
-11.Polimorfismo.
-12.Herencia.
-13.Manejo de Archivos.
-14.Manejo de Errores 
-15.Diseño de Programa. (Diagrama de Clases pre y post).
-16.Manual de Instalación.
-17.Manual del Programador.
-18.Manual de Usuario.
-19.Archivo .jar
-20.Creatividad e Innovación
+- 1.Interfaz Gráfica. - Funciona
+- 2.Run del Programa  
+- 3.End del Programa
+- 4.Cumplimiento de los Requerimientos.
+- 5.Muestra de Resultados.
+- 6.Código Comentariado.
+- 7.Código Documentado.
+- 8.Código Indentado.
+- 9.Manejo de Clases.
+- 10.Manejo de Objetos.
+- 11.Polimorfismo.
+- 12.Herencia.
+- 13.Manejo de Archivos.
+- 14.Manejo de Errores 
+- 15.Diseño de Programa. (Diagrama de Clases pre y post).
+- 16.Manual de Instalación.
+- 17.Manual del Programador.
+- 18.Manual de Usuario.
+- 19.Archivo .jar
+- 20.Creatividad e Innovación
