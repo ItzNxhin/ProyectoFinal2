@@ -33,13 +33,6 @@ public class Fechas extends JFrame  {
 	 * Las fechas se comprueban que sean posibles, es decir, que sea la salida despues que la entrada, y que sea posterior a la fecha de hoy
 	 */
 	public Fechas() {
-		try {
-			leer();
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -71,17 +64,8 @@ public class Fechas extends JFrame  {
 					JOptionPane.showMessageDialog(null, "No se puede reservar, es imposible hacer una reservacion en el pasado", getTitle(), JOptionPane.INFORMATION_MESSAGE);
 				}
 				else{
-					FechaReservas fechita = new FechaReservas(new HabLite(),dateEntrada.getDate(), dateSalida.getDate());
-					fechas.add(fechita);
-					try {
-						archFExistentes.guardar(fechas);
-					} catch (ClassNotFoundException | IOException e1) {
-						e1.printStackTrace();
-					}
-
-					Reservas reserva = new Reservas();
+					Reservas reserva = new Reservas(dateEntrada.getDate(),dateSalida.getDate());
 					reserva.setVisible(true);
-					reserva.setDates(dateEntrada.getDate(),dateSalida.getDate());
 					dispose();
 					
 				}

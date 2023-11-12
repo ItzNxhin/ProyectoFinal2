@@ -1,17 +1,17 @@
 package logic;
 
-import java.util.Date;
 import java.io.Serializable;
+import java.time.LocalDate;
 /**
  * Esta clase se encarga de poder almacenar los intervalos de fechas, y que habitacion tiene esa fecha 
  */
 public class FechaReservas implements Serializable{
 
-    private Date inicio;
-    private Date fin;
+    private LocalDate inicio;
+    private LocalDate fin;
     private HabAbstract habitacion;
     
-    public FechaReservas(HabAbstract hab, Date ini, Date fin){
+    public FechaReservas(HabAbstract hab, LocalDate ini, LocalDate fin){
         this.inicio = ini;
         this.fin= fin;
         this.habitacion = hab;
@@ -25,19 +25,19 @@ public class FechaReservas implements Serializable{
         this.habitacion = habitacion;
     }
 
-    public Date getInicio() {
+    public LocalDate getInicio() {
         return this.inicio;
     }
 
-    public void setInicio(Date inicio) {
+    public void setInicio(LocalDate inicio) {
         this.inicio = inicio;
     }
 
-    public Date getFin() {
+    public LocalDate getFin() {
         return this.fin;
     }
 
-    public void setFin(Date fin) {
+    public void setFin(LocalDate fin) {
         this.fin = fin;
     }
     
