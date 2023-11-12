@@ -1,29 +1,28 @@
 package view;
 
-
+//Librerias
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneId;
+
+import java.util.ArrayList;
+import java.util.Date;
 
 import data.ReservasExistentes;
 import logic.DatosHotel;
 import logic.FechaReservas;
-import logic.GestorReservas;
-import logic.HabAbstract;
 import logic.HabPresidential;
-import logic.Usuario;
-
-import javax.swing.JButton;
-
-import java.awt.event.ActionListener;
-import java.io.IOException;
-import java.time.Instant;
-import java.time.LocalDate;
-import java.time.ZoneId;
-import java.awt.event.ActionEvent;
-import java.util.ArrayList;
-import java.util.Date;
 
 //Clase reserva
 public class Reservas extends JFrame {
@@ -33,8 +32,6 @@ public class Reservas extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 
-	private Date entrada;
-	private Date salida;
 	LocalDate fechaInicio;
 	LocalDate fechaFin;
 
@@ -79,7 +76,7 @@ public class Reservas extends JFrame {
 	 * @param entrada Este parametro es el check in
 	 * @param salida  Este parametro es el check out
 	 */
-	public Reservas(Date entrada, Date salida) {
+	public Reservas(Date entrada, Date salida) throws FileNotFoundException {
 
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -92,6 +89,12 @@ public class Reservas extends JFrame {
 
 		fechaInicio = obtenerFechaInicio(entrada);
 		fechaFin = obtenerFechaFin(salida);
+
+		/*
+		 * Leer todas reservaciones existentes, entonces si en la fecha que se selecciono encuentra una habitacion
+		 * Procede a ver que tipo de habitacion es esa
+		 * Luego se la resta a la cantidad de habitaciones que haya disponibles
+		 */
 
 		try {
 			leer();
@@ -129,6 +132,7 @@ public class Reservas extends JFrame {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		
 
 		//Pruebas en consolas, ignorar y borrar al terminar esto
 		System.out.println(cHabPresidencial);
@@ -143,7 +147,6 @@ public class Reservas extends JFrame {
 
 		JButton btnReservar = new JButton("Realizar reserva");
 			btnReservar.addActionListener(new ActionListener() {
-				private Usuario usuarioActual;
 
 				public void actionPerformed(ActionEvent e) {
 					// Obtén la habitación seleccionada y las fechas de inicio/fin
@@ -157,14 +160,16 @@ public class Reservas extends JFrame {
 					} catch (IOException e1) {
 						e1.printStackTrace();
 					}
-					/*  Realiza la reserva
-					*if (habitacionSeleccionada != null && fechaInicio != null && fechaFin != null) {
-					*	GestorReservas.realizarReserva(usuarioActual, habitacionSeleccionada, fechaInicio, fechaFin);
-					*	JOptionPane.showMessageDialog(null, "Reserva realizada con éxito", "Éxito", JOptionPane.INFORMATION_MESSAGE);
-					*} else {
-					*	JOptionPane.showMessageDialog(null, "Por favor, complete la información de reserva", "Error", JOptionPane.ERROR_MESSAGE);
-					*}
-					*/
+					
+				
+
+					//Esto es inutil pero es para pasar el 
+					if (fechita != null && fechaInicio != null && fechaFin != null) {
+						
+					} else {
+						JOptionPane.showMessageDialog(null, "Por favor, complete la información de reserva", "Error", JOptionPane.ERROR_MESSAGE);
+					}
+					
 				}
 			});
 			contentPane.setLayout(null);

@@ -3,7 +3,7 @@ package logic;
 public class HabPremium extends HabAbstract{
     private String nombre = "Habitacion Premium";
     private int personas = 5;
-    private int precio = DatosHotel.nPremium;
+    private double precio = DatosHotel.pPremium;
 
     public String getNombre(){
         return nombre;
@@ -13,11 +13,11 @@ public class HabPremium extends HabAbstract{
         return personas;
     }
 
-    public int getPrecio() {
+    public double getPrecio() {
         return this.precio;
     }
 
-    public void setPrecio(int precio) {
+    public void setPrecio(double precio) {
         this.precio = precio;
     }
     

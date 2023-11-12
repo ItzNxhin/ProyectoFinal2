@@ -9,21 +9,15 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 
 import java.awt.event.ActionListener;
-import java.io.IOException;
-import java.util.ArrayList;
+import java.io.FileNotFoundException;
 import java.util.Date;
 import java.awt.event.ActionEvent;
 
 import com.toedter.calendar.JDateChooser;
 
-import data.*;
-import logic.*;
-
 public class Fechas extends JFrame  {
 
 	//Ir a FechaReserva
-	private ArrayList<FechaReservas> fechas = new ArrayList<>();
-	private ReservasExistentes archFExistentes = new ReservasExistentes();
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 
@@ -64,8 +58,14 @@ public class Fechas extends JFrame  {
 					JOptionPane.showMessageDialog(null, "No se puede reservar, es imposible hacer una reservacion en el pasado", getTitle(), JOptionPane.INFORMATION_MESSAGE);
 				}
 				else{
-					Reservas reserva = new Reservas(dateEntrada.getDate(),dateSalida.getDate());
-					reserva.setVisible(true);
+					Reservas reserva;
+					try {
+						reserva = new Reservas(dateEntrada.getDate(),dateSalida.getDate());
+						reserva.setVisible(true);
+					} catch (FileNotFoundException e1) {
+						e1.printStackTrace();
+					}
+					
 					dispose();
 					
 				}
@@ -76,9 +76,4 @@ public class Fechas extends JFrame  {
 		contentPane.add(btnPrueba);
 		
 	}
-
-	public void leer() throws ClassNotFoundException, IOException{
-		fechas = new ArrayList<>(archFExistentes.leer());
-	}
-
 }
