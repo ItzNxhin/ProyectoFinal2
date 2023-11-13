@@ -20,10 +20,10 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import data.ReservasExistentes;
-import logic.DatosHotel;
-import logic.FechaReservas;
-import logic.HabPresidential;
+import javax.swing.JRadioButton;
+import javax.swing.ButtonGroup;
 
+import logic.*;
 //Clase reserva
 public class Reservas extends JFrame {
 
@@ -39,6 +39,7 @@ public class Reservas extends JFrame {
 	private int cHabPremium 	= DatosHotel.nPremium;
 	private int cHabVip 	= DatosHotel.nVip;
 	private int cHabLite 		= DatosHotel.nLite;
+	private final ButtonGroup buttonGroup = new ButtonGroup();
 
     private LocalDate obtenerFechaInicio(Date enDate) {
 		if (enDate != null) {
@@ -89,6 +90,8 @@ public class Reservas extends JFrame {
 
 		fechaInicio = obtenerFechaInicio(entrada);
 		fechaFin = obtenerFechaFin(salida);
+
+		FechaReservas reservacion = new FechaReservas();
 
 		/*
 		 * Leer todas reservaciones existentes, entonces si en la fecha que se selecciono encuentra una habitacion
@@ -151,8 +154,6 @@ public class Reservas extends JFrame {
 				public void actionPerformed(ActionEvent e) {
 					// Obtén la habitación seleccionada y las fechas de inicio/fin
 
-					FechaReservas fechita = new FechaReservas(new HabPresidential() , fechaInicio , fechaFin );
-					fechas.add(fechita);
 					try {
 						archFExistentes.guardar(fechas);
 					} catch (ClassNotFoundException e1) {
@@ -161,20 +162,51 @@ public class Reservas extends JFrame {
 						e1.printStackTrace();
 					}
 					
-				
-					//Esto es inutil pero es para pasar a la ventana de la habitacion, donde se genera la reservacion y su respectiva factura
-					if (fechita != null && fechaInicio != null && fechaFin != null) {
-						
-					} else {
-						JOptionPane.showMessageDialog(null, "Por favor, complete la información de reserva", "Error", JOptionPane.ERROR_MESSAGE);
-					}
-					
 				}
 			});
 			contentPane.setLayout(null);
-			btnReservar.setBounds(160, 207, 111, 23);
+			btnReservar.setBounds(144, 196, 111, 23);
 			contentPane.add(btnReservar);
+			
+			JRadioButton rdbtnPresidencial = new JRadioButton("Presidencial");
+			rdbtnPresidencial.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					reservacion.setHabitacion(new HabPresidential());
+				}
+			});
+			buttonGroup.add(rdbtnPresidencial);
+			rdbtnPresidencial.setBounds(272, 25, 109, 23);
+			contentPane.add(rdbtnPresidencial);
+			
+			JRadioButton rdbtnPremium = new JRadioButton("Premium");
+			rdbtnPremium.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					reservacion.setHabitacion(new HabPremium());
+				}
+			});
+			buttonGroup.add(rdbtnPremium);
+			rdbtnPremium.setBounds(272, 51, 109, 23);
+			contentPane.add(rdbtnPremium);
+			
+			JRadioButton rdbtnVip = new JRadioButton("Vip");
+			rdbtnVip.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					reservacion.setHabitacion(new HabVip());
+				}
+			});
+			buttonGroup.add(rdbtnVip);
+			rdbtnVip.setBounds(272, 77, 109, 23);
+			contentPane.add(rdbtnVip);
+			
+			JRadioButton rdbtnLite = new JRadioButton("Lite");
+			rdbtnPresidencial.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					reservacion.setHabitacion(new HabLite());
+				}
+			});
+			buttonGroup.add(rdbtnLite);
+			rdbtnLite.setBounds(272, 103, 109, 23);
+			contentPane.add(rdbtnLite);
 		
 	}
-	 
 }
