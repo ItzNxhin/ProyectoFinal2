@@ -151,77 +151,76 @@ public class Reservas extends JFrame {
 		System.out.println(salida);
 
 		JButton btnReservar = new JButton("Realizar reserva");
-			btnReservar.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					// Obtén la habitación seleccionada y las fechas de inicio/fin
-					if(reservacion.getHabitacion() == null){
-						JOptionPane.showMessageDialog(null,"Seleeccione el tipo de habitacion que va a reservar antes de continuar", "Habitacion", JOptionPane.INFORMATION_MESSAGE);
-					}
-					else if(cHabPremium == 0){
-						JOptionPane.showMessageDialog(null,"En este momentos, no tenemos habitaciones PREMIUMS disponibles, lo lamentamos, intenta con otra habitacion", "Habitacion", JOptionPane.INFORMATION_MESSAGE);
-					}
-					else if(cHabPresidencial == 0){
-						JOptionPane.showMessageDialog(null,"En este momentos, no tenemos habitaciones PRESIDENCIALES disponibles, lo lamentamos, intenta con otra habitacion", "Habitacion", JOptionPane.INFORMATION_MESSAGE);
-					}
-					else if(cHabVip == 0){
-						JOptionPane.showMessageDialog(null,"En este momentos, no tenemos habitaciones VIPS disponibles, lo lamentamos, intenta con otra habitacion", "Habitacion", JOptionPane.INFORMATION_MESSAGE);
-					}
-					else if(cHabLite == 0){
-						JOptionPane.showMessageDialog(null,"En este momentos, no tenemos habitaciones LITES disponibles, lo lamentamos, intenta con otra habitacion", "Habitacion", JOptionPane.INFORMATION_MESSAGE);
-					}
-					else{
-						reservacion.setInicio(fechaInicio);
-						reservacion.setFin(fechaFin);
-						VentanaHabitacion continuar = new VentanaHabitacion(current, reservacion);
-						continuar.setVisible(true);
-						dispose();
-					}
-					
+		btnReservar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				// Obtén la habitación seleccionada y las fechas de inicio/fin
+				if(reservacion.getHabitacion() == null){
+					JOptionPane.showMessageDialog(null,"Seleeccione el tipo de habitacion que va a reservar antes de continuar", "Habitacion", JOptionPane.INFORMATION_MESSAGE);
 				}
-			});
-			contentPane.setLayout(null);
-			btnReservar.setBounds(144, 196, 111, 23);
-			contentPane.add(btnReservar);
-			
-			JRadioButton rdbtnPresidencial = new JRadioButton("Presidencial");
-			rdbtnPresidencial.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					reservacion.setHabitacion(new HabPresidential());
+				else if(cHabPremium == 0){
+					JOptionPane.showMessageDialog(null,"En este momentos, no tenemos habitaciones PREMIUMS disponibles, lo lamentamos, intenta con otra habitacion", "Habitacion", JOptionPane.INFORMATION_MESSAGE);
 				}
-			});
-			buttonGroup.add(rdbtnPresidencial);
-			rdbtnPresidencial.setBounds(272, 25, 109, 23);
-			contentPane.add(rdbtnPresidencial);
-			
-			JRadioButton rdbtnPremium = new JRadioButton("Premium");
-			rdbtnPremium.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					reservacion.setHabitacion(new HabPremium());
+				else if(cHabPresidencial == 0){
+					JOptionPane.showMessageDialog(null,"En este momentos, no tenemos habitaciones PRESIDENCIALES disponibles, lo lamentamos, intenta con otra habitacion", "Habitacion", JOptionPane.INFORMATION_MESSAGE);
 				}
-			});
-			buttonGroup.add(rdbtnPremium);
-			rdbtnPremium.setBounds(272, 51, 109, 23);
-			contentPane.add(rdbtnPremium);
-			
-			JRadioButton rdbtnVip = new JRadioButton("Vip");
-			rdbtnVip.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					reservacion.setHabitacion(new HabVip());
+				else if(cHabVip == 0){
+					JOptionPane.showMessageDialog(null,"En este momentos, no tenemos habitaciones VIPS disponibles, lo lamentamos, intenta con otra habitacion", "Habitacion", JOptionPane.INFORMATION_MESSAGE);
 				}
-			});
-			buttonGroup.add(rdbtnVip);
-			rdbtnVip.setBounds(272, 77, 109, 23);
-			contentPane.add(rdbtnVip);
-			
-			JRadioButton rdbtnLite = new JRadioButton("Lite");
-			rdbtnPresidencial.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					reservacion.setHabitacion(new HabLite());
+				else if(cHabLite == 0){
+					JOptionPane.showMessageDialog(null,"En este momentos, no tenemos habitaciones LITES disponibles, lo lamentamos, intenta con otra habitacion", "Habitacion", JOptionPane.INFORMATION_MESSAGE);
 				}
-			});
-			buttonGroup.add(rdbtnLite);
-			rdbtnLite.setBounds(272, 103, 109, 23);
-			contentPane.add(rdbtnLite);
+				else{
+					reservacion.setInicio(fechaInicio);
+					reservacion.setFin(fechaFin);
+					VentanaHabitacion continuar = new VentanaHabitacion(current, reservacion);
+					continuar.setVisible(true);
+					dispose();
+				}
+				
+			}
+		});
+		contentPane.setLayout(null);
+		btnReservar.setBounds(144, 196, 111, 23);
+		contentPane.add(btnReservar);
 		
+		JRadioButton rdbtnPresidencial = new JRadioButton("Presidencial");
+		rdbtnPresidencial.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				reservacion.setHabitacion(new HabPresidential());
+			}
+		});
+		buttonGroup.add(rdbtnPresidencial);
+		rdbtnPresidencial.setBounds(272, 25, 109, 23);
+		contentPane.add(rdbtnPresidencial);
+		
+		JRadioButton rdbtnPremium = new JRadioButton("Premium");
+		rdbtnPremium.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				reservacion.setHabitacion(new HabPremium());
+			}
+		});
+		buttonGroup.add(rdbtnPremium);
+		rdbtnPremium.setBounds(272, 51, 109, 23);
+		contentPane.add(rdbtnPremium);
+		
+		JRadioButton rdbtnVip = new JRadioButton("Vip");
+		rdbtnVip.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				reservacion.setHabitacion(new HabVip());
+			}
+		});
+		buttonGroup.add(rdbtnVip);
+		rdbtnVip.setBounds(272, 77, 109, 23);
+		contentPane.add(rdbtnVip);
+		
+		JRadioButton rdbtnLite = new JRadioButton("Lite");
+		rdbtnPresidencial.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				reservacion.setHabitacion(new HabLite());
+			}
+		});
+		buttonGroup.add(rdbtnLite);
+		rdbtnLite.setBounds(272, 103, 109, 23);
+		contentPane.add(rdbtnLite);
 	}
 }
