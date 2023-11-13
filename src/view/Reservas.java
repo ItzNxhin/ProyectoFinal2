@@ -41,7 +41,7 @@ public class Reservas extends JFrame {
 	private int cHabLite 		= DatosHotel.nLite;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 
-    private LocalDate obtenerFechaInicio(Date enDate) {
+	private LocalDate obtenerFechaInicio(Date enDate) {
 		if (enDate != null) {
 			return Instant.ofEpochMilli(enDate.getTime())
 						  .atZone(ZoneId.systemDefault())
@@ -64,7 +64,7 @@ public class Reservas extends JFrame {
 		}
         // Lógica para obtener la fecha de fin desde la interfaz
     }
-
+	
 	//Metodo para leer todas las reservaciones del hotel
 	public void leer() throws ClassNotFoundException, IOException{
 		fechas = new ArrayList<>(archFExistentes.leer());
@@ -77,19 +77,7 @@ public class Reservas extends JFrame {
 	 * @param entrada Este parametro es el check in
 	 * @param salida  Este parametro es el check out
 	 */
-	public Reservas(Date entrada, Date salida) throws FileNotFoundException {
-
-		
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-
-		setContentPane(contentPane);
-		contentPane.setLayout(null);
-
-		fechaInicio = obtenerFechaInicio(entrada);
-		fechaFin = obtenerFechaFin(salida);
+	public Reservas(Date entrada, Date salida, Usuario current) throws FileNotFoundException {	
 
 		FechaReservas reservacion = new FechaReservas();
 
@@ -98,7 +86,6 @@ public class Reservas extends JFrame {
 		 * Procede a ver que tipo de habitacion es esa
 		 * Luego se la resta a la cantidad de habitaciones que haya disponibles
 		 */
-
 		try {
 			leer();
 			for(FechaReservas revisor : fechas){
@@ -135,7 +122,22 @@ public class Reservas extends JFrame {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+
+		if(cHabPresidencial == 0 || cHabPremium == 0 || cHabVip == 0 || cHabLite == 0){
+			JOptionPane.showMessageDialog(null,"Para la fecha seleccionada no tenemos ninguna habitacion disponible, lo sentimos", "Habitacion", JOptionPane.INFORMATION_MESSAGE);
+			dispose();
+		}
 		
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+
+		fechaInicio = obtenerFechaInicio(entrada);
+		fechaFin = obtenerFechaFin(salida);
 
 		//Pruebas en consolas, ignorar y borrar al terminar esto
 		System.out.println(cHabPresidencial);
@@ -150,16 +152,29 @@ public class Reservas extends JFrame {
 
 		JButton btnReservar = new JButton("Realizar reserva");
 			btnReservar.addActionListener(new ActionListener() {
-
 				public void actionPerformed(ActionEvent e) {
 					// Obtén la habitación seleccionada y las fechas de inicio/fin
-
-					try {
-						archFExistentes.guardar(fechas);
-					} catch (ClassNotFoundException e1) {
-						e1.printStackTrace();
-					} catch (IOException e1) {
-						e1.printStackTrace();
+					if(reservacion.getHabitacion() == null){
+						JOptionPane.showMessageDialog(null,"Seleeccione el tipo de habitacion que va a reservar antes de continuar", "Habitacion", JOptionPane.INFORMATION_MESSAGE);
+					}
+					else if(cHabPremium == 0){
+						JOptionPane.showMessageDialog(null,"En este momentos, no tenemos habitaciones PREMIUMS disponibles, lo lamentamos, intenta con otra habitacion", "Habitacion", JOptionPane.INFORMATION_MESSAGE);
+					}
+					else if(cHabPresidencial == 0){
+						JOptionPane.showMessageDialog(null,"En este momentos, no tenemos habitaciones PRESIDENCIALES disponibles, lo lamentamos, intenta con otra habitacion", "Habitacion", JOptionPane.INFORMATION_MESSAGE);
+					}
+					else if(cHabVip == 0){
+						JOptionPane.showMessageDialog(null,"En este momentos, no tenemos habitaciones VIPS disponibles, lo lamentamos, intenta con otra habitacion", "Habitacion", JOptionPane.INFORMATION_MESSAGE);
+					}
+					else if(cHabLite == 0){
+						JOptionPane.showMessageDialog(null,"En este momentos, no tenemos habitaciones LITES disponibles, lo lamentamos, intenta con otra habitacion", "Habitacion", JOptionPane.INFORMATION_MESSAGE);
+					}
+					else{
+						reservacion.setInicio(fechaInicio);
+						reservacion.setFin(fechaFin);
+						VentanaHabitacion continuar = new VentanaHabitacion(current, reservacion);
+						continuar.setVisible(true);
+						dispose();
 					}
 					
 				}

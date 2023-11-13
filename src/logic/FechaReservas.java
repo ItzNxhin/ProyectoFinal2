@@ -17,6 +17,9 @@ public class FechaReservas implements Serializable{
         this.habitacion = hab;
         }
    
+    public FechaReservas() {
+    }
+
     public HabAbstract getHabitacion() {
         return this.habitacion;
     }

@@ -15,6 +15,8 @@ import java.awt.event.ActionEvent;
 
 import com.toedter.calendar.JDateChooser;
 
+import logic.Usuario;
+
 public class Fechas extends JFrame  {
 
 	//Ir a FechaReserva
@@ -26,7 +28,7 @@ public class Fechas extends JFrame  {
 	 * Donde se ingresan las fechas con una libriaria Referecial(JCalendar) para un mejor manejo
 	 * Las fechas se comprueban que sean posibles, es decir, que sea la salida despues que la entrada, y que sea posterior a la fecha de hoy
 	 */
-	public Fechas() {
+	public Fechas(Usuario current) {
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -50,7 +52,6 @@ public class Fechas extends JFrame  {
 		JButton btnPrueba = new JButton("Prueba");
 		btnPrueba.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
 				if(dateEntrada.getDate().after(dateSalida.getDate())){
 					JOptionPane.showMessageDialog(null, "No se puede reservar, la fecha de salida ocurre antes que la de entrada", getTitle(), JOptionPane.INFORMATION_MESSAGE);
 				}
@@ -60,14 +61,12 @@ public class Fechas extends JFrame  {
 				else{
 					Reservas reserva;
 					try {
-						reserva = new Reservas(dateEntrada.getDate(),dateSalida.getDate());
+						reserva = new Reservas(dateEntrada.getDate(),dateSalida.getDate(), current);
 						reserva.setVisible(true);
 					} catch (FileNotFoundException e1) {
 						e1.printStackTrace();
 					}
-					
 					dispose();
-					
 				}
 			}
 		});

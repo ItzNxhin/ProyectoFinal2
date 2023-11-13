@@ -132,7 +132,5 @@ public class Principal extends JFrame {
 		btnLogin.setBounds(250, 188, 89, 23);
 		contentPane.add(btnLogin);
 		
-		
 	}
-
 }

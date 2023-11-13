@@ -44,7 +44,7 @@ public class Saludo extends JFrame {
 		JButton btnReservar = new JButton("Reservar");
 		btnReservar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Fechas fechas = new Fechas();
+				Fechas fechas = new Fechas(current);
 				fechas.setVisible(true);
 				dispose();
 			}

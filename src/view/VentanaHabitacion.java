@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import logic.CalculadoraPrecios;
+import logic.FechaReservas;
 import logic.Usuario;
 
 import javax.swing.JLabel;
@@ -34,14 +35,17 @@ public class VentanaHabitacion extends JFrame {
     private double valorServicio3 = 0;
     private long dias;
 
-	/**
-	 * Create the frame.
-	 */
+	LocalDate fechaInicio;
+	LocalDate fechaFin;
+
+
     //Falta añadir el ID o el tipo de la habitacón para obtener la imagen y el precio por noche
-	public VentanaHabitacion (int id, ArrayList<Usuario> usuarios, LocalDate fechaInicio, LocalDate fechaFin) {
+	public VentanaHabitacion (Usuario current, FechaReservas preReserva) {
 		// Operaciones de inicio de ventana
-		
-		Usuario current = usuarios.get(id); //Borrar luego
+
+		fechaInicio = preReserva.getInicio();
+		fechaFin 	= preReserva.getFin();
+
 	    // Calcular la diferencia entre las fechas
 	    Period periodo = Period.between(fechaInicio, fechaFin);
 	    // Obtener la cantidad de días del periodo
@@ -160,4 +164,6 @@ public class VentanaHabitacion extends JFrame {
 		
 		
 	}
+
+
 }
