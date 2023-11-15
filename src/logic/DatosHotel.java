@@ -1,5 +1,6 @@
 package logic;
 
+import java.util.ArrayList;
 /**
  * Esta clase maneja los siguientes datos del hotel
  * Numero de habitaciones por cada tipo
@@ -16,6 +17,5 @@ public class DatosHotel {
     public static double pPremium = 0;
     public static double pVip = 0;
     public static double pLite = 0;
-
     
 }
