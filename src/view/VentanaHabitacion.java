@@ -115,7 +115,18 @@ public class VentanaHabitacion extends JFrame {
 		JLabel lblMostrarValorS3 = new JLabel("$: "+valorServicio3);
 		lblMostrarValorS3.setBounds(362, 152, 46, 14);
 		contentPane.add(lblMostrarValorS3);
-	
+		
+		JLabel lblMostrarValorS3_1 = new JLabel("$: 0");
+		lblMostrarValorS3_1.setBounds(362, 177, 46, 14);
+		contentPane.add(lblMostrarValorS3_1);
+		
+		JLabel lblMostrarValorS3_1_1 = new JLabel("$: 0");
+		lblMostrarValorS3_1_1.setBounds(362, 203, 46, 14);
+		contentPane.add(lblMostrarValorS3_1_1);
+		
+		JLabel lblMostrarValorS3_1_1_1 = new JLabel("$: 0");
+		lblMostrarValorS3_1_1_1.setBounds(362, 228, 46, 14);
+		contentPane.add(lblMostrarValorS3_1_1_1);
 		
 		JCheckBox servicio1 = new JCheckBox("Servicio1");
 		servicio1.addActionListener(new ActionListener() {
@@ -152,7 +163,15 @@ public class VentanaHabitacion extends JFrame {
         });
 		servicio3.setBounds(229, 148, 97, 23);
 		contentPane.add(servicio3);
-		
+
+		JCheckBox chckbxServicio = new JCheckBox("Servicio4");
+		chckbxServicio.setBounds(229, 173, 97, 23);
+		contentPane.add(chckbxServicio);
+
+		JCheckBox chckbxServicio_2 = new JCheckBox("Servicio5");
+		chckbxServicio_2.setBounds(229, 199, 97, 23);
+		contentPane.add(chckbxServicio_2);
+
 		JButton btnNewButton = new JButton("Pagar");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -161,8 +180,10 @@ public class VentanaHabitacion extends JFrame {
 		});
 		btnNewButton.setBounds(284, 315, 89, 23);
 		contentPane.add(btnNewButton);
-		
-		
+
+		JCheckBox chckbxServicio_1_1 = new JCheckBox("Servicio6");
+		chckbxServicio_1_1.setBounds(229, 224, 97, 23);
+		contentPane.add(chckbxServicio_1_1);
 		
 		JLabel precioReserva = new JLabel("Valor de reserva:");
 		precioReserva.setBounds(229, 75, 97, 14);
@@ -171,31 +192,6 @@ public class VentanaHabitacion extends JFrame {
 		JLabel lblNewLabel_3 = new JLabel("Total a pagar:");
 		lblNewLabel_3.setBounds(229, 279, 97, 14);
 		contentPane.add(lblNewLabel_3);
-		
-		JCheckBox chckbxServicio = new JCheckBox("Servicio4");
-		chckbxServicio.setBounds(229, 173, 97, 23);
-		contentPane.add(chckbxServicio);
-		
-		JLabel lblMostrarValorS3_1 = new JLabel("$: 0");
-		lblMostrarValorS3_1.setBounds(362, 177, 46, 14);
-		contentPane.add(lblMostrarValorS3_1);
-		
-		JLabel lblMostrarValorS3_1_1 = new JLabel("$: 0");
-		lblMostrarValorS3_1_1.setBounds(362, 203, 46, 14);
-		contentPane.add(lblMostrarValorS3_1_1);
-		
-		JCheckBox chckbxServicio_2 = new JCheckBox("Servicio5");
-		chckbxServicio_2.setBounds(229, 199, 97, 23);
-		contentPane.add(chckbxServicio_2);
-		
-		JLabel lblMostrarValorS3_1_1_1 = new JLabel("$: 0");
-		lblMostrarValorS3_1_1_1.setBounds(362, 228, 46, 14);
-		contentPane.add(lblMostrarValorS3_1_1_1);
-		
-		JCheckBox chckbxServicio_1_1 = new JCheckBox("Servicio6");
-		chckbxServicio_1_1.setBounds(229, 224, 97, 23);
-		contentPane.add(chckbxServicio_1_1);
-		
 		
 	}
 }
