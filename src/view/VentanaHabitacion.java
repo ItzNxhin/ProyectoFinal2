@@ -7,9 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import logic.CalculadoraPrecios;
-import logic.FechaReservas;
-import logic.Usuario;
+import logic.*;
 
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -40,11 +38,11 @@ public class VentanaHabitacion extends JFrame {
 
 
     //Falta añadir el ID o el tipo de la habitacón para obtener la imagen y el precio por noche
-	public VentanaHabitacion (Usuario current, FechaReservas preReserva) {
+	public VentanaHabitacion (Usuario current, Reserva preReserva) {
 		// Operaciones de inicio de ventana
 
-		fechaInicio = preReserva.getInicio();
-		fechaFin 	= preReserva.getFin();
+		fechaInicio = preReserva.getFechaInicio();
+		fechaFin 	= preReserva.getFechaFin();
 
 	    // Calcular la diferencia entre las fechas
 	    Period periodo = Period.between(fechaInicio, fechaFin);
