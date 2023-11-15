@@ -1,14 +1,14 @@
 package logic;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class Reserva {
+public class Reserva implements Serializable{
 	//Variables de instancia necesarias
 	private Usuario usaurio;
 	private HabAbstract habitacion;
 	private LocalDate fechaInicio;
 	private LocalDate fechaFin;
-	
 	
 
 	//Metodos getter y setter

@@ -9,17 +9,18 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 import logic.FechaReservas;
+import logic.Reserva;
 
 public class ReservasExistentes {
 
-    public ArrayList<FechaReservas> leer() throws IOException, ClassNotFoundException{
+    public ArrayList<Reserva> leer() throws IOException, ClassNotFoundException{
 
         //2
-        ArrayList<FechaReservas> list = new ArrayList<>();
+        ArrayList<Reserva> list = new ArrayList<>();
         FileInputStream fileInputStream = new FileInputStream("Fechas.ser");
         try(ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);){    
             while (true) {
-                FechaReservas persona = (FechaReservas) objectInputStream.readObject();
+                Reserva persona = (Reserva) objectInputStream.readObject();
                 list.add(persona);
             }    
         }
@@ -31,7 +32,7 @@ public class ReservasExistentes {
         return list;
     }
 
-    public void guardar(ArrayList<FechaReservas> lista)throws IOException, ClassNotFoundException{
+    public void guardar(ArrayList<Reserva> lista)throws IOException, ClassNotFoundException{
         FileOutputStream fileOutputStream = new FileOutputStream("Fechas.ser");
         ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
         if(!lista.isEmpty()){

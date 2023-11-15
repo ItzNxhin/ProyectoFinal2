@@ -27,7 +27,7 @@ import logic.*;
 //Clase reserva
 public class Reservas extends JFrame {
 
-	private ArrayList<FechaReservas> fechas = new ArrayList<>();
+	private ArrayList<Reserva> fechas = new ArrayList<>();
 	private ReservasExistentes archFExistentes = new ReservasExistentes();
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
@@ -79,7 +79,11 @@ public class Reservas extends JFrame {
 	 */
 	public Reservas(Date entrada, Date salida, Usuario current) throws FileNotFoundException {	
 
-		FechaReservas reservacion = new FechaReservas();
+		Reserva reservacion = new Reserva();
+
+		//Convierte las fechas traidas de la ventana Fechas de Date a Local date
+		fechaInicio = obtenerFechaInicio(entrada);
+		fechaFin = obtenerFechaFin(salida);
 
 		/*
 		 * Leer todas reservaciones existentes, entonces si en la fecha que se selecciono encuentra una habitacion
@@ -88,8 +92,8 @@ public class Reservas extends JFrame {
 		 */
 		try {
 			leer();
-			for(FechaReservas revisor : fechas){
-			if(fechaInicio.isAfter(revisor.getInicio()) && fechaInicio.isBefore(revisor.getFin())){
+			for(Reserva revisor : fechas){
+			if(fechaInicio.isAfter(revisor.getFechaInicio()) && fechaInicio.isBefore(revisor.getFechaFin())){
 				if(revisor.getHabitacion().getNombre().equals("Habitacion Presidencial")){
 					cHabPresidencial--;
 				}
@@ -103,7 +107,7 @@ public class Reservas extends JFrame {
 					cHabLite -- ;
 				}}
 			
-			else if(fechaFin.isAfter(revisor.getInicio()) && fechaFin.isBefore(revisor.getFin())){
+			else if(fechaFin.isAfter(revisor.getFechaInicio()) && fechaFin.isBefore(revisor.getFechaFin())){
 				if(revisor.getHabitacion().getNombre().equals("Habitacion Presidencial")){
 					cHabPresidencial--;
 				}
@@ -136,9 +140,6 @@ public class Reservas extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-		fechaInicio = obtenerFechaInicio(entrada);
-		fechaFin = obtenerFechaFin(salida);
-
 		//Pruebas en consolas, ignorar y borrar al terminar esto
 		System.out.println(cHabPresidencial);
 		System.out.println(cHabPremium);
@@ -170,8 +171,8 @@ public class Reservas extends JFrame {
 					JOptionPane.showMessageDialog(null,"En este momentos, no tenemos habitaciones LITES disponibles, lo lamentamos, intenta con otra habitacion", "Habitacion", JOptionPane.INFORMATION_MESSAGE);
 				}
 				else{
-					reservacion.setInicio(fechaInicio);
-					reservacion.setFin(fechaFin);
+					reservacion.setFechaInicio(fechaInicio);
+					reservacion.setFechaFin(fechaFin);
 					VentanaHabitacion continuar = new VentanaHabitacion(current, reservacion);
 					continuar.setVisible(true);
 					dispose();
