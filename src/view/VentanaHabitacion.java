@@ -62,7 +62,7 @@ public class VentanaHabitacion extends JFrame {
 	    dias = ChronoUnit.DAYS.between(fechaInicio, fechaFin);
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 450, 388);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -97,7 +97,7 @@ public class VentanaHabitacion extends JFrame {
 		contentPane.add(lblMostrarValorR);
 		
 		JLabel lblMostrarTotal = new JLabel("New label");
-		lblMostrarTotal.setBounds(359, 191, 46, 14);
+		lblMostrarTotal.setBounds(359, 279, 46, 14);
 		contentPane.add(lblMostrarTotal);
 		
 	    /*
@@ -159,7 +159,7 @@ public class VentanaHabitacion extends JFrame {
 				//Crear el objeto reserva/recibo con los respectivos valores
 			}
 		});
-		btnNewButton.setBounds(284, 227, 89, 23);
+		btnNewButton.setBounds(284, 315, 89, 23);
 		contentPane.add(btnNewButton);
 		
 		
@@ -169,11 +169,33 @@ public class VentanaHabitacion extends JFrame {
 		contentPane.add(precioReserva);
 		
 		JLabel lblNewLabel_3 = new JLabel("Total a pagar:");
-		lblNewLabel_3.setBounds(229, 191, 97, 14);
+		lblNewLabel_3.setBounds(229, 279, 97, 14);
 		contentPane.add(lblNewLabel_3);
+		
+		JCheckBox chckbxServicio = new JCheckBox("Servicio4");
+		chckbxServicio.setBounds(229, 173, 97, 23);
+		contentPane.add(chckbxServicio);
+		
+		JLabel lblMostrarValorS3_1 = new JLabel("$: 0");
+		lblMostrarValorS3_1.setBounds(362, 177, 46, 14);
+		contentPane.add(lblMostrarValorS3_1);
+		
+		JLabel lblMostrarValorS3_1_1 = new JLabel("$: 0");
+		lblMostrarValorS3_1_1.setBounds(362, 203, 46, 14);
+		contentPane.add(lblMostrarValorS3_1_1);
+		
+		JCheckBox chckbxServicio_2 = new JCheckBox("Servicio5");
+		chckbxServicio_2.setBounds(229, 199, 97, 23);
+		contentPane.add(chckbxServicio_2);
+		
+		JLabel lblMostrarValorS3_1_1_1 = new JLabel("$: 0");
+		lblMostrarValorS3_1_1_1.setBounds(362, 228, 46, 14);
+		contentPane.add(lblMostrarValorS3_1_1_1);
+		
+		JCheckBox chckbxServicio_1_1 = new JCheckBox("Servicio6");
+		chckbxServicio_1_1.setBounds(229, 224, 97, 23);
+		contentPane.add(chckbxServicio_1_1);
 		
 		
 	}
-
-
 }
