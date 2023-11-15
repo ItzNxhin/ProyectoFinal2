@@ -20,7 +20,12 @@ import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import javax.swing.JCheckBox;
 import javax.swing.JButton;
-
+/**
+* Esta clase se encarga de terminar la reservación
+* Donde se eligen los servicios que se quieran añadir o quitar
+* Una vez el usuario termine detalles, se le confirma y se genera factura
+* Y por último, se guarda en el archivo de reservaciones
+*/
 public class VentanaHabitacion extends JFrame {
 
 	private static final long serialVersionUID = 1L;
