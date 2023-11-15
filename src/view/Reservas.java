@@ -37,7 +37,7 @@ public class Reservas extends JFrame {
 
 	private int cHabPresidencial= DatosHotel.nPresidencial;
 	private int cHabPremium 	= DatosHotel.nPremium;
-	private int cHabVip 	= DatosHotel.nVip;
+	private int cHabVip 		= DatosHotel.nVip;
 	private int cHabLite 		= DatosHotel.nLite;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 

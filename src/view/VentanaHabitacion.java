@@ -1,25 +1,26 @@
 package view;
 
-import java.awt.EventQueue;
-
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-
-import logic.*;
-
+import javax.swing.JCheckBox;
+import javax.swing.JButton;
 import javax.swing.JLabel;
+
 import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.temporal.ChronoUnit;
+
 import java.util.ArrayList;
-import javax.swing.JCheckBox;
-import javax.swing.JButton;
+
+
+import logic.*;
 /**
 * Esta clase se encarga de terminar la reservación
 * Donde se eligen los servicios que se quieran añadir o quitar
@@ -38,6 +39,8 @@ public class VentanaHabitacion extends JFrame {
     private double valorServicio3 = 0;
     private long dias;
 
+	private ArrayList<Services> servicios = new ArrayList<>();
+
 	LocalDate fechaInicio;
 	LocalDate fechaFin;
 
@@ -48,6 +51,10 @@ public class VentanaHabitacion extends JFrame {
 
 		fechaInicio = preReserva.getFechaInicio();
 		fechaFin 	= preReserva.getFechaFin();
+
+		//Obtener los servicios por defecto de cada de habitacion
+		ServicesReturn serviciosDefecto = new ServicesReturn();
+		servicios = new ArrayList<>(serviciosDefecto.SerPorDefecto(preReserva.getHabitacion()));
 
 	    // Calcular la diferencia entre las fechas
 	    Period periodo = Period.between(fechaInicio, fechaFin);
