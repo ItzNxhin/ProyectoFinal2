@@ -97,7 +97,6 @@ public class VentanaHabitacion extends JFrame {
 	     * CalculadoraPrecios.ValorReserva(dias, precioXnoche)
 	     * Cambiar el valor del total y del valor de la reserva
 		*/
-		
 		JLabel lblMostrarValorS1 = new JLabel("$: "+valorServicio1);
 		lblMostrarValorS1.setBounds(359, 100, 65, 14);
 		contentPane.add(lblMostrarValorS1);

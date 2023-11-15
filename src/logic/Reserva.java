@@ -2,11 +2,13 @@ package logic;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class Reserva implements Serializable{
 	//Variables de instancia necesarias
 	private Usuario usaurio;
 	private HabAbstract habitacion;
+	private ArrayList<String> services = new ArrayList<>();
 	private LocalDate fechaInicio;
 	private LocalDate fechaFin;
 	
