@@ -140,17 +140,6 @@ public class Reservas extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-		//Pruebas en consolas, ignorar y borrar al terminar esto
-		System.out.println(cHabPresidencial);
-		System.out.println(cHabPremium);
-		System.out.println(cHabVip);
-		System.out.println(cHabLite);
-
-		System.out.println(fechaInicio);
-		System.out.println(fechaFin);
-		System.out.println(entrada);
-		System.out.println(salida);
-
 		JButton btnReservar = new JButton("Realizar reserva");
 		btnReservar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

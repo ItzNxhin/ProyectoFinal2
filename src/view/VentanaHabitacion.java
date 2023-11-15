@@ -67,6 +67,7 @@ public class VentanaHabitacion extends JFrame {
 		lblNewLabel.setBounds(10, 11, 238, 33);
 		contentPane.add(lblNewLabel);
 		
+		//Colocar condicional para el tipo de habitacion!!!!
 		JLabel Imagen = new JLabel();
 		Imagen.setBounds(10, 55, 191, 138);
 		ImageIcon img1 = new ImageIcon("src/img/room1.jpg");
@@ -76,11 +77,11 @@ public class VentanaHabitacion extends JFrame {
 		Imagen.setIcon(finalImage);
 		contentPane.add(Imagen);
 		
-		JLabel lblNewLabel_1 = new JLabel("FechaCheck-In:");
+		JLabel lblNewLabel_1 = new JLabel("FechaCheck-In: "+fechaInicio);
 		lblNewLabel_1.setBounds(229, 35, 179, 14);
 		contentPane.add(lblNewLabel_1);
 		
-		JLabel lblNewLabel_2 = new JLabel("FechaCheck-Out:");
+		JLabel lblNewLabel_2 = new JLabel("FechaCheck-Out: "+fechaFin);
 		lblNewLabel_2.setBounds(229, 55, 179, 14);
 		contentPane.add(lblNewLabel_2);
 		
