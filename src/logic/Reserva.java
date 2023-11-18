@@ -4,21 +4,24 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+@SuppressWarnings("serial")
 public class Reserva implements Serializable{
 	//Variables de instancia necesarias
-	private Usuario usaurio;
+	private Usuario usuario;
 	private HabAbstract habitacion;
 	private ArrayList<String> services = new ArrayList<>();
 	private LocalDate fechaInicio;
 	private LocalDate fechaFin;
 	
+	CalculadoraPrecios precios = new CalculadoraPrecios();
+	
 
 	//Metodos getter y setter
 	public Usuario getUsaurio() {
-		return usaurio;
+		return usuario;
 	}
 	public void setUsaurio(Usuario usaurio) {
-		this.usaurio = usaurio;
+		this.usuario = usaurio;
 	}
 	public HabAbstract getHabitacion() {
 		return habitacion;
@@ -46,12 +49,14 @@ public class Reserva implements Serializable{
 	}
 	
 	public Reserva(Usuario usuario, HabAbstract habitacion, LocalDate fechaInicio, LocalDate fechaFin) {
-		this.usaurio = usuario;
+		this.usuario = usuario;
 		this.habitacion = habitacion;
 		this.fechaInicio = fechaInicio;
 		this.fechaFin = fechaFin;
 		
 	}
+	
+
 
 	
 }

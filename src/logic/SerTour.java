@@ -14,5 +14,4 @@ public class SerTour implements Services {
         throw new UnsupportedOperationException("Unimplemented method 'getPrecioSer'");
     }
     
-    
 }

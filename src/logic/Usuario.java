@@ -11,8 +11,10 @@ public class Usuario implements Serializable {
 	private String nombreUsuario;
 	private String email;
 	private String contrasena;
-
-	public Usuario(){}
+	
+	public Usuario() {
+		
+	}
 
 	// Metodo constructor por agumentos
 	public Usuario(String nombreUsuario, String email, String contrasena) {

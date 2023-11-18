@@ -36,4 +36,26 @@ public class CalculadoraPrecios {
 			return defaultPrice;
 		}
 	}
+	
+	public static double ValorServicio4 (boolean selected, long dias) {
+		double defaultPrice = 0;
+		if (selected) {
+			double valorServicio = 20;
+			double precio = dias*valorServicio;
+			return precio;
+		}else {
+			return defaultPrice;
+		}
+	}
+	
+	public static double ValorServicio5 (boolean selected, long dias) {
+		double defaultPrice = 0;
+		if (selected) {
+			double valorServicio = 25;
+			double precio = dias*valorServicio;
+			return precio;
+		}else {
+			return defaultPrice;
+		}
+	}
 }
