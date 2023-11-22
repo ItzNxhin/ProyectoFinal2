@@ -20,7 +20,4 @@ public class HabLite extends HabAbstract{
     public int getPersonas(){
         return personas;
     }
-
-    
-    
 }

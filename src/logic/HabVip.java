@@ -1,7 +1,7 @@
 package logic;
 
 public class HabVip extends HabAbstract{
-    private String nombre = "Habitacion Lite";
+    private String nombre = "Habitacion Vip";
     private int personas = 3;
     private double precio = DatosHotel.pVip;
 

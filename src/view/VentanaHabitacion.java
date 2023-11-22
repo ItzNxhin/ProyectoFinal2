@@ -64,8 +64,6 @@ public class VentanaHabitacion extends JFrame {
 		preReserva.setServices(serviciosDefecto.SerPorDefecto(preReserva.getHabitacion()));
 		servicios = new ArrayList<>(serviciosDefecto.SerPorDefecto(preReserva.getHabitacion()));
 
-		
-
 		// Calcular la diferencia entre las fechas
 		@SuppressWarnings("unused")
 		Period periodo = Period.between(fechaInicio, fechaFin);
@@ -146,7 +144,6 @@ public class VentanaHabitacion extends JFrame {
 			}
 		});
 		servicio1.setBounds(229, 96, 97, 23);
-		contentPane.add(servicio1);
 
 		JCheckBox servicio2 = new JCheckBox("Buffet");
 		servicio2.addActionListener(new ActionListener() {
@@ -159,7 +156,6 @@ public class VentanaHabitacion extends JFrame {
 			}
 		});
 		servicio2.setBounds(229, 122, 97, 23);
-		contentPane.add(servicio2);
 
 		JCheckBox servicio3 = new JCheckBox("Jacuzzi");
 		servicio3.addActionListener(new ActionListener() {
@@ -172,7 +168,6 @@ public class VentanaHabitacion extends JFrame {
 			}
 		});
 		servicio3.setBounds(229, 148, 97, 23);
-		contentPane.add(servicio3);
 
 		JCheckBox servicio4 = new JCheckBox("Lavanderia");
 		servicio4.addActionListener(new ActionListener() {
@@ -186,7 +181,6 @@ public class VentanaHabitacion extends JFrame {
 		});
 
 		servicio4.setBounds(229, 173, 97, 23);
-		contentPane.add(servicio4);
 
 		JCheckBox servicio5 = new JCheckBox("Tour");
 		servicio5.addActionListener(new ActionListener() {
@@ -200,6 +194,30 @@ public class VentanaHabitacion extends JFrame {
 		});
 
 		servicio5.setBounds(229, 199, 97, 23);
+		
+		//For para dependiendo del la habitacion que se haya seleccionado, se mire cuales tiene disponibles, y se seleccione
+		for(Services select : servicios){
+			if(select.getNombreSer() == "Barra"){
+				servicio1.setSelected(true);
+			}
+			else if(select.getNombreSer() == "Buffet"){
+				servicio2.setSelected(true);
+			}
+			else if(select.getNombreSer() == "Jacuzzi"){
+				servicio3.setSelected(true);
+			}
+			else if(select.getNombreSer() == "Lavanderia"){
+				servicio4.setSelected(true);
+			}
+			else if(select.getNombreSer() == "Tour"){
+				servicio5.setSelected(true);
+			}
+		}
+
+		contentPane.add(servicio1);
+		contentPane.add(servicio2);
+		contentPane.add(servicio3);
+		contentPane.add(servicio4);
 		contentPane.add(servicio5);
 
 		JButton btnNewButton = new JButton("Pagar");

@@ -2,16 +2,23 @@ package logic;
 
 public class SerBuffet implements Services{
 
-    @Override
+    private String nombreSer = "Buffet";
+    private double precioSer = DatosHotel.sbuffet;
+
     public String getNombreSer() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getNombreSer'");
+        return this.nombreSer;
     }
 
-    @Override
-    public int getPrecioSer() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getPrecioSer'");
+    public void setNombreSer(String nombreSer) {
+        this.nombreSer = nombreSer;
+    }
+
+    public double getPrecioSer() {
+        return this.precioSer;
+    }
+
+    public void setPrecioSer(double precioSer) {
+        this.precioSer = precioSer;
     }
     
 }
