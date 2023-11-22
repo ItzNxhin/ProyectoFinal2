@@ -9,7 +9,7 @@ public class CalculadoraPrecios {
 	public static double ValorServicio1 (boolean selected, long dias) {
 		double defaultPrice = 0;
 		if (selected) {
-			double valorServicio = 12;
+			double valorServicio = DatosHotel.sbarra;
 			double precio = dias*valorServicio;
 			return precio;
 		}else {

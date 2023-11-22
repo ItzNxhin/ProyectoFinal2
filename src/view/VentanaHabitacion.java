@@ -235,9 +235,7 @@ public class VentanaHabitacion extends JFrame {
 					pago.setVisible(true);
 					dispose();
 				}
-
 			}
-
 		});
 		btnNewButton.setBounds(110, 315, 89, 23);
 		contentPane.add(btnNewButton);
