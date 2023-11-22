@@ -46,7 +46,6 @@ public class VentanaHabitacion extends JFrame {
 	private long dias;
 	private JLabel lblMostrarTotal;
 
-	@SuppressWarnings("unused")
 	private ArrayList<Services> servicios = new ArrayList<>();
 
 	LocalDate fechaInicio;
@@ -62,7 +61,10 @@ public class VentanaHabitacion extends JFrame {
 
 		// Obtener los servicios por defecto de cada de habitacion
 		ServicesReturn serviciosDefecto = new ServicesReturn();
+		preReserva.setServices(serviciosDefecto.SerPorDefecto(preReserva.getHabitacion()));
 		servicios = new ArrayList<>(serviciosDefecto.SerPorDefecto(preReserva.getHabitacion()));
+
+		
 
 		// Calcular la diferencia entre las fechas
 		@SuppressWarnings("unused")

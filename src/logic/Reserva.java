@@ -9,7 +9,7 @@ public class Reserva implements Serializable{
 	//Variables de instancia necesarias
 	private Usuario usuario;
 	private HabAbstract habitacion;
-	private ArrayList<String> services = new ArrayList<>();
+	private ArrayList<Services> services = new ArrayList<>();
 	private LocalDate fechaInicio;
 	private LocalDate fechaFin;
 	
@@ -41,11 +41,17 @@ public class Reserva implements Serializable{
 	public void setFechaFin(LocalDate fechaFin) {
 		this.fechaFin = fechaFin;
 	}
+
+	public ArrayList<Services> getServices() {
+		return this.services;
+	}
+	public void setServices(ArrayList<Services> services) {
+		this.services = services;
+	}
 	
 	//Metodos constructores
 	
 	public Reserva() {
-		
 	}
 	
 	public Reserva(Usuario usuario, HabAbstract habitacion, LocalDate fechaInicio, LocalDate fechaFin) {
@@ -53,7 +59,6 @@ public class Reserva implements Serializable{
 		this.habitacion = habitacion;
 		this.fechaInicio = fechaInicio;
 		this.fechaFin = fechaFin;
-		
 	}
 	
 
