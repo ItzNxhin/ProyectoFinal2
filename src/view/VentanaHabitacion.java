@@ -50,6 +50,7 @@ public class VentanaHabitacion extends JFrame {
 
 	LocalDate fechaInicio;
 	LocalDate fechaFin;
+	private double valorReserva;
 
 	// Falta añadir el ID o el tipo de la habitacón para obtener la imagen y el
 	// precio por noche
@@ -104,7 +105,7 @@ public class VentanaHabitacion extends JFrame {
 		lblNewLabel_2.setBounds(229, 55, 179, 14);
 		contentPane.add(lblNewLabel_2);
 
-		JLabel lblMostrarValorR = new JLabel(""$: " + valorReserva");
+		JLabel lblMostrarValorR = new JLabel("$: " + valorReserva);
 		lblMostrarValorR.setBounds(359, 75, 46, 14);
 		contentPane.add(lblMostrarValorR);
 

@@ -10,20 +10,25 @@ package main;
 import view.*;
 import java.awt.EventQueue;
 
+import javax.swing.JFrame;
+
 public class Main  {
-    EventQueue.invokeLater(new Runnable() {
-	public void run() {
-		try {
-			VentanaInicio frame = new VentanaInicio();
-			frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
-			frame.setVisible(true);
-		} catch (Exception e) {
-			e.printStackTrace();
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+		public void run() {
+			try {
+				VentanaInicio frame = new VentanaInicio();
+				frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+				frame.setVisible(true);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
-	}
 	});
 }
+		
+	}
 
      
-}
+
     
