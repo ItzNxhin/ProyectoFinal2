@@ -69,6 +69,9 @@ public class VentanaHabitacion extends JFrame {
 		Period periodo = Period.between(fechaInicio, fechaFin);
 		// Obtener la cantidad de días del periodo
 		dias = ChronoUnit.DAYS.between(fechaInicio, fechaFin);
+		//Obtener el valor de la habitación
+		valorReserva = CalculadoraPrecios.ValorReserva(dias, preReserva.getHabitacion());
+		totalServicios = valorReserva;
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 388);
@@ -101,7 +104,7 @@ public class VentanaHabitacion extends JFrame {
 		lblNewLabel_2.setBounds(229, 55, 179, 14);
 		contentPane.add(lblNewLabel_2);
 
-		JLabel lblMostrarValorR = new JLabel("New label");
+		JLabel lblMostrarValorR = new JLabel(""$: " + valorReserva");
 		lblMostrarValorR.setBounds(359, 75, 46, 14);
 		contentPane.add(lblMostrarValorR);
 
@@ -199,18 +202,28 @@ public class VentanaHabitacion extends JFrame {
 		for(Services select : servicios){
 			if(select.getNombreSer() == "Barra"){
 				servicio1.setSelected(true);
+				servicio1.setEnabled(false);
+				lblMostrarValorS1.setText("Incluido");
 			}
 			else if(select.getNombreSer() == "Buffet"){
 				servicio2.setSelected(true);
+				servicio2.setEnabled(false);
+				lblMostrarValorS2.setText("Incluido");
 			}
 			else if(select.getNombreSer() == "Jacuzzi"){
 				servicio3.setSelected(true);
+				servicio3.setEnabled(false);
+				lblMostrarValorS3.setText("Incluido");
 			}
 			else if(select.getNombreSer() == "Lavanderia"){
 				servicio4.setSelected(true);
+				servicio4.setEnabled(false);
+				lblMostrarValorS4.setText("Incluido");
 			}
 			else if(select.getNombreSer() == "Tour"){
 				servicio5.setSelected(true);
+				servicio5.setEnabled(false);
+				lblMostrarValorS5.setText("Incluido");
 			}
 		}
 
@@ -259,7 +272,7 @@ public class VentanaHabitacion extends JFrame {
 	// Metodo que permite calcular el total de todos los servicios para
 	// posteriormente mostrar en un label
 	public void recalcularTotalServicios() {
-		totalServicios = valorServicio1 + valorServicio2 + valorServicio3 + valorServicio4 + valorServicio5;
+		totalServicios = valorReserva + valorServicio1 + valorServicio2 + valorServicio3 + valorServicio4 + valorServicio5;
 		lblMostrarTotal.setText(String.format("$ %.2f", totalServicios));
 	}
 	
