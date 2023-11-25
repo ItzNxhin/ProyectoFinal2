@@ -67,7 +67,7 @@ public class Saludo extends JFrame {
 		});
 		btnNewButton.setBounds(65, 190, 89, 23);
 		contentPane.add(btnNewButton);
-		
+		/*
 		JButton btnCambiarContrasea = new JButton("Cambiar contraseña");
 		btnCambiarContrasea.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -79,6 +79,9 @@ public class Saludo extends JFrame {
 		});
 		btnCambiarContrasea.setBounds(276, 190, 89, 23);
 		contentPane.add(btnCambiarContrasea);
+		 * 
+		 */
+		
 
 	}
 }

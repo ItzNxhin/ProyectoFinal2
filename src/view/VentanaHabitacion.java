@@ -20,6 +20,9 @@ import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 
 import logic.*;
+import java.awt.Color;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 /**
  * Esta clase se encarga de terminar la reservación Donde se eligen los
@@ -70,42 +73,38 @@ public class VentanaHabitacion extends JFrame {
 		totalServicios = valorReserva;
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 590, 388);
+		setBounds(100, 100, 1280, 720);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-		JLabel lblNewLabel = new JLabel("Hola usuario: " + current.getNombreUsuario());
-		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblNewLabel.setBounds(10, 11, 238, 33);
-		contentPane.add(lblNewLabel);
+		JLabel lblPre = new JLabel("");
+		lblPre.setBounds(616, 217, 615, 407);
 
-		// Colocar condicional para el tipo de habitacion!!!!
-		JLabel Imagen = new JLabel();
-		Imagen.setBounds(10, 55, 191, 138);
-		ImageIcon img1 = new ImageIcon("src/img/room1.jpg");
-		Image imgIns = img1.getImage();
-		Image newImg = imgIns.getScaledInstance(Imagen.getWidth(), Imagen.getHeight(), Image.SCALE_SMOOTH);
-		ImageIcon finalImage = new ImageIcon(newImg);
-		Imagen.setIcon(finalImage);
-		contentPane.add(Imagen);
-
-		JLabel lblNewLabel_1 = new JLabel("FechaCheck-In: " + fechaInicio);
-		lblNewLabel_1.setBounds(229, 35, 179, 14);
+		JLabel lblNewLabel_1 = new JLabel("Fecha Check-In: " + fechaInicio);
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 20));
+		lblNewLabel_1.setForeground(new Color(255, 255, 255));
+		lblNewLabel_1.setBounds(79, 195, 380, 33);
 		contentPane.add(lblNewLabel_1);
 
-		JLabel lblNewLabel_2 = new JLabel("FechaCheck-Out: " + fechaFin);
-		lblNewLabel_2.setBounds(229, 55, 179, 14);
+		JLabel lblNewLabel_2 = new JLabel("Fecha Check-Out: "+fechaFin);
+		lblNewLabel_2.setForeground(new Color(255, 255, 255));
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 20));
+		lblNewLabel_2.setBounds(79, 239, 380, 33);
 		contentPane.add(lblNewLabel_2);
 
-		JLabel lblMostrarValorR = new JLabel("$: " + valorReserva);
-		lblMostrarValorR.setBounds(359, 75, 128, 14);
+		JLabel lblMostrarValorR = new JLabel(" $ "+preReserva.getHabitacion().getPrecio());
+		lblMostrarValorR.setForeground(new Color(255, 255, 255));
+		lblMostrarValorR.setFont(new Font("Arvo", Font.ITALIC, 20));
+		lblMostrarValorR.setBounds(405, 550, 169, 33);
 		contentPane.add(lblMostrarValorR);
 
-		lblMostrarTotal = new JLabel("");
-		lblMostrarTotal.setBounds(359, 279, 46, 14);
+		lblMostrarTotal = new JLabel("0.0");
+		lblMostrarTotal.setFont(new Font("Arvo", Font.ITALIC, 20));
+		lblMostrarTotal.setForeground(new Color(255, 255, 255));
+		lblMostrarTotal.setBounds(405, 605, 169, 33);
 		contentPane.add(lblMostrarTotal);
 
 		/*
@@ -113,78 +112,144 @@ public class VentanaHabitacion extends JFrame {
 		 * total y del valor de la reserva
 		 */
 		JLabel lblMostrarValorS1 = new JLabel("$: " + valorServicio1);
-		lblMostrarValorS1.setBounds(359, 100, 128, 14);
+		lblMostrarValorS1.setFont(new Font("Arvo", Font.ITALIC, 20));
+		lblMostrarValorS1.setForeground(new Color(255, 255, 255));
+		lblMostrarValorS1.setBounds(405, 388, 128, 23);
 		contentPane.add(lblMostrarValorS1);
 
 		JLabel lblMostrarValorS2 = new JLabel("$: " + valorServicio2);
-		lblMostrarValorS2.setBounds(359, 126, 128, 14);
+		lblMostrarValorS2.setForeground(new Color(255, 255, 255));
+		lblMostrarValorS2.setFont(new Font("Arvo", Font.ITALIC, 20));
+		lblMostrarValorS2.setBounds(405, 288, 128, 23);
 		contentPane.add(lblMostrarValorS2);
 
 		JLabel lblMostrarValorS3 = new JLabel("$: " + valorServicio3);
-		lblMostrarValorS3.setBounds(362, 152, 125, 14);
+		lblMostrarValorS3.setFont(new Font("Arvo", Font.ITALIC, 20));
+		lblMostrarValorS3.setForeground(new Color(255, 255, 255));
+		lblMostrarValorS3.setBounds(405, 439, 125, 27);
 		contentPane.add(lblMostrarValorS3);
 
 		JLabel lblMostrarValorS4 = new JLabel("$: " + valorServicio4);
-		lblMostrarValorS4.setBounds(362, 177, 125, 14);
+		lblMostrarValorS4.setFont(new Font("Arvo", Font.ITALIC, 20));
+		lblMostrarValorS4.setForeground(new Color(255, 255, 255));
+		lblMostrarValorS4.setBounds(405, 338, 125, 23);
 		contentPane.add(lblMostrarValorS4);
 
 		JLabel lblMostrarValorS5 = new JLabel("$: " + valorServicio5);
-		lblMostrarValorS5.setBounds(362, 203, 125, 14);
+		lblMostrarValorS5.setForeground(new Color(255, 255, 255));
+		lblMostrarValorS5.setFont(new Font("Arvo", Font.ITALIC, 20));
+		lblMostrarValorS5.setBounds(405, 484, 125, 23);
 		contentPane.add(lblMostrarValorS5);
 
 		JCheckBox servicio1 = new JCheckBox("Barra Libre");
+		servicio1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				ImageIcon prev = new ImageIcon(VentanaHabitacion.class.getResource("/img/serBarraLibre.jpeg"));
+				Image preImg = prev.getImage();
+				Image prescaled = preImg.getScaledInstance(lblPre.getWidth(), lblPre.getHeight(), Image.SCALE_SMOOTH);
+				ImageIcon imgFinal1 = new ImageIcon(prescaled);
+				lblPre.setIcon(imgFinal1);
+				contentPane.add(lblPre);	
+				getLayeredPane().add(lblPre, Integer.valueOf(1));
+			}
+		});
 		servicio1.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				servicios.add(new SerBarraLibre());
 				servicio1Seleccionado = servicio1.isSelected();
 				valorServicio1 = CalculadoraPrecios.ValorServicio1(servicio1Seleccionado, dias);
 				lblMostrarValorS1.setText("$: " + valorServicio1);
 				recalcularTotalServicios();
 			}
 		});
-		servicio1.setBounds(229, 96, 97, 23);
+		servicio1.setBounds(79, 388, 22, 23);
 
 		JCheckBox servicio2 = new JCheckBox("Buffet");
+		servicio2.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				ImageIcon prev = new ImageIcon(Factura.class.getResource("/img/serBuffet.jpg"));
+				Image preImg = prev.getImage();
+				Image prescaled = preImg.getScaledInstance(lblPre.getWidth(), lblPre.getHeight(), Image.SCALE_SMOOTH);
+				ImageIcon imgFinal1 = new ImageIcon(prescaled);
+				lblPre.setIcon(imgFinal1);
+				contentPane.add(lblPre);	
+				getLayeredPane().add(lblPre, Integer.valueOf(1));
+			}
+		});
 		servicio2.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				servicios.add(new SerBuffet());
 				servicio2Seleccionado = servicio2.isSelected();
 				valorServicio2 = CalculadoraPrecios.ValorServicio2(servicio2Seleccionado, dias);
 				lblMostrarValorS2.setText("$: " + valorServicio2);
 				recalcularTotalServicios();
 			}
 		});
-		servicio2.setBounds(229, 122, 97, 23);
+		servicio2.setBounds(79, 288, 22, 23);
 
 		JCheckBox servicio3 = new JCheckBox("Jacuzzi");
+		servicio3.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				ImageIcon prev = new ImageIcon(VentanaHabitacion.class.getResource("/img/serJacuzzi.jpg"));
+				Image preImg = prev.getImage();
+				Image prescaled = preImg.getScaledInstance(lblPre.getWidth(), lblPre.getHeight(), Image.SCALE_SMOOTH);
+				ImageIcon imgFinal1 = new ImageIcon(prescaled);
+				lblPre.setIcon(imgFinal1);
+				contentPane.add(lblPre);	
+				getLayeredPane().add(lblPre, Integer.valueOf(1));
+			}
+		});
 		servicio3.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				servicios.add(new SerJacuzzi());
 				servicio3Seleccionado = servicio3.isSelected();
 				valorServicio3 = CalculadoraPrecios.ValorServicio3(servicio3Seleccionado, dias);
 				lblMostrarValorS3.setText("$: " + valorServicio3);
 				recalcularTotalServicios();
 			}
 		});
-		servicio3.setBounds(229, 148, 97, 23);
+		servicio3.setBounds(79, 439, 22, 23);
 
 		JCheckBox servicio4 = new JCheckBox("Lavanderia");
+		servicio4.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				ImageIcon prev = new ImageIcon(VentanaHabitacion.class.getResource("/img/serLavanderia.jpg"));
+				Image preImg = prev.getImage();
+				Image prescaled = preImg.getScaledInstance(lblPre.getWidth(), lblPre.getHeight(), Image.SCALE_SMOOTH);
+				ImageIcon imgFinal1 = new ImageIcon(prescaled);
+				lblPre.setIcon(imgFinal1);
+				contentPane.add(lblPre);	
+				getLayeredPane().add(lblPre, Integer.valueOf(1));	
+			}
+		});
 		servicio4.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				servicios.add(new SerLavanderia());
 				servicio4Seleccionado = servicio4.isSelected();
 				valorServicio4 = CalculadoraPrecios.ValorServicio4(servicio4Seleccionado, dias);
 				lblMostrarValorS4.setText("$: " + valorServicio4);
 				recalcularTotalServicios();
 			}
 		});
-		servicio4.setBounds(229, 173, 97, 23);
+		servicio4.setBounds(79, 338, 22, 23);
 
 		JCheckBox servicio5 = new JCheckBox("Tour");
+		servicio5.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				ImageIcon prev = new ImageIcon(VentanaHabitacion.class.getResource("/img/serTour.jpeg"));
+				Image preImg = prev.getImage();
+				Image prescaled = preImg.getScaledInstance(lblPre.getWidth(), lblPre.getHeight(), Image.SCALE_SMOOTH);
+				ImageIcon imgFinal1 = new ImageIcon(prescaled);
+				lblPre.setIcon(imgFinal1);
+				contentPane.add(lblPre);	
+				getLayeredPane().add(lblPre, Integer.valueOf(1));
+			}
+		});
 		servicio5.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -192,11 +257,9 @@ public class VentanaHabitacion extends JFrame {
 				valorServicio5 = CalculadoraPrecios.ValorServicio5(servicio5Seleccionado, dias);
 				lblMostrarValorS5.setText("$: " + valorServicio5);
 				recalcularTotalServicios();
-
-			
 			}
 		});
-		servicio5.setBounds(229, 199, 97, 23);
+		servicio5.setBounds(79, 484, 22, 23);
 		
 		//For para dependiendo del la habitacion que se haya seleccionado, se mire cuales tiene disponibles, y se seleccione
 		for(Services select : servicios){
@@ -227,20 +290,40 @@ public class VentanaHabitacion extends JFrame {
 			}
 		}
 
+		servicio1.setOpaque(false);
+		servicio2.setOpaque(false);
+		servicio3.setOpaque(false);
+		servicio4.setOpaque(false);
+		servicio5.setOpaque(false);
 		contentPane.add(servicio1);
 		contentPane.add(servicio2);
 		contentPane.add(servicio3);
 		contentPane.add(servicio4);
 		contentPane.add(servicio5);
 
-		JButton btnNewButton = new JButton("Pagar");
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton btnCancelar = new JButton("CANCELAR");
+		btnCancelar.setForeground(new Color(255, 0, 0));
+		btnCancelar.setFont(new Font("Arvo", Font.BOLD, 18));
+		btnCancelar.setBackground(new Color(255, 205, 8));
+		btnCancelar.setBounds(141, 637, 160, 33);
+		contentPane.add(btnCancelar);
+
+		JButton btnPrueba = new JButton("PAGAR");
+		btnPrueba.setForeground(new Color(0, 0, 0));
+		btnPrueba.setBackground(new Color(255, 205, 8));
+		btnPrueba.setFont(new Font("Arvo", Font.BOLD, 18));
+		btnPrueba.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (preReserva.getHabitacion() == null) {
 					JOptionPane.showMessageDialog(null,
 							"Seleccione el tipo de habitación que va a reservar antes de continuar", "Habitacion",
 							JOptionPane.INFORMATION_MESSAGE);
 				} else {
+					if (servicio1.isSelected() && servicio1.isEnabled()) servicios.add(new SerBarraLibre());
+					if (servicio2.isSelected() && servicio2.isEnabled()) servicios.add(new SerBuffet());
+					if (servicio3.isSelected() && servicio3.isEnabled()) servicios.add(new SerJacuzzi());
+					if (servicio4.isSelected() && servicio4.isEnabled()) servicios.add(new SerLavanderia());
+					if (servicio5.isSelected() && servicio5.isEnabled()) servicios.add(new SerTour());
 					preReserva.setServices(servicios);
 					preReserva.setFechaInicio(fechaInicio);
 					preReserva.setPrecioReserva(valorReserva);
@@ -252,22 +335,18 @@ public class VentanaHabitacion extends JFrame {
 				}
 			}
 		});
-		btnNewButton.setBounds(110, 315, 89, 23);
-		contentPane.add(btnNewButton);
+		btnPrueba.setBounds(385, 637, 128, 33);
+		contentPane.add(btnPrueba);
 
-		JLabel precioReserva = new JLabel("Valor de reserva:");
-		precioReserva.setBounds(229, 75, 97, 14);
-		contentPane.add(precioReserva);
-
-		JLabel lblNewLabel_3 = new JLabel("Total a pagar:");
-		lblNewLabel_3.setBounds(229, 279, 244, 14);
-		contentPane.add(lblNewLabel_3);
-
-		// Agregue este boton por que me parecería importante que se puedan agregar mas
-		// de una habitacion que se desee reservar pero de momento no hace nada
-		JButton btnAgregarHab = new JButton("Agregar otra habitación");
-		btnAgregarHab.setBounds(214, 315, 147, 23);
-		contentPane.add(btnAgregarHab);
+		JLabel lblfondo = new JLabel("");
+		lblfondo.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblfondo.setBounds(0, 0, 1264, 681);
+		ImageIcon factura = new ImageIcon(VentanaHabitacion.class.getResource("/img/imgVentanaHab.png"));
+        Image facturaIcon = factura.getImage();
+        Image facturaScaled = facturaIcon.getScaledInstance(lblfondo.getWidth(), lblfondo.getHeight(), Image.SCALE_SMOOTH);
+        ImageIcon imgFinal = new ImageIcon(facturaScaled);
+        lblfondo.setIcon(imgFinal);
+		contentPane.add(lblfondo);	
 
 	}
 

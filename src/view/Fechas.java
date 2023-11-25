@@ -2,13 +2,15 @@ package view;
 
 //Libreias
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
 import java.awt.event.ActionListener;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 
 import java.io.FileNotFoundException;
@@ -18,6 +20,8 @@ import com.toedter.calendar.JDateChooser;
 
 
 import logic.Usuario;
+import java.awt.Color;
+import java.awt.Font;
 
 public class Fechas extends JFrame  {
 
@@ -33,25 +37,36 @@ public class Fechas extends JFrame  {
 	public Fechas(Usuario current) {
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 1280, 720);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setVisible(true);
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		
+		JButton btnCancelar = new JButton("CANCELAR");
+		btnCancelar.setForeground(new Color(255, 0, 0));
+		btnCancelar.setFont(new Font("Arvo", Font.BOLD, 18));
+		btnCancelar.setBackground(new Color(255, 205, 8));
+		btnCancelar.setBounds(650, 570, 160, 54);
+		contentPane.add(btnCancelar);
 
 		//Fechas Entrada y salida
 		JDateChooser dateEntrada = new JDateChooser();
-		dateEntrada.setBounds(93, 103, 160, 20);
+		dateEntrada.setForeground(new Color(0, 0, 0));
+		dateEntrada.setBounds(881, 388, 300, 37);
 		contentPane.add(dateEntrada);
 		
 		JDateChooser dateSalida = new JDateChooser();
-		dateSalida.setBounds(93, 134, 160, 20);
+		dateSalida.setBounds(881, 473, 300, 37);
 		contentPane.add(dateSalida);
 
 		//Boton para reservar
-		JButton btnPrueba = new JButton("Prueba");
+		JButton btnPrueba = new JButton("SIGUIENTE");
+		btnPrueba.setForeground(new Color(0, 0, 0));
+		btnPrueba.setBackground(new Color(255, 205, 8));
+		btnPrueba.setFont(new Font("Arvo", Font.BOLD, 18));
 		btnPrueba.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(dateEntrada.getDate().after(dateSalida.getDate())){
@@ -72,9 +87,17 @@ public class Fechas extends JFrame  {
 				}
 			}
 		});
-		btnPrueba.setHorizontalAlignment(SwingConstants.RIGHT);
-		btnPrueba.setBounds(142, 189, 89, 23);
+		btnPrueba.setBounds(991, 570, 160, 54);
 		contentPane.add(btnPrueba);
+
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setBounds(0, 0, 1264, 681);
+		ImageIcon factura = new ImageIcon(Fechas.class.getResource("/img/fechas.png"));
+        Image facturaIcon = factura.getImage();
+        Image facturaScaled = facturaIcon.getScaledInstance(lblNewLabel.getWidth(), lblNewLabel.getHeight(), Image.SCALE_SMOOTH);
+        ImageIcon imgFinal = new ImageIcon(facturaScaled);
+        lblNewLabel.setIcon(imgFinal);
+		contentPane.add(lblNewLabel);	
 		
 	}
 }

@@ -124,8 +124,6 @@ public class Pago extends JFrame {
 						Factura factura = new Factura(current, reserva, textNombre.getText());
 						factura.setVisible(true);
 						
-
-						
 						try {
 							fechas = new ArrayList<>(archFExistentes.leer());
 						} catch (ClassNotFoundException | IOException e1) {

@@ -21,7 +21,6 @@ public class Factura extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private HabAbstract habitacion;
 	private long dias;
 	private LocalDate fechaInicio;
 	private LocalDate fechaFin;
@@ -47,19 +46,12 @@ public class Factura extends JFrame {
 		fechaInicio = reserva.getFechaInicio();
 		fechaFin = reserva.getFechaFin();
 		dias = ChronoUnit.DAYS.between(fechaInicio, fechaFin);
-
-		
-
-		dias = dias*1;
-		
-
-		
 		
 		//Fechas
 		JLabel lblCheckOut = new JLabel(""+fechaFin);
 		lblCheckOut.setForeground(Color.WHITE);
 		lblCheckOut.setFont(new Font("Arvo", Font.BOLD | Font.ITALIC, 12));
-		lblCheckOut.setBounds(405, 116, 46, 14);
+		lblCheckOut.setBounds(405, 116, 126, 14);
 		contentPane.add(lblCheckOut);
 		
 		JLabel lblCheackIn = new JLabel(""+fechaInicio);
@@ -146,13 +138,42 @@ public class Factura extends JFrame {
 		lblS1_1.setBounds(289, 293, 80, 14);
 		contentPane.add(lblS1_1);
 
+		//Precio total de los servicios
+		JLabel lblS3_1_1 = new JLabel();
+		lblS3_1_1.setFont(new Font("Arvo", Font.BOLD, 11));
+		lblS3_1_1.setBounds(405, 348, 127, 14);
+		contentPane.add(lblS3_1_1);
+		
+		JLabel lblS4_1_1 = new JLabel();
+		lblS4_1_1.setFont(new Font("Arvo", Font.BOLD, 11));
+		lblS4_1_1.setBounds(405, 375, 127, 14);
+		contentPane.add(lblS4_1_1);
+		
+		JLabel lblS5_1_1 = new JLabel();
+		lblS5_1_1.setFont(new Font("Arvo", Font.BOLD, 11));
+		lblS5_1_1.setBounds(405, 405, 127, 14);
+		contentPane.add(lblS5_1_1);
+		
+		JLabel lblS2_1_1 = new JLabel();
+		lblS2_1_1.setFont(new Font("Arvo", Font.BOLD, 11));
+		lblS2_1_1.setBounds(405, 321, 89, 14);
+		contentPane.add(lblS2_1_1);
+		
+		JLabel lblS1_1_1 = new JLabel();
+		lblS1_1_1.setFont(new Font("Arvo", Font.BOLD, 11));
+		lblS1_1_1.setBounds(405, 293, 80, 14);
+		contentPane.add(lblS1_1_1);
+
 		JLabel[] labelsIndex = {lblS1_2, lblS2_2, lblS3_2, lblS4_2, lblS5_2 };
 		JLabel[] labelsPrecios = {lblS1_1, lblS2_1, lblS3_1, lblS4_1, lblS5_1 };
+		JLabel[] labelsPreciosTotal = {lblS1_1_1, lblS2_1_1, lblS3_1_1, lblS4_1_1, lblS5_1_1 };
 		JLabel[] labelsNombres = {lblS1, lblS2, lblS3, lblS4, lblS5 };
+
 
 		for(Services i : reserva.getServices()){
 			labelsNombres[k].setText(i.getNombreSer());
-			labelsPrecios[k].setText(""+i.getPrecioSer());
+			labelsPrecios[k].setText("$ "+i.getPrecioSer());
+			labelsPreciosTotal[k].setText("$ "+(dias*i.getPrecioSer()));
 			contentPane.add(labelsIndex[k]);
 			k++;
 		}
@@ -161,13 +182,19 @@ public class Factura extends JFrame {
             lblS1_1.setText("Incluido");
             lblS2_1.setText("Incluido");
             lblS3_1.setText("Incluido");
+			lblS1_1_1.setText("0");
+            lblS2_1_1.setText("0");
+            lblS3_1_1.setText("0");
         }
         else if(reserva.getHabitacion().getNombre().equals("Habitacion Premium")){
             lblS1_1.setText("Incluido");
             lblS2_1.setText("Incluido");
+			lblS1_1_1.setText("0");
+            lblS2_1_1.setText("0");
         }
         else if(reserva.getHabitacion().getNombre().equals("Habitacion Vip")){
             lblS1_1.setText("Incluido");
+			lblS1_1_1.setText("0");
         }
 
 		JLabel lblHabitacion = new JLabel(reserva.getHabitacion().getNombre());
@@ -175,17 +202,17 @@ public class Factura extends JFrame {
 		lblHabitacion.setBounds(191, 244, 302, 14);
 		contentPane.add(lblHabitacion);
 		
-		JLabel lblValorReserva = new JLabel(""+reserva.getPrecioReserva());
+		JLabel lblValorReserva = new JLabel("$ "+reserva.getPrecioReserva());
 		lblValorReserva.setFont(new Font("Arvo", Font.PLAIN, 11));
 		lblValorReserva.setBounds(379,459 , 345, 14);
 		contentPane.add(lblValorReserva);
 		
-		JLabel lblValorServicios = new JLabel("" + reserva.getPrecioServicesAdd() );
+		JLabel lblValorServicios = new JLabel("$ " + reserva.getPrecioServicesAdd() );
 		lblValorServicios.setFont(new Font("Arvo", Font.PLAIN, 11));
 		lblValorServicios.setBounds(379, 486, 345, 14);
 		contentPane.add(lblValorServicios);
 		
-		JLabel lblTotalPagar = new JLabel(""+reserva.getTotal());
+		JLabel lblTotalPagar = new JLabel("$ "+reserva.getTotal());
 		lblTotalPagar.setFont(new Font("Arvo", Font.BOLD, 18));
 		lblTotalPagar.setBounds(379, 519, 202, 14);
 		contentPane.add(lblTotalPagar);
@@ -227,6 +254,5 @@ public class Factura extends JFrame {
         lblNewLabel.setIcon(imgFinal);
 		contentPane.add(lblNewLabel);	
 		
-
 	}
 }

@@ -18,7 +18,6 @@ public class Main  {
 		public void run() {
 			try {
 				VentanaInicio frame = new VentanaInicio();
-				frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
 				frame.setVisible(true);
 			} catch (Exception e) {
 				e.printStackTrace();
