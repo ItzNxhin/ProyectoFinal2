@@ -31,7 +31,7 @@ public class CambiarContra extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public CambiarContra(int id, ArrayList<Usuario> usuarios) {
+	public CambiarContra(int id, String currentPassword) {
 		Usuario current = usuarios.get(id);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -72,7 +72,7 @@ public class CambiarContra extends JFrame {
 				if (!contraseña.equals(contraseña2)) {
 					JOptionPane.showMessageDialog(null, "La confirmación de la contraseña no coincide. Por favor, inténtelo de nuevo.", "Error", JOptionPane.ERROR_MESSAGE);
 				}
-				else if (contraseña.equals(current.getContrasena())) {
+				else if (contraseña.equals(currentPassword)) {
 					JOptionPane.showMessageDialog(null, "Por favor, digite una contraseña diferente a la actual", "Error", JOptionPane.ERROR_MESSAGE);
 				}
 				else if (contraseña.equals(contraseña2)){
