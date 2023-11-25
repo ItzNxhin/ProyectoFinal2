@@ -166,32 +166,32 @@ public class Factura extends JFrame {
             lblS1_1.setText("Incluido");
         }
 
-		JLabel lblHabitacion = new JLabel("Tipo de habitación: " + "reserva.getHabitacion().getNombre()");
+		JLabel lblHabitacion = new JLabel(reserva.getHabitacion().getNombre());
 		lblHabitacion.setFont(new Font("Arvo", Font.BOLD, 11));
 		lblHabitacion.setBounds(191, 244, 302, 14);
 		contentPane.add(lblHabitacion);
 		
-		JLabel lblValorReserva = new JLabel("Valor de la reserva: $" + "reserva.getPrecioReserva()");
+		JLabel lblValorReserva = new JLabel(""+reserva.getPrecioReserva());
 		lblValorReserva.setFont(new Font("Arvo", Font.PLAIN, 11));
 		lblValorReserva.setBounds(379,459 , 345, 14);
 		contentPane.add(lblValorReserva);
 		
-		JLabel lblValorServicios = new JLabel("Valor de los servicios adicionales: $" + "reserva.getPrecioServicesAdd()" );
+		JLabel lblValorServicios = new JLabel("" + reserva.getPrecioServicesAdd() );
 		lblValorServicios.setFont(new Font("Arvo", Font.PLAIN, 11));
 		lblValorServicios.setBounds(379, 486, 345, 14);
 		contentPane.add(lblValorServicios);
 		
-		JLabel lblTotalPagar = new JLabel("Total pagado: $" + "reserva.getTotal()");
+		JLabel lblTotalPagar = new JLabel(""+reserva.getTotal());
 		lblTotalPagar.setFont(new Font("Arvo", Font.BOLD, 18));
 		lblTotalPagar.setBounds(379, 519, 202, 14);
 		contentPane.add(lblTotalPagar);
 															
-		JLabel lblNombre = new JLabel("Nombre: " + "nombre");
+		JLabel lblNombre = new JLabel(reserva.getUsaurio().getNombreUsuario());
 		lblNombre.setFont(new Font("Arvo", Font.BOLD, 14));
 		lblNombre.setBounds(35, 145, 292, 14);
 		contentPane.add(lblNombre);
 
-		JLabel lblEmail = new JLabel("Email");
+		JLabel lblEmail = new JLabel(reserva.getUsaurio().getEmail());
 		lblEmail.setFont(new Font("Arvo", Font.BOLD, 14));
 		lblEmail.setBounds(35, 183, 292, 14);
 		contentPane.add(lblEmail);

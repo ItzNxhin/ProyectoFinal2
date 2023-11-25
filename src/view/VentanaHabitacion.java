@@ -188,11 +188,12 @@ public class VentanaHabitacion extends JFrame {
 		servicio5.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				servicios.add(new SerTour());
 				servicio5Seleccionado = servicio5.isSelected();
 				valorServicio5 = CalculadoraPrecios.ValorServicio5(servicio5Seleccionado, dias);
 				lblMostrarValorS5.setText("$: " + valorServicio5);
 				recalcularTotalServicios();
+
+			
 			}
 		});
 		servicio5.setBounds(229, 199, 97, 23);
@@ -240,6 +241,7 @@ public class VentanaHabitacion extends JFrame {
 							"Seleccione el tipo de habitación que va a reservar antes de continuar", "Habitacion",
 							JOptionPane.INFORMATION_MESSAGE);
 				} else {
+					preReserva.setServices(servicios);
 					preReserva.setFechaInicio(fechaInicio);
 					preReserva.setPrecioReserva(valorReserva);
 					preReserva.setPrecioServicesAdd(valorServicio1 + valorServicio2 + valorServicio3 + valorServicio4 + valorServicio5);
