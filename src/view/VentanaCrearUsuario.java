@@ -131,7 +131,6 @@ public class VentanaCrearUsuario extends JFrame {
 		btnVolver.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				VentanaInicio frame = new VentanaInicio();
-				frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
 				frame.setVisible(true);
 				dispose();
 			}
