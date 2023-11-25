@@ -7,8 +7,6 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.JButton;
 
-import java.util.ArrayList;
-
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
@@ -21,10 +19,8 @@ public class Saludo extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 
-	public Saludo(int id, ArrayList<Usuario> usuarios) {
-		//Usuario
-		Usuario current = usuarios.get(id);
-
+	public Saludo(Usuario current) {
+		
 		//Ventana
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);

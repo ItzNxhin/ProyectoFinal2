@@ -2,10 +2,11 @@ package view;
 
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -16,15 +17,12 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
+import javax.swing.JButton;
 
 import ManejoExc.CampoVacioException;
 import ManejoExc.CorreoInvalidoException;
 import data.GestorArchivo;
 import logic.Usuario;
-
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
 public class VentanaCrearUsuario extends JFrame {
 

@@ -12,9 +12,9 @@ public class Reserva implements Serializable{
 	private ArrayList<Services> services = new ArrayList<>();
 	private LocalDate fechaInicio;
 	private LocalDate fechaFin;
-	
-	CalculadoraPrecios precios = new CalculadoraPrecios();
-	
+	private double precioReserva;
+	private double precioServicesAdd;
+	private double total;
 
 	//Metodos getter y setter
 	public Usuario getUsaurio() {
@@ -47,6 +47,30 @@ public class Reserva implements Serializable{
 	}
 	public void setServices(ArrayList<Services> services) {
 		this.services = services;
+	}
+	
+	public double getPrecioReserva() {
+		return this.precioReserva;
+	}
+
+	public void setPrecioReserva(double precioReserva) {
+		this.precioReserva = precioReserva;
+	}
+
+	public double getPrecioServicesAdd() {
+		return this.precioServicesAdd;
+	}
+
+	public void setPrecioServicesAdd(double precioServicesAdd) {
+		this.precioServicesAdd = precioServicesAdd;
+	}
+
+	public double getTotal() {
+		return this.total;
+	}
+
+	public void setTotal(double total) {
+		this.total = total;
 	}
 	
 	//Metodos constructores

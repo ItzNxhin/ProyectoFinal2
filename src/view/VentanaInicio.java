@@ -40,7 +40,7 @@ public class VentanaInicio extends JFrame {
 	public VentanaInicio() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-		setBounds(100, 100, screenSize.width, 1020);
+		setBounds(100, 100, 1415, 639);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -63,7 +63,7 @@ public class VentanaInicio extends JFrame {
 		txtContra.setOpaque(false);
         // Establecer el borde con color amarillo
         txtContra.setBorder(new LineBorder(new Color(255, 204, 0), 1));
-		txtContra.setBounds(237, 665, 227, 25);
+		txtContra.setBounds(237, 472, 227, 25);
 		contentPane.add(txtContra);
 
 		txtEmail = new JTextField();
@@ -74,7 +74,7 @@ public class VentanaInicio extends JFrame {
         txtEmail.setOpaque(false);
         // Establecer el borde con color amarillo
         txtEmail.setBorder(new LineBorder(new Color(255, 204, 0), 1));
-		txtEmail.setBounds(165, 615, 299, 32);
+		txtEmail.setBounds(165, 422, 299, 32);
 		contentPane.add(txtEmail);
 		
 		btnLogin = new JButton("Iniciar Sesión");
@@ -101,7 +101,7 @@ public class VentanaInicio extends JFrame {
 		});
 		btnLogin.setFont(new Font("Tahoma", Font.BOLD, 30));
 		btnLogin.setBackground(new Color(255, 204, 0));
-		btnLogin.setBounds(158, 713, 386, 51);
+		btnLogin.setBounds(158, 520, 386, 51);
 		contentPane.add(btnLogin);
 		
 		JButton btnCrear = new JButton("Crear");
@@ -115,7 +115,7 @@ public class VentanaInicio extends JFrame {
 		});
 		btnCrear.setFont(new Font("Tahoma", Font.BOLD, 15));
 		btnCrear.setBackground(new Color(255, 204, 0));
-		btnCrear.setBounds(365, 819, 179, 39);
+		btnCrear.setBounds(868, 532, 179, 39);
 		contentPane.add(btnCrear);
 		
 		

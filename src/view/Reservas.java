@@ -32,9 +32,6 @@ public class Reservas extends JFrame {
 	private ReservasExistentes archFExistentes = new ReservasExistentes();
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-
-	private HabAbstract tipoHabitacionSeleccionada;
-
 	LocalDate fechaInicio;
 	LocalDate fechaFin;
 
@@ -94,7 +91,7 @@ public class Reservas extends JFrame {
 		try {
 			leer();
 			for (Reserva revisor : fechas) {
-				if (fechaInicio.isAfter(revisor.getFechaInicio()) && fechaInicio.isBefore(revisor.getFechaFin())) {
+				if (fechaInicio.isAfter(revisor.getFechaInicio()) && fechaInicio.isBefore(revisor.getFechaFin()) ) {
 					if (revisor.getHabitacion().getNombre().equals("Habitacion Presidencial")) {
 						cHabPresidencial--;
 					} else if (revisor.getHabitacion().getNombre().equals("Habitacion Premium")) {
@@ -117,6 +114,30 @@ public class Reservas extends JFrame {
 						cHabLite--;
 					}
 				}
+
+				else if (fechaInicio.isEqual(revisor.getFechaInicio()) || fechaInicio.isEqual(revisor.getFechaFin())) {
+					if (revisor.getHabitacion().getNombre().equals("Habitacion Presidencial")) {
+						cHabPresidencial--;
+					} else if (revisor.getHabitacion().getNombre().equals("Habitacion Premium")) {
+						cHabPremium--;
+					} else if (revisor.getHabitacion().getNombre().equals("Habitacion Vip")) {
+						cHabVip--;
+					} else if (revisor.getHabitacion().getNombre().equals("Habitacion Lite")) {
+						cHabLite--;
+					}
+				}
+
+				else if (fechaFin.isEqual(revisor.getFechaInicio()) || fechaFin.isEqual(revisor.getFechaFin())) {
+					if (revisor.getHabitacion().getNombre().equals("Habitacion Presidencial")) {
+						cHabPresidencial--;
+					} else if (revisor.getHabitacion().getNombre().equals("Habitacion Premium")) {
+						cHabPremium--;
+					} else if (revisor.getHabitacion().getNombre().equals("Habitacion Vip")) {
+						cHabVip--;
+					} else if (revisor.getHabitacion().getNombre().equals("Habitacion Lite")) {
+						cHabLite--;
+					}
+				}
 			}
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
@@ -124,7 +145,7 @@ public class Reservas extends JFrame {
 			e.printStackTrace();
 		}
 
-		if (cHabPresidencial == 0 || cHabPremium == 0 || cHabVip == 0 || cHabLite == 0) {
+		if (cHabPresidencial == 0 && cHabPremium == 0 && cHabVip == 0 && cHabLite == 0) {
 			JOptionPane.showMessageDialog(null,
 					"Para la fecha seleccionada no tenemos ninguna habitacion disponible, lo sentimos", "Habitacion",
 					JOptionPane.INFORMATION_MESSAGE);
@@ -147,24 +168,23 @@ public class Reservas extends JFrame {
 					JOptionPane.showMessageDialog(null,
 							"Seleeccione el tipo de habitacion que va a reservar antes de continuar", "Habitacion",
 							JOptionPane.INFORMATION_MESSAGE);
-				} else if (cHabPremium == 0) {
+				} else if (reservacion.getHabitacion().getNombre().equals("Habitacion Premium") && cHabPremium == 0) {
 					JOptionPane.showMessageDialog(null,
 							"En este momentos, no tenemos habitaciones PREMIUMS disponibles, lo lamentamos, intenta con otra habitacion",
 							"Habitacion", JOptionPane.INFORMATION_MESSAGE);
-				} else if (cHabPresidencial == 0) {
+				} else if (reservacion .getHabitacion().getNombre().equals("Habitacion Presidencial") && cHabPresidencial == 0) {
 					JOptionPane.showMessageDialog(null,
 							"En este momentos, no tenemos habitaciones PRESIDENCIALES disponibles, lo lamentamos, intenta con otra habitacion",
 							"Habitacion", JOptionPane.INFORMATION_MESSAGE);
-				} else if (cHabVip == 0) {
+				} else if ( reservacion.getHabitacion().getNombre().equals("Habitacion Vip") && cHabVip == 0) {
 					JOptionPane.showMessageDialog(null,
 							"En este momentos, no tenemos habitaciones VIPS disponibles, lo lamentamos, intenta con otra habitacion",
 							"Habitacion", JOptionPane.INFORMATION_MESSAGE);
-				} else if (cHabLite == 0) {
+				} else if (reservacion.getHabitacion().getNombre().equals("Habitacion Lite") && cHabLite == 0) {
 					JOptionPane.showMessageDialog(null,
 							"En este momentos, no tenemos habitaciones LITES disponibles, lo lamentamos, intenta con otra habitacion",
 							"Habitacion", JOptionPane.INFORMATION_MESSAGE);
 				} else {
-					tipoHabitacionSeleccionada = reservacion.getHabitacion();
 					reservacion.setFechaInicio(fechaInicio);
 					reservacion.setFechaFin(fechaFin);
 					VentanaHabitacion continuar = new VentanaHabitacion(current, reservacion);
@@ -217,10 +237,5 @@ public class Reservas extends JFrame {
 		buttonGroup.add(rdbtnLite);
 		rdbtnLite.setBounds(272, 103, 109, 23);
 		contentPane.add(rdbtnLite);
-	}
-
-	// Método para obtener el tipo de habitación seleccionada
-	public HabAbstract getTipoHabitacionSeleccionada() {
-		return tipoHabitacionSeleccionada;
 	}
 }

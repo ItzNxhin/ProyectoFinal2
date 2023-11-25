@@ -56,7 +56,6 @@ public class VentanaHabitacion extends JFrame {
 	// precio por noche
 	public VentanaHabitacion(Usuario current, Reserva preReserva) {
 		// Operaciones de inicio de ventana
-
 		fechaInicio = preReserva.getFechaInicio();
 		fechaFin = preReserva.getFechaFin();
 
@@ -75,7 +74,7 @@ public class VentanaHabitacion extends JFrame {
 		totalServicios = valorReserva;
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 388);
+		setBounds(100, 100, 590, 388);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -106,7 +105,7 @@ public class VentanaHabitacion extends JFrame {
 		contentPane.add(lblNewLabel_2);
 
 		JLabel lblMostrarValorR = new JLabel("$: " + valorReserva);
-		lblMostrarValorR.setBounds(359, 75, 46, 14);
+		lblMostrarValorR.setBounds(359, 75, 128, 14);
 		contentPane.add(lblMostrarValorR);
 
 		lblMostrarTotal = new JLabel("");
@@ -118,29 +117,30 @@ public class VentanaHabitacion extends JFrame {
 		 * total y del valor de la reserva
 		 */
 		JLabel lblMostrarValorS1 = new JLabel("$: " + valorServicio1);
-		lblMostrarValorS1.setBounds(359, 100, 65, 14);
+		lblMostrarValorS1.setBounds(359, 100, 128, 14);
 		contentPane.add(lblMostrarValorS1);
 
 		JLabel lblMostrarValorS2 = new JLabel("$: " + valorServicio2);
-		lblMostrarValorS2.setBounds(359, 126, 46, 14);
+		lblMostrarValorS2.setBounds(359, 126, 128, 14);
 		contentPane.add(lblMostrarValorS2);
 
 		JLabel lblMostrarValorS3 = new JLabel("$: " + valorServicio3);
-		lblMostrarValorS3.setBounds(362, 152, 46, 14);
+		lblMostrarValorS3.setBounds(362, 152, 125, 14);
 		contentPane.add(lblMostrarValorS3);
 
 		JLabel lblMostrarValorS4 = new JLabel("$: " + valorServicio4);
-		lblMostrarValorS4.setBounds(362, 177, 46, 14);
+		lblMostrarValorS4.setBounds(362, 177, 125, 14);
 		contentPane.add(lblMostrarValorS4);
 
 		JLabel lblMostrarValorS5 = new JLabel("$: " + valorServicio5);
-		lblMostrarValorS5.setBounds(362, 203, 46, 14);
+		lblMostrarValorS5.setBounds(362, 203, 125, 14);
 		contentPane.add(lblMostrarValorS5);
 
 		JCheckBox servicio1 = new JCheckBox("Barra Libre");
 		servicio1.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				servicios.add(new SerBarraLibre());
 				servicio1Seleccionado = servicio1.isSelected();
 				valorServicio1 = CalculadoraPrecios.ValorServicio1(servicio1Seleccionado, dias);
 				lblMostrarValorS1.setText("$: " + valorServicio1);
@@ -153,6 +153,7 @@ public class VentanaHabitacion extends JFrame {
 		servicio2.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				servicios.add(new SerBuffet());
 				servicio2Seleccionado = servicio2.isSelected();
 				valorServicio2 = CalculadoraPrecios.ValorServicio2(servicio2Seleccionado, dias);
 				lblMostrarValorS2.setText("$: " + valorServicio2);
@@ -165,6 +166,7 @@ public class VentanaHabitacion extends JFrame {
 		servicio3.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				servicios.add(new SerJacuzzi());
 				servicio3Seleccionado = servicio3.isSelected();
 				valorServicio3 = CalculadoraPrecios.ValorServicio3(servicio3Seleccionado, dias);
 				lblMostrarValorS3.setText("$: " + valorServicio3);
@@ -177,26 +179,26 @@ public class VentanaHabitacion extends JFrame {
 		servicio4.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				servicios.add(new SerLavanderia());
 				servicio4Seleccionado = servicio4.isSelected();
 				valorServicio4 = CalculadoraPrecios.ValorServicio4(servicio4Seleccionado, dias);
 				lblMostrarValorS4.setText("$: " + valorServicio4);
 				recalcularTotalServicios();
 			}
 		});
-
 		servicio4.setBounds(229, 173, 97, 23);
 
 		JCheckBox servicio5 = new JCheckBox("Tour");
 		servicio5.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				servicios.add(new SerTour());
 				servicio5Seleccionado = servicio5.isSelected();
 				valorServicio5 = CalculadoraPrecios.ValorServicio5(servicio5Seleccionado, dias);
 				lblMostrarValorS5.setText("$: " + valorServicio5);
 				recalcularTotalServicios();
 			}
 		});
-
 		servicio5.setBounds(229, 199, 97, 23);
 		
 		//For para dependiendo del la habitacion que se haya seleccionado, se mire cuales tiene disponibles, y se seleccione
@@ -243,9 +245,10 @@ public class VentanaHabitacion extends JFrame {
 							JOptionPane.INFORMATION_MESSAGE);
 				} else {
 					preReserva.setFechaInicio(fechaInicio);
-					preReserva.setFechaFin(fechaFin);
-
-					Pago pago = new Pago(current,preReserva.getHabitacion(),preReserva,totalServicios);
+					preReserva.setPrecioReserva(valorReserva);
+					preReserva.setPrecioServicesAdd(valorServicio1 + valorServicio2 + valorServicio3 + valorServicio4 + valorServicio5);
+					preReserva.setTotal(totalServicios);
+					Pago pago = new Pago(current,preReserva);
 					pago.setVisible(true);
 					dispose();
 				}
@@ -259,7 +262,7 @@ public class VentanaHabitacion extends JFrame {
 		contentPane.add(precioReserva);
 
 		JLabel lblNewLabel_3 = new JLabel("Total a pagar:");
-		lblNewLabel_3.setBounds(229, 279, 97, 14);
+		lblNewLabel_3.setBounds(229, 279, 244, 14);
 		contentPane.add(lblNewLabel_3);
 
 		// Agregue este boton por que me parecería importante que se puedan agregar mas
@@ -276,9 +279,4 @@ public class VentanaHabitacion extends JFrame {
 		totalServicios = valorReserva + valorServicio1 + valorServicio2 + valorServicio3 + valorServicio4 + valorServicio5;
 		lblMostrarTotal.setText(String.format("$ %.2f", totalServicios));
 	}
-	
-	public double getTotalServicios() {
-		return totalServicios;
-	}
-
 }

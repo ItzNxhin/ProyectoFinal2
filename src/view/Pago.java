@@ -4,26 +4,26 @@ package view;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-
-import logic.HabAbstract;
-import logic.Reserva;
-import logic.Usuario;
-
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+
+import java.io.IOException;
+import java.util.ArrayList;
+
+import data.ReservasExistentes;
+import logic.Reserva;
+import logic.Usuario;
 
 public class Pago extends JFrame {
 	
-
-
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField textTarjetaCre;
@@ -32,28 +32,16 @@ public class Pago extends JFrame {
 	private JLabel lblCsv;
 	private String tarjeta;
 	private String cvv;
-	@SuppressWarnings("unused")
-	private Reserva reserva;
-	@SuppressWarnings("unused")
-	private HabAbstract habitacion;
-	
-	Usuario current = new Usuario();
-	Reserva reservacion  = new Reserva();
 	private JTextField textNombre;
-	
-
-
-
-	
+	private ArrayList<Reserva> fechas = new ArrayList<>();
+	private ReservasExistentes archFExistentes = new ReservasExistentes();
 
 	/**
 	 * Ventana que se encargar de solicitar los datos para el pago de la reservacion
 	 * (Tarjeta de credito/Debito)
 	 */
-	public Pago(Usuario current, HabAbstract habitacion, Reserva reserva, double totalServicios) {
-		this.current = current;
-		this.habitacion = habitacion;
-		this.reserva = reserva;
+	public Pago(Usuario current, Reserva reserva) {
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 388);
 		contentPane = new JPanel();
@@ -126,14 +114,22 @@ public class Pago extends JFrame {
 					int opcion = JOptionPane.showConfirmDialog(contentPane,
 							"¿Está seguro de realizar esta transacción?", "CONFIRMACIÓN", JOptionPane.YES_NO_OPTION);
 					if (opcion == JOptionPane.YES_OPTION) {
-						Factura factura = new Factura(current, habitacion.getNombre(), habitacion.getPrecio(), totalServicios, textNombre.getText());
+						Factura factura = new Factura(current, reserva, textNombre.getText());
 						factura.setVisible(true);
+						try {
+							fechas = new ArrayList<>(archFExistentes.leer());
+						} catch (ClassNotFoundException | IOException e1) {
+							e1.printStackTrace();
+						}
+						fechas.add(reserva);
+						try {
+							archFExistentes.guardar(fechas);
+						} catch (ClassNotFoundException | IOException e1) {
+							e1.printStackTrace();
+						}
 						dispose();
-						
 					}
-
 				}
-
 			}
 		});
 		btnPago.setBounds(139, 269, 151, 23);

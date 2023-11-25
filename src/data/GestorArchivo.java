@@ -72,7 +72,8 @@ public class GestorArchivo {
                 if (u.getEmail().equals(correo)) {
                     if (u.getContrasena().equals(contrasena)) {
                         id = i; // Inicio de sesión exitoso, se retorna la posición del usuario
-                        Saludo ventana = new Saludo(id, usuarios);
+                        Usuario current = usuarios.get(id);
+                        Saludo ventana = new Saludo(current);
                         ventana.setVisible(true);
                         return;
                     } else {

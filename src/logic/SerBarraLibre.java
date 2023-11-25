@@ -1,6 +1,6 @@
 package logic;
 
-public class SerBarraLibre implements Services {
+public class SerBarraLibre extends Services {
 
     private String nombreSer = "Barra";
     private double precioSer = DatosHotel.sbarra;

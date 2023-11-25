@@ -1,6 +1,6 @@
 package logic;
 
-public class SerJacuzzi implements Services{
+public class SerJacuzzi extends Services{
 
     private String nombreSer = "Jacuzzi";
     private double precioSer = DatosHotel.sjacuzzi;
