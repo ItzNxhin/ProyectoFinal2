@@ -71,7 +71,7 @@ public class Saludo extends JFrame {
 		JButton btnCambiarContrasea = new JButton("Cambiar contraseña");
 		btnCambiarContrasea.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				currentPassword = current.getContraseña();
+				String currentPassword = current.getContraseña();
 				CambiarContra cambiar = new CambiarContra(id, currentPassword);
 				cambiar.setVisible(true);
 				dispose();
