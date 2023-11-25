@@ -114,13 +114,14 @@ public class Pago extends JFrame {
 					int opcion = JOptionPane.showConfirmDialog(contentPane,
 							"¿Está seguro de realizar esta transacción?", "CONFIRMACIÓN", JOptionPane.YES_NO_OPTION);
 					if (opcion == JOptionPane.YES_OPTION) {
-						Factura factura = new Factura(current, reserva, textNombre.getText());
-						factura.setVisible(true);
+						//Factura factura = new Factura(current, reserva, textNombre.getText());
+						//factura.setVisible(true);
 						try {
 							fechas = new ArrayList<>(archFExistentes.leer());
 						} catch (ClassNotFoundException | IOException e1) {
 							e1.printStackTrace();
 						}
+						reserva.setUsaurio(current);
 						fechas.add(reserva);
 						try {
 							archFExistentes.guardar(fechas);

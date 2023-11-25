@@ -15,7 +15,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import java.time.LocalDate;
-import java.time.Period;
 import java.time.temporal.ChronoUnit;
 
 import java.util.ArrayList;
@@ -64,9 +63,6 @@ public class VentanaHabitacion extends JFrame {
 		preReserva.setServices(serviciosDefecto.SerPorDefecto(preReserva.getHabitacion()));
 		servicios = new ArrayList<>(serviciosDefecto.SerPorDefecto(preReserva.getHabitacion()));
 
-		// Calcular la diferencia entre las fechas
-		@SuppressWarnings("unused")
-		Period periodo = Period.between(fechaInicio, fechaFin);
 		// Obtener la cantidad de días del periodo
 		dias = ChronoUnit.DAYS.between(fechaInicio, fechaFin);
 		//Obtener el valor de la habitación
