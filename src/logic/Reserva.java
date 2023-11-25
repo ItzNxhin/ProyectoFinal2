@@ -15,6 +15,10 @@ public class Reserva implements Serializable{
 	private double precioReserva;
 	private double precioServicesAdd;
 	private double total;
+	private String TarjetaCre;
+	private String cvv;
+	private String nombreReal;
+	
 
 	//Metodos getter y setter
 	public Usuario getUsaurio() {
@@ -71,6 +75,25 @@ public class Reserva implements Serializable{
 
 	public void setTotal(double total) {
 		this.total = total;
+	}
+	
+	public String getTarjetaCre() {
+		return TarjetaCre;
+	}
+	public void setTarjetaCre(String tarjetaCre) {
+		TarjetaCre = tarjetaCre;
+	}
+	public String getCvv() {
+		return cvv;
+	}
+	public void setCvv(String cvv) {
+		this.cvv = cvv;
+	}
+	public String getNombreReal() {
+		return nombreReal;
+	}
+	public void setNombreReal(String nombreReal) {
+		this.nombreReal = nombreReal;
 	}
 	
 	//Metodos constructores

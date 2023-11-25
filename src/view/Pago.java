@@ -114,10 +114,17 @@ public class Pago extends JFrame {
 					int opcion = JOptionPane.showConfirmDialog(contentPane,
 							"¿Está seguro de realizar esta transacción?", "CONFIRMACIÓN", JOptionPane.YES_NO_OPTION);
 					if (opcion == JOptionPane.YES_OPTION) {
+
 						reserva.setUsaurio(current);
+						
+						reserva.setTarjetaCre(tarjeta);
+						reserva.setCvv(cvv);
+						reserva.setNombreReal(textNombre.getText());
 
 						Factura factura = new Factura(current, reserva, textNombre.getText());
 						factura.setVisible(true);
+						
+
 						
 						try {
 							fechas = new ArrayList<>(archFExistentes.leer());

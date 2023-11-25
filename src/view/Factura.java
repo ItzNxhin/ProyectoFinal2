@@ -51,6 +51,10 @@ public class Factura extends JFrame {
 		
 
 		dias = dias*1;
+		
+
+		
+		
 		//Fechas
 		JLabel lblCheckOut = new JLabel(""+fechaFin);
 		lblCheckOut.setForeground(Color.WHITE);
@@ -196,6 +200,20 @@ public class Factura extends JFrame {
 		lblEmail.setBounds(35, 183, 292, 14);
 		contentPane.add(lblEmail);
 		
+		
+		//Datos de las persona (Tarjeta de credito ****1234 y nombre)
+		JLabel lblNombrePago = new JLabel(reserva.getNombreReal());
+		lblNombrePago.setBounds(79, 499, 155, 14);
+		contentPane.add(lblNombrePago);
+		
+		String numeroTarjeta = reserva.getTarjetaCre();
+		int longitud = numeroTarjeta.length();
+		String ult4 = "**** **** ****" + numeroTarjeta.substring(longitud - 4);
+		
+		JLabel lblTarjetaCre = new JLabel(ult4);
+		lblTarjetaCre.setBounds(79, 482, 126, 14);
+		contentPane.add(lblTarjetaCre);
+		
 		JButton btnTerminar = new JButton("Volver a la ventana principal");
 		btnTerminar.setBounds(417, 746, 89, 23);
 		contentPane.add(btnTerminar);
@@ -208,5 +226,7 @@ public class Factura extends JFrame {
         ImageIcon imgFinal = new ImageIcon(facturaScaled);
         lblNewLabel.setIcon(imgFinal);
 		contentPane.add(lblNewLabel);	
+		
+
 	}
 }
