@@ -42,8 +42,7 @@ public class VentanaCrearUsuario extends JFrame {
 	 */
 	public VentanaCrearUsuario() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-		setBounds(100, 100, screenSize.width, 1020);
+		setBounds(100, 100, 1366, 768);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
