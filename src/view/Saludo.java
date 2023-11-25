@@ -49,6 +49,10 @@ public class Saludo extends JFrame {
 		
 		
 		contentPane.add(btnReservar);
+		
+		JButton btnNewButton = new JButton("Ver reservas (Facturas)");
+		btnNewButton.setBounds(65, 190, 89, 23);
+		contentPane.add(btnNewButton);
 
 	}
 }
