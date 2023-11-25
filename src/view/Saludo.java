@@ -53,6 +53,10 @@ public class Saludo extends JFrame {
 		JButton btnNewButton = new JButton("Ver reservas (Facturas)");
 		btnNewButton.setBounds(65, 190, 89, 23);
 		contentPane.add(btnNewButton);
+		
+		JButton btnCambiarContrasea = new JButton("Cambiar contraseña");
+		btnCambiarContrasea.setBounds(276, 190, 89, 23);
+		contentPane.add(btnCambiarContrasea);
 
 	}
 }
