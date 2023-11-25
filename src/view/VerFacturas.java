@@ -1,8 +1,11 @@
 package view;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -46,21 +49,35 @@ public class VerFacturas extends JFrame {
 		} catch (ClassNotFoundException | IOException e) {
 			e.printStackTrace();
 		}
-		
-		//Recorre todo el array de lasreservas y verifica cual reserva corresponde con cual usuario
-		for (Reserva factura : reservitas) {         
-            
+
+		int reservaCount = 1;
+
+		// Recorre todo el array de lasreservas y verifica cual reserva corresponde con
+		// cual usuario
+		for (Reserva factura : reservitas) {
 			if (current.getEmail().equals(factura.getUsaurio().getEmail())) {
-				facturasStr.append("Factura: ").append(factura.getHabitacion().getNombre()).append(", Total: ")
-						.append(factura.getTotal()).append("<br>").append("Nombre usuario:")
-						.append(current.getNombreUsuario()).append("<br>");
+				JButton btnReserva = new JButton("Reserva " + reservaCount);
+				btnReserva.setBounds(10, 10 + (reservaCount - 1) * 30, 120, 23);
+				contentPane.add(btnReserva);
+
+				// Asociar ActionListener al botón
+				btnReserva.addActionListener(new ActionListener() {
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						mostrarFactura(factura);
+					}
+				});
+
+				reservaCount++;
 			}
-
 		}
-
-		
-		lblVerFacturas.setText("<html>" + facturasStr.toString() + "</html>");
-
 	}
-
+	
+	// Método para mostrar la factura cuando se hace clic en un botón
+    private void mostrarFactura(Reserva factura) {
+        Factura facturaWindow = new Factura(factura.getUsaurio(), factura, factura.getUsaurio().getNombreUsuario());
+        facturaWindow.setVisible(true);
+        dispose();  // Cierra la ventana actual si es necesario
+    }
+	
 }
