@@ -8,6 +8,7 @@ import javax.swing.JLabel;
 import javax.swing.JButton;
 
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
 
@@ -51,6 +52,19 @@ public class Saludo extends JFrame {
 		contentPane.add(btnReservar);
 		
 		JButton btnNewButton = new JButton("Ver reservas (Facturas)");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				VerFacturas facturita = null;
+				try {
+					facturita = new VerFacturas(current);
+				} catch (ClassNotFoundException | IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				facturita.setVisible(true);
+				dispose();
+			}
+		});
 		btnNewButton.setBounds(65, 190, 89, 23);
 		contentPane.add(btnNewButton);
 		
