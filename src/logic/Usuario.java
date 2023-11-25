@@ -45,6 +45,10 @@ public class Usuario implements Serializable {
 	public void agregarReserva(Reserva reserva) {
 		reservas.add(reserva);
 	}
+	//Setters
+	public void setContrasena(String contrasena) {
+		this.contrasena = contrasena;
+	}
 
 }
 
