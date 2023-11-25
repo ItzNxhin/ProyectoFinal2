@@ -46,7 +46,7 @@ public class GestorArchivo {
 	    }
 	}
 	//El siguiente metodo se encarga de iniciar sesión 
-	public static void iniciarSesion(String correo, String contrasena) {
+	public static boolean iniciarSesion(String correo, String contrasena) {
         try {
         	int id;
             	ArrayList<Usuario> usuarios;
@@ -75,7 +75,7 @@ public class GestorArchivo {
                         Usuario current = usuarios.get(id);
                         Saludo ventana = new Saludo(current);
                         ventana.setVisible(true);
-                        return;
+                        return true;
                     } else {
                         throw new PasswordExcepcion();
                     }
@@ -87,7 +87,7 @@ public class GestorArchivo {
         } catch (UserNotFoundExcepcion e) {
             JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         } 
-        //Crear la nueva ventana
+        return false;
     }
 	//Metodo para verificar si un correo ya existen en la base de datos (Archivo serializable)
 	public static boolean existeCorreo(String correo) {
@@ -124,4 +124,39 @@ public class GestorArchivo {
             return false;
         }
     }
+	//Metodo para cambiar la contraseña
+	public static void changePassword (int id, String contraseña) {
+		try {
+	        ArrayList<Usuario> usuarios;
+	        File archivo = new File("DBUsers.ser");
+
+		//Lectura del archivo y recuperacion de los datos en el ArrayList
+	        if (archivo.exists() && archivo.length() > 0) {
+	            try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(archivo))) {
+	                usuarios = (ArrayList<Usuario>) in.readObject();
+	            } catch (IOException | ClassNotFoundException e) {
+	                e.printStackTrace();
+	                usuarios = new ArrayList<>();
+	            }
+	        } else {
+	            usuarios = new ArrayList<>();
+	        }
+		//Identifica al usuario con la sesi{on activa y cambia su contraseña
+	       Usuario current = usuarios.get(id);
+	       current.setContrasena(contraseña);
+	       JOptionPane.showMessageDialog(null, "Contraseña cambiada con éxito", "Atención",
+					JOptionPane.INFORMATION_MESSAGE);
+	       Saludo ventana = new Saludo(id, usuarios);
+           ventana.setVisible(true);
+		//Guarda el nuevo ArrayList que contiene la información del nuevo usuario y usuarios anteriores
+	        try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("DBUsers.ser"))) {
+	            out.writeObject(usuarios);
+	        } catch (IOException e) {
+	            e.printStackTrace();
+	        }
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
+	}
 }
+
