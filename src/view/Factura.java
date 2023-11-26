@@ -175,7 +175,7 @@ public class Factura extends JFrame {
 		JLabel[] labelsPreciosTotal = {lblS1_1_1, lblS2_1_1, lblS3_1_1, lblS4_1_1, lblS5_1_1 };
 		JLabel[] labelsNombres = {lblS1, lblS2, lblS3, lblS4, lblS5 };
 
-		//Ciclos que le van el precio dependiendo de los servicos en las reserva
+		//Ciclos que le van poniendo los nombres y el respectivo precio a los JLabels dependiendo de los servicos en las reserva
 		for(Services i : reserva.getServices()){
 			labelsNombres[k].setText(i.getNombreSer());
 			labelsPrecios[k].setText("$ "+i.getPrecioSer());
