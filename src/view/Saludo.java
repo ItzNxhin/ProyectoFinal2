@@ -92,12 +92,10 @@ public class Saludo extends JFrame {
 		btnCambiarContrasea.setBackground(new Color(208, 169, 51));
 		btnCambiarContrasea.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				/*
-				String currentPassword = current.getContraseña();
-				CambiarContra cambiar = new CambiarContra(id, currentPassword);
+				CambiarContra cambiar = new CambiarContra(current);
 				cambiar.setVisible(true);
 				dispose();
-				*/
+				
 			}
 		});
 		btnCambiarContrasea.setBounds(0, 321, 249, 57);
