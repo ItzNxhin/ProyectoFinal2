@@ -8,7 +8,11 @@ import javax.swing.border.EmptyBorder;
 import logic.*;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 
@@ -27,10 +31,10 @@ public class Factura extends JFrame {
 	private int k = 0;
 	
 	/**
-	 * Esta ventana se encargará de mostrar la factura con los pagos totales al usuario
-	 * String tipoHabitacion, double precioHabitacion, double servicios, String nombre
-	 * 
-	 * 
+	 * Esta ventana se encargara de mostrar la factura
+	 * @param current
+	 * @param reserva
+	 * @param nombre
 	 */
 	public Factura(Usuario current, Reserva reserva, String nombre) {
 		setVisible(true);
@@ -164,12 +168,13 @@ public class Factura extends JFrame {
 		lblS1_1_1.setBounds(405, 293, 80, 14);
 		contentPane.add(lblS1_1_1);
 
+		//Listas de los anteriores JLbales
 		JLabel[] labelsIndex = {lblS1_2, lblS2_2, lblS3_2, lblS4_2, lblS5_2 };
 		JLabel[] labelsPrecios = {lblS1_1, lblS2_1, lblS3_1, lblS4_1, lblS5_1 };
 		JLabel[] labelsPreciosTotal = {lblS1_1_1, lblS2_1_1, lblS3_1_1, lblS4_1_1, lblS5_1_1 };
 		JLabel[] labelsNombres = {lblS1, lblS2, lblS3, lblS4, lblS5 };
 
-
+		//Ciclos que le van el precio dependiendo de los servicos en las reserva
 		for(Services i : reserva.getServices()){
 			labelsNombres[k].setText(i.getNombreSer());
 			labelsPrecios[k].setText("$ "+i.getPrecioSer());
@@ -241,10 +246,25 @@ public class Factura extends JFrame {
 		lblTarjetaCre.setBounds(79, 482, 126, 14);
 		contentPane.add(lblTarjetaCre);
 		
-		JButton btnTerminar = new JButton("Volver a la ventana principal");
-		btnTerminar.setBounds(417, 746, 89, 23);
-		contentPane.add(btnTerminar);
+		//Boton salri
+		JButton btnVolver = new JButton("SALIR");
+		btnVolver.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int op = JOptionPane.showConfirmDialog(null, "Seguro que quieres salir?", "SALIR", JOptionPane.YES_NO_OPTION);
+				if(op == JOptionPane.YES_OPTION){
+					Saludo frame = new Saludo(current);
+					frame.setVisible(true);
+					dispose();
+				}
+			}
+		});
+		btnVolver.setForeground(new Color(0, 0, 0));
+		btnVolver.setFont(new Font("Arvo", Font.BOLD, 18));
+		btnVolver.setBackground(new Color(255, 205, 8));
+		btnVolver.setBounds(323, 559, 160, 25);
+		contentPane.add(btnVolver);
 
+		//Fondo
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setBounds(0, 0, 541, 667);
 		ImageIcon factura = new ImageIcon(Factura.class.getResource("/img/Factura.png"));

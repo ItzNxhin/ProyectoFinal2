@@ -18,7 +18,7 @@ public class test {
         }
 
         for(Reserva i : cositas){
-            System.out.println(i.getUsaurio().getEmail() +" "+ i.getHabitacion().getNombre());
+            System.out.println(i.getUsaurio().getEmail() +" "+ i.getHabitacion().getNombre() + " " + i.getFechaInicio() +" " + i.getFechaFin() );
         }
     }
     

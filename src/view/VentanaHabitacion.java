@@ -15,14 +15,17 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import java.time.LocalDate;
+import java.time.ZoneId;
 import java.time.temporal.ChronoUnit;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 import logic.*;
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.FileNotFoundException;
 
 /**
  * Esta clase se encarga de terminar la reservación Donde se eligen los
@@ -54,8 +57,14 @@ public class VentanaHabitacion extends JFrame {
 	LocalDate fechaFin;
 	private double valorReserva;
 
-	// Falta añadir el ID o el tipo de la habitacón para obtener la imagen y el
-	// precio por noche
+	/**
+	 * Esta clase se encarga se añadir los servicios a la reserva
+	 * Donde nos muestra los servicios que la habitacion seleccionada anteriormente ya incluye
+	 * y le permite añadir al usuario añadir servicios adicionales
+	 * 
+	 * @param current  	 usuario
+	 * @param preReserva reserva
+	 */
 	public VentanaHabitacion(Usuario current, Reserva preReserva) {
 		// Operaciones de inicio de ventana
 		fechaInicio = preReserva.getFechaInicio();
@@ -72,6 +81,7 @@ public class VentanaHabitacion extends JFrame {
 		valorReserva = CalculadoraPrecios.ValorReserva(dias, preReserva.getHabitacion());
 		totalServicios = valorReserva;
 
+		//Ventana
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1280, 720);
 		contentPane = new JPanel();
@@ -83,6 +93,7 @@ public class VentanaHabitacion extends JFrame {
 		JLabel lblPre = new JLabel("");
 		lblPre.setBounds(616, 217, 615, 407);
 
+		//Aca se muestran las fechas de entrada y salida
 		JLabel lblNewLabel_1 = new JLabel("Fecha Check-In: " + fechaInicio);
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 20));
 		lblNewLabel_1.setForeground(new Color(255, 255, 255));
@@ -95,6 +106,7 @@ public class VentanaHabitacion extends JFrame {
 		lblNewLabel_2.setBounds(79, 239, 380, 33);
 		contentPane.add(lblNewLabel_2);
 
+		//Total y subtotal
 		JLabel lblMostrarValorR = new JLabel(" $ "+preReserva.getHabitacion().getPrecio());
 		lblMostrarValorR.setForeground(new Color(255, 255, 255));
 		lblMostrarValorR.setFont(new Font("Arvo", Font.ITALIC, 20));
@@ -107,9 +119,8 @@ public class VentanaHabitacion extends JFrame {
 		lblMostrarTotal.setBounds(405, 605, 169, 33);
 		contentPane.add(lblMostrarTotal);
 
-		/*
-		 * CalculadoraPrecios.ValorReserva(dias, precioXnoche) Cambiar el valor del
-		 * total y del valor de la reserva
+		/**
+		 * Aca se va mostrando el precio de los servicios añadidos que traigan por defecto
 		 */
 		JLabel lblMostrarValorS1 = new JLabel("$: " + valorServicio1);
 		lblMostrarValorS1.setFont(new Font("Arvo", Font.ITALIC, 20));
@@ -141,6 +152,10 @@ public class VentanaHabitacion extends JFrame {
 		lblMostrarValorS5.setBounds(405, 484, 125, 23);
 		contentPane.add(lblMostrarValorS5);
 
+		/*
+		 * JCheckBox para los servicios, donde se le calcula el precio que tiene el añadir el servicio para mostrarlo
+		 * Ademas permite la visualización del servicio, al momento de pasar el mouse sobre el check box
+		 */
 		JCheckBox servicio1 = new JCheckBox("Barra Libre");
 		servicio1.addMouseListener(new MouseAdapter() {
 			@Override
@@ -261,7 +276,7 @@ public class VentanaHabitacion extends JFrame {
 		});
 		servicio5.setBounds(79, 484, 22, 23);
 		
-		//For para dependiendo del la habitacion que se haya seleccionado, se mire cuales tiene disponibles, y se seleccione
+		//For para dependiendo del la habitacion que se haya seleccionado, se mire cuales tiene disponibles, se seleccione el radiobutton respectivo y se deshabilite
 		for(Services select : servicios){
 			if(select.getNombreSer() == "Barra"){
 				servicio1.setSelected(true);
@@ -290,6 +305,7 @@ public class VentanaHabitacion extends JFrame {
 			}
 		}
 
+		//Quitar el fondo de los radioButtons y añadirlos a la ventana
 		servicio1.setOpaque(false);
 		servicio2.setOpaque(false);
 		servicio3.setOpaque(false);
@@ -301,34 +317,71 @@ public class VentanaHabitacion extends JFrame {
 		contentPane.add(servicio4);
 		contentPane.add(servicio5);
 
+		//Boton volver
+		JButton btnVolver = new JButton("VOLVER");
+		btnVolver.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int op = JOptionPane.showConfirmDialog(null, "Seguro que quieres volver al paso anterior?", "VOLVER", JOptionPane.YES_NO_OPTION);
+				if(op == JOptionPane.YES_OPTION){
+					Reservas frame;
+					try {
+						frame = new Reservas(Date.from(preReserva.getFechaInicio().atStartOfDay(ZoneId.systemDefault()).toInstant())
+								,Date.from(preReserva.getFechaFin().atStartOfDay(ZoneId.systemDefault()).toInstant()),current);
+								frame.setVisible(true);
+					} catch (FileNotFoundException e1) {
+						e1.printStackTrace();
+					}
+					
+					dispose();
+				}
+			}
+		});
+		btnVolver.setForeground(new Color(0, 0, 0));
+		btnVolver.setFont(new Font("Arvo", Font.BOLD, 18));
+		btnVolver.setBackground(new Color(255, 205, 8));
+		btnVolver.setBounds(45, 637, 160, 33);
+		contentPane.add(btnVolver);
+
+		//Boton cancelar
 		JButton btnCancelar = new JButton("CANCELAR");
+		btnCancelar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int op = JOptionPane.showConfirmDialog(null, "Seguro que quieres cancelar tu proceso?", "CANCELAR", JOptionPane.YES_NO_OPTION);
+				if(op == JOptionPane.YES_OPTION){
+					Saludo frame = new Saludo(current);
+					frame.setVisible(true);
+					dispose();
+				}
+			}
+		});
 		btnCancelar.setForeground(new Color(255, 0, 0));
 		btnCancelar.setFont(new Font("Arvo", Font.BOLD, 18));
 		btnCancelar.setBackground(new Color(255, 205, 8));
-		btnCancelar.setBounds(141, 637, 160, 33);
+		btnCancelar.setBounds(215, 637, 160, 33);
 		contentPane.add(btnCancelar);
 
+		//Boton pagar
 		JButton btnPrueba = new JButton("PAGAR");
 		btnPrueba.setForeground(new Color(0, 0, 0));
 		btnPrueba.setBackground(new Color(255, 205, 8));
 		btnPrueba.setFont(new Font("Arvo", Font.BOLD, 18));
 		btnPrueba.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (preReserva.getHabitacion() == null) {
-					JOptionPane.showMessageDialog(null,
-							"Seleccione el tipo de habitación que va a reservar antes de continuar", "Habitacion",
-							JOptionPane.INFORMATION_MESSAGE);
-				} else {
+				int op = JOptionPane.showConfirmDialog(null, "Seguro que quieres continuar, una vez reservado, no se puede cancelar o cambiar detalles!?", "CANCELAR", JOptionPane.YES_NO_OPTION);
+				if(op == JOptionPane.YES_OPTION){
+					//Aca se leen todos los CheckBox, si esta habilitado y seleccionado, se le añade a la lista el respectivo servicio
 					if (servicio1.isSelected() && servicio1.isEnabled()) servicios.add(new SerBarraLibre());
 					if (servicio2.isSelected() && servicio2.isEnabled()) servicios.add(new SerBuffet());
 					if (servicio3.isSelected() && servicio3.isEnabled()) servicios.add(new SerJacuzzi());
 					if (servicio4.isSelected() && servicio4.isEnabled()) servicios.add(new SerLavanderia());
 					if (servicio5.isSelected() && servicio5.isEnabled()) servicios.add(new SerTour());
+					//Se introducen a prereserva los servicios, el precio de la reserva y de los servicios
 					preReserva.setServices(servicios);
-					preReserva.setFechaInicio(fechaInicio);
 					preReserva.setPrecioReserva(valorReserva);
 					preReserva.setPrecioServicesAdd(valorServicio1 + valorServicio2 + valorServicio3 + valorServicio4 + valorServicio5);
 					preReserva.setTotal(totalServicios);
+
+					//Se pasa al pago
 					Pago pago = new Pago(current,preReserva);
 					pago.setVisible(true);
 					dispose();
@@ -338,6 +391,7 @@ public class VentanaHabitacion extends JFrame {
 		btnPrueba.setBounds(385, 637, 128, 33);
 		contentPane.add(btnPrueba);
 
+		//Fondo
 		JLabel lblfondo = new JLabel("");
 		lblfondo.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblfondo.setBounds(0, 0, 1264, 681);
@@ -347,7 +401,6 @@ public class VentanaHabitacion extends JFrame {
         ImageIcon imgFinal = new ImageIcon(facturaScaled);
         lblfondo.setIcon(imgFinal);
 		contentPane.add(lblfondo);	
-
 	}
 
 	// Metodo que permite calcular el total de todos los servicios para

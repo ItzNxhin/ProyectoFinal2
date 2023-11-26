@@ -5,6 +5,9 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.ActionListener;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 
 import javax.swing.JFrame;
@@ -13,6 +16,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
 import java.io.IOException;
@@ -28,8 +32,6 @@ public class Pago extends JFrame {
 	private JPanel contentPane;
 	private JTextField textTarjetaCre;
 	private JTextField textCVV;
-	private JLabel lblTarjetaCre;
-	private JLabel lblCsv;
 	private String tarjeta;
 	private String cvv;
 	private JTextField textNombre;
@@ -43,7 +45,7 @@ public class Pago extends JFrame {
 	public Pago(Usuario current, Reserva reserva) {
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 388);
+		setBounds(100, 100, 1280, 720);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setVisible(true);
@@ -52,7 +54,8 @@ public class Pago extends JFrame {
 		contentPane.setLayout(null);
 
 		textTarjetaCre = new JTextField();
-		textTarjetaCre.setBounds(199, 152, 159, 20);
+		textTarjetaCre.setFont(new Font("Arvo", Font.BOLD, 16));
+		textTarjetaCre.setBounds(426, 383, 262, 38);
 		contentPane.add(textTarjetaCre);
 		textTarjetaCre.setColumns(10);
 
@@ -70,7 +73,8 @@ public class Pago extends JFrame {
 		});
 
 		textCVV = new JTextField();
-		textCVV.setBounds(199, 197, 159, 20);
+		textCVV.setFont(new Font("Arvo", Font.BOLD, 16));
+		textCVV.setBounds(426, 467, 262, 38);
 		contentPane.add(textCVV);
 		textCVV.setColumns(10);
 
@@ -88,21 +92,16 @@ public class Pago extends JFrame {
 			}
 		});
 
-		lblTarjetaCre = new JLabel("Tarjeta de Credito/Debito:");
-		lblTarjetaCre.setBounds(30, 155, 159, 14);
-		contentPane.add(lblTarjetaCre);
-
-		lblCsv = new JLabel("Codigo CVV:");
-		lblCsv.setBounds(30, 200, 141, 14);
-		contentPane.add(lblCsv);
-		
 		/*
 		 * Verificar que los datos se han ingresado correctamente
 		 * Si es así continuar con la factura final
 		 * De no ser así solicitar que se ingresen correctamente
 		 */
-		JButton btnPago = new JButton("Realizar transacción");
-		btnPago.addActionListener(new ActionListener() {
+		JButton btnPrueba = new JButton("PAGAR");
+		btnPrueba.setForeground(new Color(0, 0, 0));
+		btnPrueba.setBackground(new Color(255, 205, 8));
+		btnPrueba.setFont(new Font("Arvo", Font.BOLD, 18));
+		btnPrueba.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				tarjeta = textTarjetaCre.getText();
 				cvv = textCVV.getText();
@@ -115,8 +114,7 @@ public class Pago extends JFrame {
 							"¿Está seguro de realizar esta transacción?", "CONFIRMACIÓN", JOptionPane.YES_NO_OPTION);
 					if (opcion == JOptionPane.YES_OPTION) {
 
-						reserva.setUsaurio(current);
-						
+						reserva.setUsaurio(current);					
 						reserva.setTarjetaCre(tarjeta);
 						reserva.setCvv(cvv);
 						reserva.setNombreReal(textNombre.getText());
@@ -138,13 +136,14 @@ public class Pago extends JFrame {
 						dispose();
 					}
 				}
-			}
+				}
 		});
-		btnPago.setBounds(139, 269, 151, 23);
-		contentPane.add(btnPago);
+		btnPrueba.setBounds(283, 569, 160, 54);
+		contentPane.add(btnPrueba);
 		
 		textNombre = new JTextField();
-		textNombre.setBounds(199, 110, 159, 20);
+		textNombre.setFont(new Font("Arvo", Font.BOLD, 16));
+		textNombre.setBounds(426, 313, 262, 38);
 		contentPane.add(textNombre);
 		textNombre.setColumns(10);
 		
@@ -157,10 +156,15 @@ public class Pago extends JFrame {
 				}
 			}
 		});
-		
-		JLabel lblNewLabel = new JLabel("Nombre completo:");
-		lblNewLabel.setBounds(30, 113, 101, 14);
-		contentPane.add(lblNewLabel);
 
+		//Fondo
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setBounds(0, 0, 1264, 681);
+		ImageIcon factura = new ImageIcon(Pago.class.getResource("/img/pago.png"));
+        Image facturaIcon = factura.getImage();
+        Image facturaScaled = facturaIcon.getScaledInstance(lblNewLabel.getWidth(), lblNewLabel.getHeight(), Image.SCALE_SMOOTH);
+       	ImageIcon imgFinal = new ImageIcon(facturaScaled);
+        lblNewLabel.setIcon(imgFinal);
+		contentPane.add(lblNewLabel);	
 	}
 }
