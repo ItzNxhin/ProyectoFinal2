@@ -1,10 +1,8 @@
 package view;
 
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Image;
-import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -47,18 +45,8 @@ public class VentanaInicio extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
-		setContentPane(contentPane);
-
-		// Cargar la imagen y configurar el fondo
-		ImageIcon imagenFondo = new ImageIcon("src/img/backgroundInicio.png");
-		Image img = imagenFondo.getImage();
-		Image imgEscalada = img.getScaledInstance(getWidth(), getHeight(), Image.SCALE_SMOOTH);
-		ImageIcon imagenEscalada = new ImageIcon(imgEscalada);
-		JLabel etiquetaFondo = new JLabel(imagenEscalada);
-		etiquetaFondo.setBounds(0, 0, getWidth(), getHeight());
-		((JPanel) getContentPane()).setOpaque(false);
-		getLayeredPane().add(etiquetaFondo, new Integer(Integer.MIN_VALUE));
 		contentPane.setLayout(null);
+		setContentPane(contentPane);
 
 		txtContra = new JPasswordField();
 		txtContra.setForeground(new Color(255, 204, 0));
@@ -159,7 +147,7 @@ public class VentanaInicio extends JFrame {
 		btnHabitaciones.setBorderPainted(false);
 		contentPane.add(btnHabitaciones);
 
-		btnCerrar = new JButton("Cerrar");
+		JButton btnCerrar = new JButton("Cerrar");
 		btnCerrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				int valor = JOptionPane.showConfirmDialog(null, "¿Estas seguro qure quieres cerrar el programa?", "Warning", JOptionPane.YES_NO_OPTION);
@@ -172,5 +160,15 @@ public class VentanaInicio extends JFrame {
 		btnCerrar.setBackground(new Color(255, 204, 0));
 		btnCerrar.setBounds(1226, 673, 114, 45);
 		contentPane.add(btnCerrar);
+
+		// Cargar la imagen y configurar el fondo
+		ImageIcon imagenFondo = new ImageIcon("src/img/backgroundInicio.png");
+		Image img = imagenFondo.getImage();
+		Image imgEscalada = img.getScaledInstance(getWidth(), getHeight(), Image.SCALE_SMOOTH);
+		ImageIcon imagenEscalada = new ImageIcon(imgEscalada);
+		JLabel etiquetaFondo = new JLabel(imagenEscalada);
+		etiquetaFondo.setBounds(0, 0, getWidth(), getHeight());
+		((JPanel) getContentPane()).setOpaque(false);
+		contentPane.add(etiquetaFondo);
 	}
 }

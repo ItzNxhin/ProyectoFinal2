@@ -20,5 +20,9 @@ public class HabVip extends HabAbstract{
     public int getPersonas(){
         return personas;
     }
+
+    public void setPersonas(int personas){
+        this.personas = personas;
+    }
     
 }

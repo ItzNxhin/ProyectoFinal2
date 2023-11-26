@@ -1,10 +1,8 @@
 package view;
 
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Image;
-import java.awt.Toolkit;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -131,16 +129,15 @@ public class VentanaCrearUsuario extends JFrame {
 		
 		
 		// Cargar la imagen y configurar el fondo
-				ImageIcon imagenFondo = new ImageIcon("src/img/backgroundCrear.png");
-				Image img = imagenFondo.getImage();
-				Image imgEscalada = img.getScaledInstance(getWidth(), getHeight(), Image.SCALE_SMOOTH);
-				ImageIcon imagenEscalada = new ImageIcon(imgEscalada);
-				JLabel etiquetaFondo = new JLabel(imagenEscalada);
-				etiquetaFondo.setBounds(0, 0, getWidth(), getHeight());
-				((JPanel) getContentPane()).setOpaque(false);
-				contentPane.setLayout(null);
-				getLayeredPane().add(etiquetaFondo, new Integer(Integer.MIN_VALUE));
-
+		ImageIcon imagenFondo = new ImageIcon("src/img/backgroundCrear.png");
+		Image img = imagenFondo.getImage();
+		Image imgEscalada = img.getScaledInstance(getWidth(), getHeight(), Image.SCALE_SMOOTH);
+		ImageIcon imagenEscalada = new ImageIcon(imgEscalada);
+		JLabel etiquetaFondo = new JLabel(imagenEscalada);
+		etiquetaFondo.setBounds(0, 0, getWidth(), getHeight());
+		((JPanel) getContentPane()).setOpaque(false);
+		contentPane.setLayout(null);
+		contentPane.add(etiquetaFondo);
 	}
 
 }

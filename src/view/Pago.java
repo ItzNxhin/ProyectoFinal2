@@ -20,7 +20,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import data.ReservasExistentes;
 import logic.Reserva;
@@ -35,7 +34,6 @@ public class Pago extends JFrame {
 	private String tarjeta;
 	private String cvv;
 	private JTextField textNombre;
-	private ArrayList<Reserva> fechas = new ArrayList<>();
 	private ReservasExistentes archFExistentes = new ReservasExistentes();
 
 	/**
@@ -123,13 +121,7 @@ public class Pago extends JFrame {
 						factura.setVisible(true);
 						
 						try {
-							fechas = new ArrayList<>(archFExistentes.leer());
-						} catch (ClassNotFoundException | IOException e1) {
-							e1.printStackTrace();
-						}
-						fechas.add(reserva);
-						try {
-							archFExistentes.guardar(fechas);
+							archFExistentes.guardar(reserva);
 						} catch (ClassNotFoundException | IOException e1) {
 							e1.printStackTrace();
 						}

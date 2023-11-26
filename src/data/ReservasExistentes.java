@@ -31,12 +31,15 @@ public class ReservasExistentes {
         return list;
     }
 
-    public void guardar(ArrayList<Reserva> lista)throws IOException, ClassNotFoundException{
+    public void guardar(Reserva obj)throws IOException, ClassNotFoundException{
+
+        ArrayList<Reserva> list = leer();
+        list.add(obj);
         FileOutputStream fileOutputStream = new FileOutputStream("Fechas.ser");
         ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
-        if(!lista.isEmpty()){
-            for(int i = 0; i < lista.size(); i++){
-                objectOutputStream.writeObject(lista.get(i));
+        if(!list.isEmpty()){
+            for(int i = 0; i < list.size(); i++){
+                objectOutputStream.writeObject(list.get(i));
         }}
         objectOutputStream.close();
         

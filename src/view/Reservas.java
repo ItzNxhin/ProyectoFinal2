@@ -31,6 +31,7 @@ import data.ReservasExistentes;
 
 
 import logic.*;
+import javax.swing.JComboBox;
 
 //Clase reserva
 public class Reservas extends JFrame {
@@ -181,6 +182,17 @@ public class Reservas extends JFrame {
 		JLabel lblPre = new JLabel("");
 		lblPre.setBounds(616, 217, 615, 407);
 
+		JLabel lblNewLabel_1 = new JLabel("# de Personas");
+		lblNewLabel_1.setForeground(new Color(255, 255, 255));
+		lblNewLabel_1.setFont(new Font("Arvo", Font.ITALIC, 36));
+		lblNewLabel_1.setBounds(97, 552, 290, 42);
+		contentPane.add(lblNewLabel_1);
+		
+		JComboBox<Integer> comboBox = new JComboBox<>();
+		comboBox.setFont(new Font("Arvo", Font.ITALIC, 36));
+		comboBox.setBounds(397, 552, 83, 42);
+		contentPane.add(comboBox);
+		
 		/*
 		 * RadioButtons para seleccionar el tipo de habitacion
 		 * Donde, dependiendo de la habitacion, a la reserva se le crea el objeto respectivo de la habitacion
@@ -190,6 +202,10 @@ public class Reservas extends JFrame {
 		rdbtnPresidencial.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				reservacion.setHabitacion(new HabPresidential());
+				comboBox.removeAllItems();
+				for (int i = reservacion.getHabitacion().getPersonas() ; i > 0 ; i--){
+					comboBox.addItem(i);
+				}
 				ImageIcon prev = new ImageIcon(Factura.class.getResource("/img/habPresidencial.jpg"));
 				Image preImg = prev.getImage();
 				Image prescaled = preImg.getScaledInstance(lblPre.getWidth(), lblPre.getHeight(), Image.SCALE_SMOOTH);
@@ -204,10 +220,15 @@ public class Reservas extends JFrame {
 		rdbtnPresidencial.setBounds(118, 314, 23, 23);
 		contentPane.add(rdbtnPresidencial);
 
+
 		JRadioButton rdbtnPremium = new JRadioButton("");
 		rdbtnPremium.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				reservacion.setHabitacion(new HabPremium());
+				comboBox.removeAllItems();
+				for (int i = reservacion.getHabitacion().getPersonas() ; i > 0 ; i--){
+					comboBox.addItem(i);
+				}
 				ImageIcon prev = new ImageIcon(Factura.class.getResource("/img/habPremium.jpg"));
 				Image preImg = prev.getImage();
 				Image prescaled = preImg.getScaledInstance(lblPre.getWidth(), lblPre.getHeight(), Image.SCALE_SMOOTH);
@@ -226,6 +247,10 @@ public class Reservas extends JFrame {
 		rdbtnVip.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				reservacion.setHabitacion(new HabVip());
+				comboBox.removeAllItems();
+				for (int i = reservacion.getHabitacion().getPersonas() ; i > 0 ; i--){
+					comboBox.addItem(i);
+				}
 				ImageIcon prev = new ImageIcon(Factura.class.getResource("/img/habVip.jpg"));
 				Image preImg = prev.getImage();
 				Image prescaled = preImg.getScaledInstance(lblPre.getWidth(), lblPre.getHeight(), Image.SCALE_SMOOTH);
@@ -244,6 +269,10 @@ public class Reservas extends JFrame {
 		rdbtnLite.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				reservacion.setHabitacion(new HabLite());
+				comboBox.removeAllItems();
+				for (int i = reservacion.getHabitacion().getPersonas() ; i > 0 ; i--){
+					comboBox.addItem(i);
+				}
 				ImageIcon prev = new ImageIcon(Factura.class.getResource("/img/habLite.jpeg"));
 				Image preImg = prev.getImage();
 				Image prescaled = preImg.getScaledInstance(lblPre.getWidth(), lblPre.getHeight(), Image.SCALE_SMOOTH);
@@ -273,7 +302,7 @@ public class Reservas extends JFrame {
 		btnCancelar.setForeground(new Color(255, 0, 0));
 		btnCancelar.setFont(new Font("Arvo", Font.BOLD, 18));
 		btnCancelar.setBackground(new Color(255, 205, 8));
-		btnCancelar.setBounds(193, 569, 160, 54);
+		btnCancelar.setBounds(193, 616, 160, 54);
 		contentPane.add(btnCancelar);
 
 		//Boton volver
@@ -291,7 +320,7 @@ public class Reservas extends JFrame {
 		btnVolver.setForeground(new Color(0, 0, 0));
 		btnVolver.setFont(new Font("Arvo", Font.BOLD, 18));
 		btnVolver.setBackground(new Color(255, 205, 8));
-		btnVolver.setBounds(10, 569, 160, 54);
+		btnVolver.setBounds(23, 616, 160, 54);
 		contentPane.add(btnVolver);
 
 		//Boton para continuar a elegir los servicios
@@ -326,6 +355,7 @@ public class Reservas extends JFrame {
 					//Poner las fechas a la reservacion
 					reservacion.setFechaInicio(fechaInicio);
 					reservacion.setFechaFin(fechaFin);
+					reservacion.getHabitacion().setPersonas((int)comboBox.getSelectedItem());
 
 					//Pasar a legir los servicios
 					VentanaHabitacion continuar = new VentanaHabitacion(current, reservacion);
@@ -335,7 +365,7 @@ public class Reservas extends JFrame {
 				
 			}
 		});
-		btnPrueba.setBounds(369, 569, 160, 54);
+		btnPrueba.setBounds(363, 616, 160, 54);
 		contentPane.add(btnPrueba);
 
 		//Fondo

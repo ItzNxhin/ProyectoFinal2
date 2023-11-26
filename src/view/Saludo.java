@@ -5,12 +5,16 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.awt.event.ActionEvent;
+import java.awt.Color;
 import java.awt.Font;
+import java.awt.Image;
 
 //Clase Externa
 import logic.Usuario;
@@ -31,15 +35,7 @@ public class Saludo extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		// Cargar la imagen y configurar el fondo
-		ImageIcon imagenFondo = new ImageIcon("src/img/backgroundSaludo.png");
-		Image img = imagenFondo.getImage();
-		Image imgEscalada = img.getScaledInstance(getWidth(), getHeight(), Image.SCALE_SMOOTH);
-		ImageIcon imagenEscalada = new ImageIcon(imgEscalada);
-		JLabel etiquetaFondo = new JLabel(imagenEscalada);
-		etiquetaFondo.setBounds(0, 0, getWidth(), getHeight());
-		((JPanel) getContentPane()).setOpaque(false);
-		getLayeredPane().add(etiquetaFondo, new Integer(Integer.MIN_VALUE));
+		
 		
 
 		//Saludo usuario
@@ -129,5 +125,14 @@ public class Saludo extends JFrame {
 		btnNewButton_1.setBounds(0, 389, 249, 80);
 		contentPane.add(btnNewButton_1);
 
+		// Cargar la imagen y configurar el fondo
+		ImageIcon imagenFondo = new ImageIcon("src/img/backgroundSaludo.png");
+		Image img = imagenFondo.getImage();
+		Image imgEscalada = img.getScaledInstance(getWidth(), getHeight(), Image.SCALE_SMOOTH);
+		ImageIcon imagenEscalada = new ImageIcon(imgEscalada);
+		JLabel etiquetaFondo = new JLabel(imagenEscalada);
+		etiquetaFondo.setBounds(0, 0, getWidth(), getHeight());
+		((JPanel) getContentPane()).setOpaque(false);
+		contentPane.add(etiquetaFondo);
 	}
 }

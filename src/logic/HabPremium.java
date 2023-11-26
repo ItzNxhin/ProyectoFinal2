@@ -20,5 +20,9 @@ public class HabPremium extends HabAbstract{
     public void setPrecio(double precio) {
         this.precio = precio;
     }
+
+    public void setPersonas(int personas){
+        this.personas = personas;
+    }
     
 }
