@@ -13,6 +13,7 @@ import javax.swing.JOptionPane;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 
@@ -224,12 +225,12 @@ public class Factura extends JFrame {
 															
 		JLabel lblNombre = new JLabel(reserva.getUsaurio().getNombreUsuario());
 		lblNombre.setFont(new Font("Arvo", Font.BOLD, 14));
-		lblNombre.setBounds(35, 145, 292, 14);
+		lblNombre.setBounds(35, 141, 292, 18);
 		contentPane.add(lblNombre);
 
 		JLabel lblEmail = new JLabel(reserva.getUsaurio().getEmail());
 		lblEmail.setFont(new Font("Arvo", Font.BOLD, 14));
-		lblEmail.setBounds(35, 183, 292, 14);
+		lblEmail.setBounds(35, 183, 292, 25);
 		contentPane.add(lblEmail);
 		
 		
@@ -246,7 +247,7 @@ public class Factura extends JFrame {
 		lblTarjetaCre.setBounds(79, 482, 126, 14);
 		contentPane.add(lblTarjetaCre);
 		
-		//Boton salri
+		//Boton salir
 		JButton btnVolver = new JButton("SALIR");
 		btnVolver.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -261,8 +262,30 @@ public class Factura extends JFrame {
 		btnVolver.setForeground(new Color(0, 0, 0));
 		btnVolver.setFont(new Font("Arvo", Font.BOLD, 18));
 		btnVolver.setBackground(new Color(255, 205, 8));
-		btnVolver.setBounds(323, 559, 160, 25);
+		btnVolver.setBounds(325, 561, 160, 25);
 		contentPane.add(btnVolver);
+		
+		//Boton ver facturas
+		JButton btnVerFacturas = new JButton("VER FACTURAS");
+		btnVerFacturas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				VerFacturas facturita = null;
+				try {
+					facturita = new VerFacturas(current);
+				} catch (ClassNotFoundException | IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				facturita.setVisible(true);
+				dispose();
+			}
+		});
+		btnVerFacturas.setForeground(new Color(0, 0, 0));
+		btnVerFacturas.setFont(new Font("Arvo", Font.BOLD, 18));
+		btnVerFacturas.setBackground(new Color(255, 205, 8));
+		btnVerFacturas.setBounds(300, 597, 213, 25);
+		contentPane.add(btnVerFacturas);
+		
 
 		//Fondo
 		JLabel lblNewLabel = new JLabel("");
