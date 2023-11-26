@@ -106,7 +106,8 @@ public class Saludo extends JFrame {
 		JButton btnInfoHab = new JButton("Conoce las habitaciones");
 		btnInfoHab.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				InfoHab hab = new InfoHab ();
+				hab.setVisible(true);
 			}
 		});
 		btnInfoHab.setFont(new Font("Arvo", Font.BOLD, 16));
@@ -117,7 +118,8 @@ public class Saludo extends JFrame {
 		JButton btnInfoSer = new JButton("Conoce los servicos");
   		btnInfoSer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				InfoServicios hola = new InfoServicios ();
+				hola.setVisible(true);
 			}
 		});
 		btnInfoSer.setFont(new Font("Arvo", Font.BOLD, 16));
