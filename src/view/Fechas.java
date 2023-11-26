@@ -31,6 +31,7 @@ public class Fechas extends JFrame  {
 	 * Esta ventana se encarga de pedir las fechas de reservacion (Check in y Check Out)
 	 * Donde se ingresan las fechas con una libreria Referecial(JCalendar) para un mejor manejo
 	 * Las fechas se comprueban que sean posibles, es decir, que sea la salida despues que la entrada, y que sea posterior a la fecha de hoy
+	 * @param current Usuario
 	 */
 	public Fechas(Usuario current) {
 		//Ventana

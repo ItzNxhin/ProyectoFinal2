@@ -36,7 +36,7 @@ public class VentanaInicio extends JFrame {
 	private JButton btnHabitaciones;
 
 	/**
-	 * Esta clase se encar de dar la bienvenida Y el inicio de sesion
+	 * Esta clase se encarga de dar la bienvenida Y el inicio de sesion
 	 */
 	public VentanaInicio() {
 		
@@ -162,7 +162,7 @@ public class VentanaInicio extends JFrame {
 		contentPane.add(btnCerrar);
 
 		// Cargar la imagen y configurar el fondo
-		ImageIcon imagenFondo = new ImageIcon("src/img/backgroundInicio.png");
+		ImageIcon imagenFondo = new ImageIcon(VentanaInicio.class.getResource("/img/backgroundInicio.png"));
 		Image img = imagenFondo.getImage();
 		Image imgEscalada = img.getScaledInstance(getWidth(), getHeight(), Image.SCALE_SMOOTH);
 		ImageIcon imagenEscalada = new ImageIcon(imgEscalada);

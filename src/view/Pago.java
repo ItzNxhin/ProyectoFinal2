@@ -37,8 +37,12 @@ public class Pago extends JFrame {
 	private ReservasExistentes archFExistentes = new ReservasExistentes();
 
 	/**
-	 * Ventana que se encargar de solicitar los datos para el pago de la reservacion
-	 * (Tarjeta de credito/Debito)
+	 * Ventana que se encarga de pedir los datos necesarios para un pago electronico
+	 * Nombre del encargado del pago
+	 * Tarjeta de credito/debito
+	 * CVV
+	 * @param current
+	 * @param reserva
 	 */
 	public Pago(Usuario current, Reserva reserva) {
 		

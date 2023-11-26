@@ -57,7 +57,7 @@ public class VentanaInfo extends JFrame {
 		contentPane.add(btnNewButton);
 
 		// Cargar la imagen y configurar el fondo
-		ImageIcon imagenFondo = new ImageIcon("src/img/backgroundInfo.png");
+		ImageIcon imagenFondo = new ImageIcon(VentanaInfo.class.getResource("/img/backgroundInfo.png"));
 		Image img = imagenFondo.getImage();
 		Image imgEscalada = img.getScaledInstance(getWidth(), getHeight(), Image.SCALE_SMOOTH);
 		ImageIcon imagenEscalada = new ImageIcon(imgEscalada);

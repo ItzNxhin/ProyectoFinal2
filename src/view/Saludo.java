@@ -24,6 +24,14 @@ public class Saludo extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 
+	/**
+	 * Esta ventana es la principal para el usuario, donde se le permite:
+	 * Reservar
+	 * Ver las resrevas existentes del usuario (Facturas)
+	 * Ver habitaciones y servicios
+	 * Cambiar contraseña
+	 * @param current
+	 */
 	public Saludo(Usuario current) {
 		
 		//Ventana
@@ -35,13 +43,10 @@ public class Saludo extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		
-		
-
 		//Saludo usuario
 		JLabel lblNewLabel = new JLabel("Hola " + current.getNombreUsuario()+" ¿Listo para tener las vacaciones de tus sueños?");
 		lblNewLabel.setForeground(new Color(255, 255, 255));
-		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 30));
+		lblNewLabel.setFont(new Font("Arvo", Font.BOLD, 30));
 		lblNewLabel.setBounds(222, 47, 1090, 46);
 		contentPane.add(lblNewLabel);
 		
@@ -64,7 +69,7 @@ public class Saludo extends JFrame {
 		contentPane.add(btnReservar);
 		
 		JButton btnNewButton = new JButton("Consultar reservas");
-		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 20));
+		btnNewButton.setFont(new Font("Arvo", Font.BOLD, 20));
 		btnNewButton.setBackground(new Color(208, 169, 51));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -79,11 +84,11 @@ public class Saludo extends JFrame {
 				dispose();
 			}
 		});
-		btnNewButton.setBounds(0, 231, 249, 80);
+		btnNewButton.setBounds(0, 265, 249, 57);
 		contentPane.add(btnNewButton);
 		
 		JButton btnCambiarContrasea = new JButton("Cambiar contraseña");
-		btnCambiarContrasea.setFont(new Font("Tahoma", Font.BOLD, 20));
+		btnCambiarContrasea.setFont(new Font("Arvo", Font.BOLD, 18));
 		btnCambiarContrasea.setBackground(new Color(208, 169, 51));
 		btnCambiarContrasea.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -95,7 +100,7 @@ public class Saludo extends JFrame {
 				*/
 			}
 		});
-		btnCambiarContrasea.setBounds(0, 310, 249, 80);
+		btnCambiarContrasea.setBounds(0, 321, 249, 57);
 		contentPane.add(btnCambiarContrasea);
 		
 		JButton btnInfoHab = new JButton("Conoce las habitaciones");
@@ -104,12 +109,20 @@ public class Saludo extends JFrame {
 				
 			}
 		});
-		btnInfoHab.setFont(new Font("Tahoma", Font.BOLD, 18));
+		btnInfoHab.setFont(new Font("Arvo", Font.BOLD, 16));
 		btnInfoHab.setBackground(new Color(208, 169, 51));
-		btnInfoHab.setBounds(0, 153, 249, 80);
+		btnInfoHab.setBounds(0, 153, 249, 57);
 		contentPane.add(btnInfoHab);
+
+		JButton btnInfoSer = new JButton("Conoce los servicos");
+		btnInfoSer.setFont(new Font("Arvo", Font.BOLD, 16));
+		btnInfoSer.setBackground(new Color(208, 169, 51));
+		btnInfoSer.setBounds(0, 209, 249, 57);
+		contentPane.add(btnInfoSer);
+
 		
 		JButton btnNewButton_1 = new JButton("Cerrar sesión");
+		btnNewButton_1.setForeground(new Color(255, 0, 0));
 		btnNewButton_1.setBackground(new Color(208, 169, 51));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -121,12 +134,12 @@ public class Saludo extends JFrame {
 				}
 			}
 		});
-		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 18));
-		btnNewButton_1.setBounds(0, 389, 249, 80);
+		btnNewButton_1.setFont(new Font("Arvo", Font.BOLD, 18));
+		btnNewButton_1.setBounds(0, 377, 249, 57);
 		contentPane.add(btnNewButton_1);
 
 		// Cargar la imagen y configurar el fondo
-		ImageIcon imagenFondo = new ImageIcon("src/img/backgroundSaludo.png");
+		ImageIcon imagenFondo = new ImageIcon(Saludo.class.getResource("/img/backgroundSaludo.png"));
 		Image img = imagenFondo.getImage();
 		Image imgEscalada = img.getScaledInstance(getWidth(), getHeight(), Image.SCALE_SMOOTH);
 		ImageIcon imagenEscalada = new ImageIcon(imgEscalada);
