@@ -115,6 +115,11 @@ public class Saludo extends JFrame {
 		contentPane.add(btnInfoHab);
 
 		JButton btnInfoSer = new JButton("Conoce los servicos");
+  	btnInfoSer.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
 		btnInfoSer.setFont(new Font("Arvo", Font.BOLD, 16));
 		btnInfoSer.setBackground(new Color(208, 169, 51));
 		btnInfoSer.setBounds(0, 209, 249, 57);
