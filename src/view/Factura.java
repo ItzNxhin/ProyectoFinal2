@@ -205,8 +205,13 @@ public class Factura extends JFrame {
 
 		JLabel lblHabitacion = new JLabel(reserva.getHabitacion().getNombre());
 		lblHabitacion.setFont(new Font("Arvo", Font.BOLD, 11));
-		lblHabitacion.setBounds(191, 244, 302, 14);
+		lblHabitacion.setBounds(123, 245, 302, 14);
 		contentPane.add(lblHabitacion);
+
+		JLabel lblPersonas = new JLabel(""+reserva.getHabitacion().getPersonas());
+		lblPersonas.setFont(new Font("Arvo", Font.BOLD, 11));
+		lblPersonas.setBounds(441, 245, 68, 14);
+		contentPane.add(lblPersonas);
 		
 		JLabel lblValorReserva = new JLabel("$ "+reserva.getPrecioReserva());
 		lblValorReserva.setFont(new Font("Arvo", Font.PLAIN, 11));
