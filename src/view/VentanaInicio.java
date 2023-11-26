@@ -158,5 +158,19 @@ public class VentanaInicio extends JFrame {
 		btnHabitaciones.setContentAreaFilled(false);
 		btnHabitaciones.setBorderPainted(false);
 		contentPane.add(btnHabitaciones);
+
+		btnCerrar = new JButton("Cerrar");
+		btnCerrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int valor = JOptionPane.showConfirmDialog(null, "¿Estas seguro qure quieres cerrar el programa?", "Warning", JOptionPane.YES_NO_OPTION);
+				if (valor == JOptionPane.YES_OPTION) {
+					System.exit(0);
+				}
+			}
+		});
+		btnCerrar.setFont(new Font("Tahoma", Font.BOLD, 15));
+		btnCerrar.setBackground(new Color(255, 204, 0));
+		btnCerrar.setBounds(1226, 673, 114, 45);
+		contentPane.add(btnCerrar);
 	}
 }
