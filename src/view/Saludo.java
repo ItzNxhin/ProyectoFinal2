@@ -115,7 +115,7 @@ public class Saludo extends JFrame {
 		contentPane.add(btnInfoHab);
 
 		JButton btnInfoSer = new JButton("Conoce los servicos");
-  	btnInfoSer.addActionListener(new ActionListener() {
+  		btnInfoSer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
 			}
