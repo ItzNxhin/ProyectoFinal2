@@ -141,12 +141,13 @@ public class GestorArchivo {
 	        } else {
 	            usuarios = new ArrayList<>();
 	        }
-		//Identifica al usuario con la sesi{on activa y cambia su contraseña
+	        
+		//Identifica al usuario con la sesion activa y cambia su contraseña
 	       Usuario current = usuarios.get(id);
 	       current.setContrasena(contraseña);
 	       JOptionPane.showMessageDialog(null, "Contraseña cambiada con éxito", "Atención",
 					JOptionPane.INFORMATION_MESSAGE);
-	       Saludo ventana = new Saludo(id, usuarios);
+	       Saludo ventana = new Saludo(current);
            ventana.setVisible(true);
 		//Guarda el nuevo ArrayList que contiene la información del nuevo usuario y usuarios anteriores
 	        try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("DBUsers.ser"))) {

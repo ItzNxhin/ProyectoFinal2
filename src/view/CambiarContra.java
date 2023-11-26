@@ -27,6 +27,8 @@ public class CambiarContra extends JFrame {
 	private String contraseña2;
 	private JTextField textNewContra;
 	private JTextField textConfirmaContra;
+	
+	ArrayList<Usuario> usuarios;
 
 	/**
 	 * Create the frame.

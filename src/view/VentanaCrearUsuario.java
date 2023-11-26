@@ -48,20 +48,10 @@ public class VentanaCrearUsuario extends JFrame {
 
 		setContentPane(contentPane);
 
-		// Cargar la imagen y configurar el fondo
-		ImageIcon imagenFondo = new ImageIcon("src/img/backgroundCrear.png");
-		Image img = imagenFondo.getImage();
-		Image imgEscalada = img.getScaledInstance(getWidth(), getHeight(), Image.SCALE_SMOOTH);
-		ImageIcon imagenEscalada = new ImageIcon(imgEscalada);
-		JLabel etiquetaFondo = new JLabel(imagenEscalada);
-		etiquetaFondo.setBounds(0, 0, getWidth(), getHeight());
-		((JPanel) getContentPane()).setOpaque(false);
-		contentPane.setLayout(null);
-		getLayeredPane().add(etiquetaFondo, new Integer(Integer.MIN_VALUE));
-
+		
 		txtUser = new JTextField();
 		txtUser.setForeground(new Color(255, 204, 0));
-		txtUser.setBounds(833, 562, 360, 30);
+		txtUser.setBounds(599, 420, 296, 21);
 		txtUser.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		txtUser.setOpaque(false);
 		// Establecer el borde con color amarillo
@@ -75,7 +65,7 @@ public class VentanaCrearUsuario extends JFrame {
 		txtContra.setOpaque(false);
 		// Establecer el borde con color amarillo
 		txtContra.setBorder(new LineBorder(new Color(255, 204, 0), 1));
-		txtContra.setBounds(905, 638, 288, 25);
+		txtContra.setBounds(671, 485, 224, 21);
 		contentPane.add(txtContra);
 
 		txtEmail = new JTextField();
@@ -86,7 +76,7 @@ public class VentanaCrearUsuario extends JFrame {
 		txtEmail.setOpaque(false);
 		// Establecer el borde con color amarillo
 		txtEmail.setBorder(new LineBorder(new Color(255, 204, 0), 1));
-		txtEmail.setBounds(833, 600, 360, 30);
+		txtEmail.setBounds(599, 454, 296, 21);
 		contentPane.add(txtEmail);
 
 		btnCrear = new JButton("Crear Cuenta");
@@ -111,7 +101,6 @@ public class VentanaCrearUsuario extends JFrame {
 						JOptionPane.showMessageDialog(null, "Usuario creado con éxito", "Éxito",
 								JOptionPane.INFORMATION_MESSAGE);
 						VentanaInicio frame = new VentanaInicio();
-						frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
 						frame.setVisible(true);
 						dispose();
 					}
@@ -124,7 +113,7 @@ public class VentanaCrearUsuario extends JFrame {
 		});
 		btnCrear.setBackground(new Color(255, 204, 0));
 		btnCrear.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnCrear.setBounds(915, 674, 150, 37);
+		btnCrear.setBounds(609, 517, 150, 37);
 		contentPane.add(btnCrear);
 
 		btnVolver = new JButton("Volver");
@@ -137,8 +126,21 @@ public class VentanaCrearUsuario extends JFrame {
 		});
 		btnVolver.setBackground(new Color(255, 204, 0));
 		btnVolver.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnVolver.setBounds(1756, 49, 123, 37);
+		btnVolver.setBounds(1188, 33, 123, 37);
 		contentPane.add(btnVolver);
+		
+		
+		// Cargar la imagen y configurar el fondo
+				ImageIcon imagenFondo = new ImageIcon("src/img/backgroundCrear.png");
+				Image img = imagenFondo.getImage();
+				Image imgEscalada = img.getScaledInstance(getWidth(), getHeight(), Image.SCALE_SMOOTH);
+				ImageIcon imagenEscalada = new ImageIcon(imgEscalada);
+				JLabel etiquetaFondo = new JLabel(imagenEscalada);
+				etiquetaFondo.setBounds(0, 0, getWidth(), getHeight());
+				((JPanel) getContentPane()).setOpaque(false);
+				contentPane.setLayout(null);
+				getLayeredPane().add(etiquetaFondo, new Integer(Integer.MIN_VALUE));
+
 	}
 
 }
