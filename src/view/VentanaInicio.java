@@ -128,6 +128,8 @@ public class VentanaInicio extends JFrame {
 		btnServicios = new JButton("");
 		btnServicios.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				InfoServicios hola = new InfoServicios ();
+				hola.setVisible(true);
 			}
 		});
 		btnServicios.setBounds(787, 0, 286, 86);
@@ -139,6 +141,8 @@ public class VentanaInicio extends JFrame {
 		btnHabitaciones = new JButton("");
 		btnHabitaciones.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				InfoHab hab = new InfoHab ();
+				hab.setVisible(true);
 			}
 		});
 		btnHabitaciones.setBounds(499, 0, 286, 86);
