@@ -1,6 +1,5 @@
 package view;
 
-import java.awt.EventQueue;
 import java.awt.Image;
 
 import javax.swing.ImageIcon;
@@ -26,17 +25,8 @@ public class InfoHab extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
-		setContentPane(contentPane);
-		
-		// Cargar la imagen y configurar el fondo
-		ImageIcon imagenFondo = new ImageIcon("src/img/habitaciones.png");
-		Image img = imagenFondo.getImage();
-		Image imgEscalada = img.getScaledInstance(getWidth(), getHeight(), Image.SCALE_SMOOTH);
-		ImageIcon imagenEscalada = new ImageIcon(imgEscalada);
-		JLabel etiquetaFondo = new JLabel(imagenEscalada);
-		etiquetaFondo.setBounds(0, 0, getWidth(), getHeight());
-		((JPanel) getContentPane()).setOpaque(false);
 		contentPane.setLayout(null);
+		setContentPane(contentPane);
 		
 		JButton btnNewButton = new JButton("Volver");
 		btnNewButton.addActionListener(new ActionListener() {
@@ -47,7 +37,16 @@ public class InfoHab extends JFrame {
 		btnNewButton.setBackground(new Color(153, 102, 51));
 		btnNewButton.setBounds(1251, 11, 89, 23);
 		contentPane.add(btnNewButton);
-		getLayeredPane().add(etiquetaFondo, new Integer(Integer.MIN_VALUE));
+
+		// Cargar la imagen y configurar el fondo
+		ImageIcon imagenFondo = new ImageIcon("src/img/habitaciones.png");
+		Image img = imagenFondo.getImage();
+		Image imgEscalada = img.getScaledInstance(getWidth(), getHeight(), Image.SCALE_SMOOTH);
+		ImageIcon imagenEscalada = new ImageIcon(imgEscalada);
+		JLabel etiquetaFondo = new JLabel(imagenEscalada);
+		etiquetaFondo.setBounds(0, 0, getWidth(), getHeight());
+		((JPanel) getContentPane()).setOpaque(false);
+		contentPane.add(etiquetaFondo);
 		
 		
 	}
