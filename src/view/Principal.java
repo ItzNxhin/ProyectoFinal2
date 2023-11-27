@@ -45,7 +45,7 @@ public class Principal extends JFrame {
 		contentPane.setLayout(null);
 		
 		//Textos e inputs necesarios
-		JLabel lblNewLabel = new JLabel("Usuario:");
+		JLabel lblNewLabel = new JLabel("Usuario: ");
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblNewLabel.setBounds(29, 64, 95, 18);
 		contentPane.add(lblNewLabel);
