@@ -50,9 +50,7 @@ guardaran las reservas que realice
 - 19.Archivo .jar
 - 20.Creatividad e Innovación
 
-## Clase "GestorArchivo"
+## Manejo de archivos 
 
-Ubicada en el paquete "data" en esta clase de encuentran los metodos que hacen posible la creación, modificación, inicio de sesión y persistencia de los usuarios.
-Cada uno de los métodos en esta clase tiene la capacidad de leer, alamacenar y modificar los datos del archivo "DBUsers", sin embargo cada uno cumple una función específica y escencial en el programa.
-- agregarDato: Este metodo, una vez que lee y almacena los datos del archivo en el ArrayList "usuarios" de tipo Usuario, añade el objeto usuario (mediante el metodo usuarios.add()) que se le fue pasado como parámetro, finalmente abre el archivo y guarda los datos del ArrayList.
-- 
+En la carpeta data tenemos dos clases para el manejo de archivos del programa . para el manejo de los usuarios, encargada del archivo UserBD.ser y la clase ReservasExistentes para el menjeor
+
