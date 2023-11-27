@@ -70,8 +70,6 @@ public class VentanaHabitacion extends JFrame {
 		fechaInicio = preReserva.getFechaInicio();
 		fechaFin = preReserva.getFechaFin();
 
-		System.out.println(preReserva.getHabitacion().getPersonas());
-
 		// Obtener los servicios por defecto de cada de habitacion
 		ServicesReturn serviciosDefecto = new ServicesReturn();
 		preReserva.setServices(serviciosDefecto.SerPorDefecto(preReserva.getHabitacion()));

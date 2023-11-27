@@ -33,7 +33,11 @@ public class ReservasExistentes {
 
     public void guardar(Reserva obj)throws IOException, ClassNotFoundException{
 
-        ArrayList<Reserva> list = leer();
+        ArrayList<Reserva> list = new ArrayList<>();
+        try {
+            list= leer();
+        } catch (Exception e) {
+        }
         list.add(obj);
         FileOutputStream fileOutputStream = new FileOutputStream("Fechas.ser");
         ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
@@ -43,9 +47,6 @@ public class ReservasExistentes {
         }}
         objectOutputStream.close();
         
-    }
-
-
-    
+    }  
 }
     
