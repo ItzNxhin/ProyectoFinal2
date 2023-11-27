@@ -47,8 +47,5 @@ public class InfoHab extends JFrame {
 		etiquetaFondo.setBounds(0, 0, getWidth(), getHeight());
 		((JPanel) getContentPane()).setOpaque(false);
 		contentPane.add(etiquetaFondo);
-		
-		
 	}
-
 }
