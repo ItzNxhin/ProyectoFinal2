@@ -49,3 +49,8 @@ guardaran las reservas que realice
 - 18.Manual de Usuario.
 - 19.Archivo .jar
 - 20.Creatividad e Innovación
+
+## Manejo de archivos 
+
+En la carpeta data tenemos dos clases para el manejo de archivos del programa; la clase GestorArchivos para el manejo de los usuarios,serializado la clase Usuario,almacenando en el archivo UserBD.ser y la clase ReservasExistentes para el manejo de las reservas, serializado la clase Reserva, almacenando en el archivo Fechas.ser
+
