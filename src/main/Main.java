@@ -3,13 +3,17 @@
  * Se hace uso del paradigma de Programacion orientada a objetos
  * Con interfaz grafica y manejo de archivos
  * 
- * @autor Juan Pérez, María Gómez, Carlos Rodríguez
+ * @autor Nahin Peñaranda, Juan Arismendi, Juan Bedoya
  */
 package main;
 
 import view.*;
 import java.awt.EventQueue;
 
+
+/**
+ * Esta es la clase principal que inicia la aplicación.
+ */
 public class Main  {
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
