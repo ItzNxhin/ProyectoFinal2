@@ -1,8 +1,13 @@
 package logic;
 
+
+/**
+ * Esta clase representa el servicio de lavanderia
+ */
 public class SerLavanderia extends Services {
 
-    private String nombreSer = "Lavanderia";
+    private static final long serialVersionUID = 1L;
+	private String nombreSer = "Lavanderia";
     private double precioSer = DatosHotel.slavanderia;
 
     public String getNombreSer() {

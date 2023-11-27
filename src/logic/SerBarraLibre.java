@@ -1,8 +1,13 @@
 package logic;
 
+
+/**
+ * Esta clase representa el servicio de barra libre.
+ */
 public class SerBarraLibre extends Services {
 
-    private String nombreSer = "Barra";
+    private static final long serialVersionUID = 1L;
+	private String nombreSer = "Barra";
     private double precioSer = DatosHotel.sbarra;
 
     public String getNombreSer() {

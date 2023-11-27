@@ -4,6 +4,10 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+
+/**
+ * Esta clase representa una reserva.
+ */
 @SuppressWarnings("serial")
 public class Reserva implements Serializable{
 	//Variables de instancia necesarias
@@ -21,31 +25,40 @@ public class Reserva implements Serializable{
 	
 
 	//Metodos getter y setter
+	//Usuario
 	public Usuario getUsaurio() {
 		return usuario;
 	}
 	public void setUsaurio(Usuario usaurio) {
 		this.usuario = usaurio;
 	}
+	
+	//Habitacion
 	public HabAbstract getHabitacion() {
 		return habitacion;
 	}
 	public void setHabitacion(HabAbstract habitacion) {
 		this.habitacion = habitacion;
 	}
+	
+	//Fecha de inicio de la reservación
 	public LocalDate getFechaInicio() {
 		return fechaInicio;
 	}
 	public void setFechaInicio(LocalDate fechaInicio) {
 		this.fechaInicio = fechaInicio;
 	}
+	
+	//Fecha final de la reservación
 	public LocalDate getFechaFin() {
 		return fechaFin;
 	}
 	public void setFechaFin(LocalDate fechaFin) {
 		this.fechaFin = fechaFin;
 	}
-
+	
+	
+	//Servicios que se incluyen con la reserva
 	public ArrayList<Services> getServices() {
 		return this.services;
 	}
@@ -53,6 +66,8 @@ public class Reserva implements Serializable{
 		this.services = services;
 	}
 	
+	
+	//Precio de la reserva 
 	public double getPrecioReserva() {
 		return this.precioReserva;
 	}
@@ -60,7 +75,8 @@ public class Reserva implements Serializable{
 	public void setPrecioReserva(double precioReserva) {
 		this.precioReserva = precioReserva;
 	}
-
+	
+	//Precio de los servicios que se han añadido
 	public double getPrecioServicesAdd() {
 		return this.precioServicesAdd;
 	}
@@ -68,7 +84,9 @@ public class Reserva implements Serializable{
 	public void setPrecioServicesAdd(double precioServicesAdd) {
 		this.precioServicesAdd = precioServicesAdd;
 	}
-
+	
+	
+	//Precio total de la reservación
 	public double getTotal() {
 		return this.total;
 	}
@@ -77,18 +95,24 @@ public class Reserva implements Serializable{
 		this.total = total;
 	}
 	
+	
+	//Numero de tarjeta de credito con la cual se realiza la reservación
 	public String getTarjetaCre() {
 		return TarjetaCre;
 	}
 	public void setTarjetaCre(String tarjetaCre) {
 		TarjetaCre = tarjetaCre;
 	}
+	
+	//Codigo de seguridad de la tarjeta de crédito
 	public String getCvv() {
 		return cvv;
 	}
 	public void setCvv(String cvv) {
 		this.cvv = cvv;
 	}
+	
+	//Nombre completo de la persona a cargo de la reservación
 	public String getNombreReal() {
 		return nombreReal;
 	}

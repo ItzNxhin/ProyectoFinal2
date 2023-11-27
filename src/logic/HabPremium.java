@@ -1,7 +1,12 @@
 package logic;
 
+
+/**
+ * Esta clase representa una habitacion Premium
+ */
 public class HabPremium extends HabAbstract{
-    private String nombre = "Habitacion Premium";
+    private static final long serialVersionUID = 1L;
+	private String nombre = "Habitacion Premium";
     private int personas = 5;
     private double precio = DatosHotel.pPremium;
 

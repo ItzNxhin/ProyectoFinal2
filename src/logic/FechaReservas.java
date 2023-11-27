@@ -2,46 +2,59 @@ package logic;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+
+
+
 /**
- * Esta clase se encarga de poder almacenar los intervalos de fechas, y que habitacion tiene esa fecha 
+ * Esta clase se encarga de poder almacenar los intervalos de fechas, y que
+ * habitacion tiene esa fecha
  */
-public class FechaReservas implements Serializable{
+public class FechaReservas implements Serializable {
 
-    private LocalDate inicio;
-    private LocalDate fin;
-    private HabAbstract habitacion;
-    
-    public FechaReservas(HabAbstract hab, LocalDate ini, LocalDate fin){
-        this.inicio = ini;
-        this.fin= fin;
-        this.habitacion = hab;
-        }
-   
-    public FechaReservas() {
-    }
+	private static final long serialVersionUID = 1L;
+	private LocalDate inicio;
+	private LocalDate fin;
+	private HabAbstract habitacion;
 
-    public HabAbstract getHabitacion() {
-        return this.habitacion;
-    }
+	
+	/**
+     * Constructor que inicializa una nueva reserva con una habitación y un intervalo de fechas.
+     * @param hab La habitación reservada.
+     * @param ini La fecha de inicio de la reserva.
+     * @param fin La fecha de fin de la reserva.
+     */	
+	public FechaReservas(HabAbstract hab, LocalDate ini, LocalDate fin) {
+		this.inicio = ini;
+		this.fin = fin;
+		this.habitacion = hab;
+	}
+	
+	//Constructor por defecto
+	public FechaReservas() {
+	}
 
-    public void setHabitacion(HabAbstract habitacion) {
-        this.habitacion = habitacion;
-    }
+	public HabAbstract getHabitacion() {
+		return this.habitacion;
+	}
 
-    public LocalDate getInicio() {
-        return this.inicio;
-    }
+	public void setHabitacion(HabAbstract habitacion) {
+		this.habitacion = habitacion;
+	}
 
-    public void setInicio(LocalDate inicio) {
-        this.inicio = inicio;
-    }
+	public LocalDate getInicio() {
+		return this.inicio;
+	}
 
-    public LocalDate getFin() {
-        return this.fin;
-    }
+	public void setInicio(LocalDate inicio) {
+		this.inicio = inicio;
+	}
 
-    public void setFin(LocalDate fin) {
-        this.fin = fin;
-    }
-    
+	public LocalDate getFin() {
+		return this.fin;
+	}
+
+	public void setFin(LocalDate fin) {
+		this.fin = fin;
+	}
+
 }

@@ -1,8 +1,11 @@
 package logic;
 
+/**
+ * Esta clase representa el servicio de Tour
+ */
 public class SerTour extends Services {
-
-    private String nombreSer = "Tour";
+	private static final long serialVersionUID = 1L;
+	private String nombreSer = "Tour";
     private double precioSer = DatosHotel.stour;
 
     public String getNombreSer() {

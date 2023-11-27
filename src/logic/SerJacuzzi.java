@@ -1,8 +1,12 @@
 package logic;
 
+/**
+ * Esta clase representa el servicio de Jacuzzi
+ */
 public class SerJacuzzi extends Services{
 
-    private String nombreSer = "Jacuzzi";
+    private static final long serialVersionUID = 1L;
+	private String nombreSer = "Jacuzzi";
     private double precioSer = DatosHotel.sjacuzzi;
 
     public String getNombreSer() {

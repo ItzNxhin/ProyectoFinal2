@@ -1,7 +1,12 @@
 package logic;
 
+
+/**
+ * Esta clase representa una habitacion Presidencial
+ */
 public class HabPresidential extends HabAbstract{
-    private String nombre = "Habitacion Presidencial";
+    private static final long serialVersionUID = 1L;
+	private String nombre = "Habitacion Presidencial";
     private int personas = 7;
     private double precio = DatosHotel.pPresidencial;
 

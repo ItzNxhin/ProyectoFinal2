@@ -1,7 +1,11 @@
 package logic;
 
+/**
+ * Esta clase representa una habitacion Lite
+ */
 public class HabLite extends HabAbstract{
-    private String nombre = "Habitacion Lite";
+    private static final long serialVersionUID = 1L;
+	private String nombre = "Habitacion Lite";
     private int personas = 2;
     private double precio = DatosHotel.pLite;
 

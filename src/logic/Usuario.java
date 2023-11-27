@@ -3,6 +3,9 @@ package logic;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+/**
+ * Esta clase representa a un usuario.
+ */
 public class Usuario implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -12,11 +15,18 @@ public class Usuario implements Serializable {
 	private String email;
 	private String contrasena;
 	
+	
+	//Constructor por defecto
 	public Usuario() {
 		
 	}
 
-	// Metodo constructor por agumentos
+    /**
+     * Constructor que inicializa un nuevo usuario con nombre, correo electrónico y contraseña.
+     * @param nombreUsuario El nombre del usuario.
+     * @param email El correo electrónico del usuario.
+     * @param contrasena La contraseña del usuario.
+     */
 	public Usuario(String nombreUsuario, String email, String contrasena) {
 		this.nombreUsuario = nombreUsuario;
 		this.email = email;
@@ -45,6 +55,7 @@ public class Usuario implements Serializable {
 	public void agregarReserva(Reserva reserva) {
 		reservas.add(reserva);
 	}
+	
 	//Setters
 	public void setContrasena(String contrasena) {
 		this.contrasena = contrasena;

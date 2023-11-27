@@ -1,8 +1,13 @@
 package logic;
 
+
+/**
+ * Esta clase representa el servicio de buffet
+ */
 public class SerBuffet extends Services{
 
-    private String nombreSer = "Buffet";
+    private static final long serialVersionUID = 1L;
+	private String nombreSer = "Buffet";
     private double precioSer = DatosHotel.sbuffet;
 
     public String getNombreSer() {
