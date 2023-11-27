@@ -43,7 +43,7 @@ public class InfoServicios extends JFrame {
 		contentPane.add(btnNewButton);
 
 		// Cargar la imagen y configurar el fondo
-		ImageIcon imagenFondo = new ImageIcon("src/img/servicios.png");
+		ImageIcon imagenFondo = new ImageIcon(InfoServicios.class.getResource("/img/servicios.png"));
 		Image img = imagenFondo.getImage();
 		Image imgEscalada = img.getScaledInstance(getWidth(), getHeight(), Image.SCALE_SMOOTH);
 		ImageIcon imagenEscalada = new ImageIcon(imgEscalada);

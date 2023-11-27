@@ -42,7 +42,7 @@ public class InfoHab extends JFrame {
 		contentPane.add(btnNewButton);
 
 		// Cargar la imagen y configurar el fondo
-		ImageIcon imagenFondo = new ImageIcon("src/img/habitaciones.png");
+		ImageIcon imagenFondo = new ImageIcon(InfoHab.class.getResource("/img/habitaciones.png"));
 		Image img = imagenFondo.getImage();
 		Image imgEscalada = img.getScaledInstance(getWidth(), getHeight(), Image.SCALE_SMOOTH);
 		ImageIcon imagenEscalada = new ImageIcon(imgEscalada);

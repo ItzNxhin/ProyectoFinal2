@@ -132,7 +132,7 @@ public class VentanaCrearUsuario extends JFrame {
 		
 		
 		// Cargar la imagen y configurar el fondo
-		ImageIcon imagenFondo = new ImageIcon("src/img/backgroundCrear.png");
+		ImageIcon imagenFondo = new ImageIcon(VentanaCrearUsuario.class.getResource("/img/backgroundCrear.png"));
 		Image img = imagenFondo.getImage();
 		Image imgEscalada = img.getScaledInstance(getWidth(), getHeight(), Image.SCALE_SMOOTH);
 		ImageIcon imagenEscalada = new ImageIcon(imgEscalada);
