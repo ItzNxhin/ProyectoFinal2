@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"data"},{"l":"logic"},{"l":"main"},{"l":"ManejoExc"},{"l":"view"}];updateSearchResults();

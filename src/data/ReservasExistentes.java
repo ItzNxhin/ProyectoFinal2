@@ -51,7 +51,7 @@ public class ReservasExistentes {
      */
     public void guardar(Reserva obj)throws IOException, ClassNotFoundException{
 
-        ArrayList<Reserva> list = new ArrayList();
+        ArrayList<Reserva> list = new ArrayList<>();
         try {
         	list = leer();
         }catch (Exception e) {
