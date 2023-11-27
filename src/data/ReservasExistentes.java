@@ -10,11 +10,22 @@ import java.util.ArrayList;
 
 import logic.Reserva;
 
+
+/**
+ * Esta clase gestiona las reservas existentes almacenadas en un archivo.
+ */
 public class ReservasExistentes {
 
+	
+	/**
+     * Este método lee las reservas existentes del archivo.
+     * @return Una lista de reservas.
+     * @throws IOException Si ocurre un error de entrada/salida.
+     * @throws ClassNotFoundException Si no se encuentra la clase Reserva.
+     */
     public ArrayList<Reserva> leer() throws IOException, ClassNotFoundException{
 
-        //2
+        
         ArrayList<Reserva> list = new ArrayList<>();
         FileInputStream fileInputStream = new FileInputStream("Fechas.ser");
         try(ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);){    
@@ -31,12 +42,19 @@ public class ReservasExistentes {
         return list;
     }
 
+    
+    /**
+     * Este método guarda una nueva reserva en el archivo.
+     * @param obj La reserva a guardar.
+     * @throws IOException Si ocurre un error de entrada/salida.
+     * @throws ClassNotFoundException Si no se encuentra la clase Reserva.
+     */
     public void guardar(Reserva obj)throws IOException, ClassNotFoundException{
 
-        ArrayList<Reserva> list = new ArrayList<>();
+        ArrayList<Reserva> list = new ArrayList();
         try {
-            list= leer();
-        } catch (Exception e) {
+        	list = leer();
+        }catch (Exception e) {
         }
         list.add(obj);
         FileOutputStream fileOutputStream = new FileOutputStream("Fechas.ser");
@@ -47,6 +65,9 @@ public class ReservasExistentes {
         }}
         objectOutputStream.close();
         
-    }  
+    }
+
+
+    
 }
     
