@@ -19,6 +19,9 @@ import java.awt.Image;
 //Clase Externa
 import logic.Usuario;
 
+/**
+ * Esta clase se encarga de mostrar la ventana principal del usuario
+ */
 public class Saludo extends JFrame {
 
 	private static final long serialVersionUID = 1L;

@@ -36,7 +36,7 @@ public class ReservasExistentes {
         }
         catch (EOFException e) {
         }catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
+            
         }
         //3
         return list;

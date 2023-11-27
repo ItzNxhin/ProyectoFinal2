@@ -12,13 +12,16 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+/**
+ * Esta clase se encarga de mostrar la ventana de la informacion de los servicios
+ */
 public class InfoServicios extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 
 	/**
-	 * Create the frame.
+	 * Ventana
 	 */
 	public InfoServicios() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

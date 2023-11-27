@@ -21,6 +21,9 @@ import ManejoExc.CampoVacioException;
 import ManejoExc.CorreoInvalidoException;
 import data.GestorArchivo;
 
+/**
+ * En esta clase se muestra el inicio de sesion, el ver informaciones y crear cuenta
+ */
 public class VentanaInicio extends JFrame {
 
 	// Atributos necesarioas
@@ -36,7 +39,7 @@ public class VentanaInicio extends JFrame {
 	private JButton btnHabitaciones;
 
 	/**
-	 * Esta clase se encarga de dar la bienvenida Y el inicio de sesion
+	 * Ventana
 	 */
 	public VentanaInicio() {
 		

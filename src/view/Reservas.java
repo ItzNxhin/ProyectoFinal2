@@ -29,11 +29,12 @@ import java.util.Date;
 
 import data.ReservasExistentes;
 
-
 import logic.*;
 import javax.swing.JComboBox;
 
-//Clase reserva
+/** 
+ * Esta clase es donde se elige el tipo de habitacion de la reserva
+*/
 public class Reservas extends JFrame {
 
 	private static final long serialVersionUID = 1L;

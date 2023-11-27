@@ -22,6 +22,9 @@ import javax.swing.JButton;
 import java.awt.Font;
 import java.awt.Color;
 
+/**
+ * Esta clase se encarga de mostrar la factura
+ */
 public class Factura extends JFrame {
 
 	private static final long serialVersionUID = 1L;
@@ -32,10 +35,10 @@ public class Factura extends JFrame {
 	private int k = 0;
 	
 	/**
-	 * Esta ventana se encargara de mostrar la factura
-	 * @param current
-	 * @param reserva
-	 * @param nombre
+	 * Esta es la construccion de la ventana
+	 * @param current Usuario
+	 * @param reserva Reserva a mostrar
+	 * @param nombre Nombre del usuario
 	 */
 	public Factura(Usuario current, Reserva reserva, String nombre) {
 		setVisible(true);

@@ -13,13 +13,16 @@ import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+/**
+ * En esta clase se muesta la ventana de la informacion del hotel
+ */
 public class VentanaInfo extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 
 	/**
-	 * Create the frame.
+	 * Ventana
 	 */
 	public VentanaInfo() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

@@ -12,12 +12,15 @@ import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+/**
+ * Esta es la clase para mostrar la informacion de las habitaciones
+ */
 public class InfoHab extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	/**
-	 * Create the frame.
+	 * Ventana
 	 */
 	public InfoHab() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

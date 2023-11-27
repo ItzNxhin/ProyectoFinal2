@@ -22,6 +22,9 @@ import ManejoExc.CorreoInvalidoException;
 import data.GestorArchivo;
 import logic.Usuario;
 
+/**
+ * En esta clase se muestra la ventana para crear un nuevo usuario
+ */
 public class VentanaCrearUsuario extends JFrame {
 
 	private static final long serialVersionUID = 1L;
@@ -36,7 +39,7 @@ public class VentanaCrearUsuario extends JFrame {
 	private JButton btnVolver;
 
 	/**
-	 * Create the frame.
+	 * Ventana
 	 */
 	public VentanaCrearUsuario() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

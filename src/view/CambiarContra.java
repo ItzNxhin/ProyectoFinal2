@@ -18,6 +18,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
 
+/**
+ * Esta ventana se encarga de cambiar la contraseña del usuario
+ */
 public class CambiarContra extends JFrame {
 
 	private static final long serialVersionUID = 1L;
@@ -30,10 +33,10 @@ public class CambiarContra extends JFrame {
 	private int k=0;
 	private JLabel lblNombre;
 	private JLabel lblEmail;
-	
 
 	/**
-	 * Ventana encargada de cambiar contraseña
+	 * Esta ventana se encarga de cambiar la contraseña del usuario
+	 * @param usuario Usuario
 	 */
 	public CambiarContra(Usuario usuario) {
 	
@@ -85,6 +88,11 @@ public class CambiarContra extends JFrame {
 		btnNewButton.setBackground(new Color(255, 205, 8));
 		btnNewButton.setFont(new Font("Arvo", Font.BOLD, 36));
 		btnNewButton.addActionListener(new ActionListener() {
+			/*
+			 * Con este metodo, confirmamos que se posible cambiar la contraseña; Que la nueva no sea la misma que la actual,
+			 * que la nueva contraseña y la confimacion sean las mismas, si no hay ningun error, pasa la nueva contraseña y el usuario a la clase
+			 * encargada
+			 */
 			public void actionPerformed(ActionEvent e) {
 				contraseña = textNewContra.getText();
 				contraseña2 = textConfirmaContra.getText();

@@ -22,6 +22,9 @@ import com.toedter.calendar.JDateChooser;
 
 import logic.Usuario;
 
+/**
+ * Esta clase se encarga de mostrar la ventana para elegir las fechas de la reserva
+ */
 public class Fechas extends JFrame  {
 
 	private static final long serialVersionUID = 1L;

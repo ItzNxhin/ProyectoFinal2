@@ -25,6 +25,9 @@ import data.ReservasExistentes;
 import logic.Reserva;
 import logic.Usuario;
 
+/**
+ * Esta clase se encarga del registro para el pago electronico de la reserva
+ */
 public class Pago extends JFrame {
 	
 	private static final long serialVersionUID = 1L;

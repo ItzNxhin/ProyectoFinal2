@@ -35,9 +35,6 @@ public class VerFacturas extends JFrame {
 	ArrayList<Reserva> reservitas = new ArrayList<>();
 	ReservasExistentes r = new ReservasExistentes();
 
-	/**
-	 * Create the frame.
-	 */
 	public VerFacturas(Usuario current) throws ClassNotFoundException, IOException {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1366, 768);
@@ -57,7 +54,7 @@ public class VerFacturas extends JFrame {
 		try {
 			reservitas = r.leer();
 		} catch (ClassNotFoundException | IOException e) {
-			e.printStackTrace();
+			
 		}
 
 		int reservaCount = 1;
