@@ -52,5 +52,5 @@ guardaran las reservas que realice
 
 ## Manejo de archivos 
 
-En la carpeta data tenemos dos clases para el manejo de archivos del programa . para el manejo de los usuarios, encargada del archivo UserBD.ser y la clase ReservasExistentes para el menjeor
+En la carpeta data tenemos dos clases para el manejo de archivos del programa; la clase GestorArchivos para el manejo de los usuarios,serializado la clase Usuario,almacenando en el archivo UserBD.ser y la clase ReservasExistentes para el manejo de las reservas, serializado la clase Reserva, almacenando en el archivo Fechas.ser
 
